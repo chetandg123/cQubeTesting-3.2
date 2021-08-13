@@ -1101,7 +1101,8 @@ class GetData():
     def get_bytes(self,lst):
         bytes = lst[0]
         bytes = bytes.split(' ')
-        return int(bytes[0])
+        print(bytes)
+        return int(float(bytes[0]))
 
     def get_queued_count(self,processor_name):
         while 1:

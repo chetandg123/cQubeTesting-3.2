@@ -689,12 +689,12 @@ class GetData():
         config.read(self.p.get_config_ini_path())
         return config['config']['basedirpath']
 
-    def connect_to_postgres(self):
-        config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
-        con = psycopg2.connect(host=config['config']['host'], database=config['config']['database'],
-                               user=config['config']['user'], password=config['config']['db_password'])
-        return con
+    # def connect_to_postgres(self):
+    #     config = configparser.ConfigParser()
+    #     config.read(self.p.get_config_ini_path())
+    #     con = psycopg2.connect(host=config['config']['host'], database=config['config']['database'],
+    #                            user=config['config']['user'], password=config['config']['db_password'])
+    #     return con
 
     def get_db_name(self):
         config = configparser.ConfigParser()
@@ -1077,7 +1077,7 @@ class GetData():
     def check_nifi_status(self):
         self.cal = GetData()
         #self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
-        self.url = "https://cqube-qa.tibilprojects.com" + "/nifi-api/process-groups/root/process-groups"
+        self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
         response = requests.get(self.url)
         result = response.status_code
         return result
@@ -1109,7 +1109,7 @@ class GetData():
             lst=[]
             self.cal = GetData()
             if self.cal.check_nifi_status() == 200:
-                self.url = "https://cqube-qa.tibilprojects.com" + "/nifi-api/process-groups/root/process-groups"
+                self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
                 response = requests.get(self.url)
                 json_resp = json.loads(response.text)
                 for x in json_resp.values():

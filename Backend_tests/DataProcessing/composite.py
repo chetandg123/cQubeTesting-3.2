@@ -26,4 +26,5 @@ class Composite(unittest.TestCase):
 
 
     def tearDown(self):
-        self.cal.stop_nifi_processor(self.processor_name)
+        #self.cal.stop_nifi_processor(self.processor_name)
+        print("")

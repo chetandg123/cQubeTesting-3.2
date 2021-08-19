@@ -7,6 +7,7 @@ import time
 from datetime import date
 
 # import psycopg2
+import psycopg2
 import requests
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException, WebDriverException
@@ -100,59 +101,60 @@ class GetData():
         self.page_loading(self.driver)
 
     def navigate_to_telemetry(self):
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         time.sleep(2)
-        # self.driver.find_element_by_xpath(Data.telmetry_report).click()
-        # time.sleep(2)
-        self.driver.find_element_by_id("telemReport").click()
+        self.driver.find_element_by_id(Data.Telemetry).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.tele_report).click()
         self.page_loading(self.driver)
 
     def navigate_to_periodic_report(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath(Data.semester_sel).click()
+        self.driver.find_element_by_id(Data.std_performance).click()
         time.sleep(2)
-        self.driver.find_element_by_id("patReport").click()
+        self.driver.find_element_by_id(Data.patmap).click()
         time.sleep(4)
 
     def navigate_to_heatchart_report(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath(Data.semester_sel).click()
+        self.driver.find_element_by_id(Data.std_performance).click()
         time.sleep(2)
-        self.driver.find_element_by_id("heatChart").click()
+        self.driver.find_element_by_id(Data.patheatchart).click()
         time.sleep(4)
 
     def navigate_to_lo_table_report(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.std_performance).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath(Data.semester_sel).click()
-        time.sleep(2)
-        self.driver.find_element_by_id("lotable").click()
-        time.sleep(4)
+        self.driver.find_element_by_id(Data.patlotable).click()
+        time.sleep(3)
 
     def navigate_to_sat_heatchart_report(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.std_performance).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath(Data.semester_sel).click()
-        time.sleep(2)
-        self.driver.find_element_by_id("satHeatChart").click()
-        time.sleep(4)
+        self.driver.find_element_by_id(Data.sat_heatchart).click()
+        time.sleep(3)
 
     def navigate_to_composite_report(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         time.sleep(2)
-        self.driver.find_element_by_id('compositRep').click()
-        time.sleep(8)
+        self.driver.find_element_by_id(Data.composite_metrics).click()
+        self.driver.find_element_by_id(Data.composite_metric).click()
+        time.sleep(3)
 
     def logs_page(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         time.sleep(2)
         self.driver.find_element_by_xpath("//a[@id='logs']").click()
         time.sleep(3)
@@ -173,8 +175,8 @@ class GetData():
 
     def click_on_state(self, driver):
         self.driver = driver
-        self.driver.find_element_by_id(Data.sar_hyper_link).click()
-        time.sleep(5)
+        self.driver.find_element_by_id(Data.hyper_link).click()
+        time.sleep(4)
 
     def get_data_status(self):
         errMsg = self.driver.find_element_by_css_selector('p#errMsg')
@@ -182,14 +184,14 @@ class GetData():
 
     def navigate_passwordchange(self):
         self.driver.implicitly_wait(10)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         time.sleep(2)
         self.driver.find_element_by_xpath(Data.user_options).click()
         time.sleep(2)
 
     def get_management_selected_option(self):
         self.driver.implicitly_wait(10)
-        management_name = self.driver.find_element_by_id('nm').text
+        management_name = self.driver.find_element_by_id('management').text
         management_name = management_name[16:].strip().lower()
         return management_name
 
@@ -197,12 +199,14 @@ class GetData():
         year = self.driver.find_element_by_id('year').text
         month = self.driver.find_element_by_id('month').text
         return year , month
+
     def pat_year_month_firstselected(self):
         year = Select(self.driver.find_element_by_id('year'))
         month = Select(self.driver.find_element_by_id('month'))
         year = year.first_selected_option.text
         month = month.first_selected_option.text
         return year , month
+
     def get_student_month_and_year_values(self):
         times = Select(self.driver.find_element_by_id('period'))
         # times.select_by_visible_text(' Year and Month ')
@@ -239,39 +243,39 @@ class GetData():
         return self.year,self.month
 
     def navigate_to_student_report(self):
-        self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(3)
-        self.driver.find_element_by_xpath(Data.attendance).click()
+        self.driver.implicitly_wait(15)
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.attendance).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.SAR).click()
-        time.sleep(6)
+        self.driver.find_element_by_id(Data.studentattendance).click()
+        time.sleep(3)
 
     def navigate_to_teacher_attendance_report(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(3)
-        self.driver.find_element_by_xpath(Data.attendance).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.attendance).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.teacher).click()
-        time.sleep(6)
+        self.driver.find_element_by_id(Data.teacherattendance).click()
+        time.sleep(3)
 
     def navigate_to_school_infrastructure(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.sch_infra).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath(Data.School_infra).click()
+        self.driver.find_element_by_id(Data.composite).click()
         time.sleep(3)
-        self.driver.find_element_by_id(Data.Report).click()
-        time.sleep(5)
 
     def navigate_to_school_infrastructure_map(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath(Data.School_infra).click()
+        self.driver.find_element_by_id(Data.sch_infra).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.Reportmap).click()
+        self.driver.find_element_by_id(Data.inframap).click()
         time.sleep(5)
 
     def select_month_year(self, y, m):
@@ -285,161 +289,165 @@ class GetData():
 
     def navigate_to_semester_report(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         time.sleep(3)
-        self.driver.find_element_by_xpath(Data.semester_sel).click()
+        self.driver.find_element_by_id(Data.std_performance).click()
         time.sleep(2)
-        self.driver.find_element_by_id("sat").click()
+        self.driver.find_element_by_id(Data.satmap).click()
         time.sleep(5)
 
     def navigate_to_udise_report(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.sch_infra).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath(Data.School_infra).click()
-        time.sleep(2)
-        self.driver.find_element_by_id(Data.udise_report).click()
-        time.sleep(5)
+        self.driver.find_element_by_id(Data.udise).click()
+        time.sleep(3)
 
     def navigate_to_crc_report(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.crc_visit).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.CRC).click()
-        time.sleep(4)
+        self.driver.find_element_by_id(Data.crcreport).click()
+        time.sleep(3)
 
     def navigate_to_diksha_graph(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(2)
-        self.driver.find_element_by_xpath(Data.diksha).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.tpd_opts).click()
         time.sleep(2)
         self.driver.find_element_by_id(Data.diksha_graph).click()
-        time.sleep(6)
+        time.sleep(3)
 
     def navigate_to_diksha_content_course(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(3)
-        self.driver.find_element_by_xpath(Data.tpds).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.tpd_opts).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.diksha_table).click()
-        time.sleep(6)
+        self.driver.find_element_by_id(Data.content_course).click()
+        time.sleep(3)
 
     def navigate_to_tpd_content_progress(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(3)
-        self.driver.find_element_by_xpath(Data.tpds).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.tpd_opts).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.tpd_progress).click()
-        time.sleep(6)
+        self.driver.find_element_by_id(Data.course_progress).click()
+        time.sleep(3)
 
     def navigate_to_tpd_enrollment_report(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(3)
-        self.driver.find_element_by_xpath(Data.tpds).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.tpd_opts).click()
         time.sleep(2)
-        self.driver.find_element_by_id('tpd-enroll').click()
+        self.driver.find_element_by_id(Data.tpd_enrollment).click()
         time.sleep(3)
 
     def navigate_to_tpd_completion_percentage(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(3)
-        self.driver.find_element_by_xpath(Data.tpds).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.tpd_opts).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath("//a[@id='tpd-comp']").click()
-        time.sleep(6)
+        self.driver.find_element_by_id(Data.completion_percentage).click()
+        time.sleep(3)
 
     def navigate_to_health_card_index(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.progress_card).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.Progresscard).click()
         time.sleep(3)
-        self.driver.find_element_by_xpath("//a[@id='healthCard']").click()
-        time.sleep(6)
 
     def navigate_to_tpd_percentage_progress(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(3)
-        self.driver.find_element_by_xpath(Data.tpds).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.tpds).click()
         time.sleep(2)
         self.driver.find_element_by_id(Data.tpd_percentage).click()
-        time.sleep(6)
+        time.sleep(3)
 
     def navigate_to_diksha_content_textbook(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(2)
-        self.driver.find_element_by_xpath(Data.ener_textbook).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.diksha_ETB).click()
         time.sleep(2)
         self.driver.find_element_by_id(Data.content_textbook).click()
-        time.sleep(6)
+        time.sleep(3)
 
     def navigate_to_column_course(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.tpd_opts).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath(Data.tpds).click()
-        time.sleep(2)
-        self.driver.find_element_by_id(Data.col_course).click()
-        time.sleep(6)
+        self.driver.find_element_by_id(Data.usage_course).click()
+        time.sleep(3)
 
     def navigate_to_column_textbook(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.diksha_ETB).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath(Data.ener_textbook).click()
-        time.sleep(2)
-        self.driver.find_element_by_id(Data.col_text).click()
-        time.sleep(6)
+        self.driver.find_element_by_id(Data.usage_textbook).click()
+        time.sleep(3)
 
     def navigate_to_completion_error(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.Dashboard).click()
-        time.sleep(2)
-        self.driver.find_element_by_xpath(Data.exception_click).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.tpd_opts).click()
         time.sleep(2)
         self.driver.find_element_by_id(Data.completion).click()
-        time.sleep(6)
+        time.sleep(3)
 
     def navigate_to_semester_exception(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.Exception_Reports).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath(Data.exception_click).click()
-        time.sleep(2)
-        self.driver.find_element_by_id(Data.sem_exception).click()
-        time.sleep(5)
+        self.driver.find_element_by_id(Data.semesterexception).click()
+        time.sleep(3)
 
     def navigate_to_pat_exception(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.Exception_Reports).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath(Data.exception_click).click()
-        time.sleep(2)
-        self.driver.find_element_by_id('patexp').click()
-        time.sleep(5)
+        self.driver.find_element_by_id(Data.patexception).click()
+        time.sleep(3)
 
     def navigate_to_teacher_exception(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.Exception_Reports).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath(Data.exception_click).click()
-        time.sleep(2)
-        self.driver.find_element_by_id('tarExcpt').click()
-        time.sleep(5)
+        self.driver.find_element_by_id(Data.teacherexception).click()
+        time.sleep(3)
 
     def navigate_to_student_exception(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.Exception_Reports).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath(Data.exception_click).click()
-        time.sleep(2)
-        self.driver.find_element_by_id('sarExp').click()
-        time.sleep(5)
+        self.driver.find_element_by_id(Data.studentexception).click()
+        time.sleep(3)
 
     def Details_text(self):
         Details = self.driver.find_elements_by_xpath(Data.details)
@@ -1154,7 +1162,11 @@ class GetData():
         self.cal = GetData()
         self.cal.get_processor_group_error_msg(processor_name)
 
-
+    def click_on_logout_button(self):
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.logout)
+        time.sleep(2)
 
 
 

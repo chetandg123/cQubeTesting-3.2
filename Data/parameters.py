@@ -8,7 +8,7 @@ class Data():
     conf_pass = "cnfPasswd"
     change_pass_btn = "btn"
     homeicon = "home"
-    logout = "logout"
+    logout = "logoutBtn"
     fieldReq = "/html/body/app-root/app-login/div[1]/div[2]/div[2]/form/div[2]/div/label"
     Grade = "grades"
     Subject = "subjects"
@@ -31,7 +31,6 @@ class Data():
     s3bucket_select1 ="//*[@id='table']/thead[2]/tr[2]/td[1]/input"
     summ ="//*[@id='summary']/div/td[2]"
     # Dash board
-    Dashboard = "menu"
     header = "//h4"
     # Data Replay
     data_replay_icon_id = "replay"
@@ -39,6 +38,49 @@ class Data():
     data_replay_submit_button_css_selector = "div > button:first-of-type"
     data_replay_cancel_button_css_selector = "div > button:last-of-type"
     data_replay_select_year_class = "time"
+
+    #menu_opts
+    menu_icon = "menuIcon"
+    cQube_logo = "cubeLogo"
+    sch_infra = "SchInfra"
+    std_performance = "stdPerformance"
+    attendance = "attendance"
+    tpd_opts = "tpd"
+    diksha_ETB = "etb"
+    crc_visit = "crc"
+    composite_metrics = "composite"
+    progress_card = "progressCard"
+    Exception_Reports = "exceptList"
+    Telemetry = "telemetry"
+
+    #Dashboard_icons
+    inframap = "imr"
+    composite = "cr"
+    udise = "udise"
+    usage_course = "dcc"
+    content_course = "dtr"
+    course_progress = "tdp-cp"
+    tpd_enrollment = "tpd-enroll"
+    completion_percentage = "tpd-comp"
+    usage_textbook = "ut"
+    content_textbook = "utc"
+    crcreport = "crcr"
+    Progresscard = "healthCard"
+    satmap = "sat"
+    sat_heatchart = "satHeatChart"
+    patmap = "pat1"
+    patheatchart = "heatChart"
+    patlotable = "lotable"
+    studentattendance="sar"
+    teacherattendance="tar"
+    semesterexception="SemExp"
+    patexception="patExcpt"
+    isData ="isdata"
+    studentexception ="sarExcpt"
+    teacherexception="tarExp"
+    tele_report="telemData"
+    composite_metric="composite"
+
     # school_infra_Report
     # school_infra = "si"
     infro_dist = "//select[@name='myDistrict']/option"
@@ -63,6 +105,7 @@ class Data():
 
     # hyper     ="//*[@id='dist_level']/span"
     hyper = "//p/span"
+    hyper_link='state'
     dist_hyper = "//*[@id='block']/span[1]"
     # school_hyper = "//*[@id='school']/span[5]"
     block_hyper = "//*[@id='cluster']/span[3]"
@@ -271,6 +314,7 @@ class Data():
     column_report ="clmnReport"
     completion ="cmplnErr"
     compl_download ="//button[contains(text(),'Download')]"
+
    #semester Infra_Table_Report
     sr_by_xpath = "//*[@id='sr']"
     sr_by_id = "sr"
@@ -291,7 +335,6 @@ class Data():
     telmetry_report ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[7]/mat-list-item/div/mat-icon"
     attendance = "//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[6]/mat-list-item/div/mat-icon"
     semester_sel = "//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[4]/mat-list-item/div/mat-icon"
-    crc_report = "//*[@id='crcReport']/div/div[1]"
 
 
 

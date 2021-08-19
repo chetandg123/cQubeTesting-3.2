@@ -1,123 +1,219 @@
-import csv
-import datetime
-import re
-import unittest
-from datetime import date
-
-import pandas as pd
-import yaml
-from selenium.webdriver.support.select import Select
-
 from Data.parameters import Data
 from reuse_func import GetData
 
 
+class cQube_landing_page():
+    def __init__(self,driver):
+        self.driver = driver
 
-#
-# class cQube_Student_Attendance_exception(unittest.TestCase):
-#
-#     @classmethod
-#     def setUpClass(self):
-#         self.data = GetData()
-#         self.driver = self.data.get_driver()
-#         self.data.open_cqube_appln(self.driver)
-#         self.data.login_cqube(self.driver)
-#         self.data.navigate_to_student_exception()
-#         self.data.page_loading(self.driver)
-#
-#     def test_demo_month_year(self):
-#         self.data.page_loading(self.driver)
-#         times = Select(self.driver.find_element_by_id('period'))
-#         times.select_by_visible_text(' Year and Month ')
-#         self.data.page_loading(self.driver)
-#         year = Select(self.driver.find_element_by_id(Data.sar_year))
-#         month = Select(self.driver.find_element_by_id(Data.sar_month))
-#         self.year = (year.first_selected_option.text).strip()
-#         self.month= (month.first_selected_option.text).strip()
-#         self.data.page_loading(self.driver)
-#         print(self.year,self.month)
-#
-#
-#
-#
-#
-#     @classmethod
-#     def tearDownClass(cls):
-#         cls.driver.close()
-# today = date.today().strftime('%d-%m-%Y').strip()
-# print(today)
+    def test_SAR(self):
+        self.cal = GetData()
+        count=0
+        self.cal.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.attendance).click()
+        if 'attendance-dashboard' not in self.driver.current_url:
+            print("Attendance Dashboard is not displayed")
+            count = count+1
+        else:
+            print("Attendance Dashboard is displayed...")
+            self.cal.page_loading(self.driver)
+            self.driver.find_element_by_id(Data.studentattendance).click()
+            if "student-attendance" in self.driver.current_url:
+                print("Navigated to Student attendance report")
+            else:
+                print("Student attendance report is not exist")
+            self.driver.find_element_by_id(Data.cQube_logo).click()
+            self.cal.page_loading(self.driver)
+        return count
 
-# value = '1: 2425040001'
-# csv2 = '2: 242504002'
-# value = '32: 2407'
-# value = "1: 234333"
-# print(value[1:].replace(':',''))
-# value = value[3:].strip()
-# print(value)
-#
-# s = "Chetan"
-# # print(s.lower())
-#
-# str = "management Type: Overall"
-# # print(str[16:].strip().lower())
-# print(str.capitalize())
+    def test_CRC(self):
+        count=0
+        self.cal = GetData()
+        self.cal.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.crc_visit).click()
+        if 'crc-dashboard' not in self.driver.current_url:
+            print("CRC Report Dashboard is not displayed")
+            count = count + 1
+        else:
+            print("CRC Dashboard is displayed ...")
+            self.driver.find_element_by_id(Data.crcreport)
+            if "crc-report" in self.driver.current_url:
+                print("Navigated to  CRC report")
+            else:
+                print("CRC report is not exist")
+            self.driver.find_element_by_id(Data.cQube_logo).click()
+            self.cal.page_loading(self.driver)
+        return count
 
-# value="6: 242506"
-# value = value.split(":")
-# print(value[1].strip())
 
-# schools="Number of Schools: 107"
-# # schol = re.sub('\D','',schools)
-# # print(schol)
-# print(schools.replace(' ','_'))
 
-# with open("/home/chetan/Desktop/semester_assessment_test_exception_overall_overall_allGrades__blocks_of_district_2407_07-05-2021.csv") as fin:
-#     csv_reader = csv.reader(fin, delimiter=',')
-#     header = next(csv_reader)
-#     schools = 0
-# import pandas as pd
-# # df = pd.read_csv("/home/chetan/Desktop/semester_assessment_test_exception_overall_overall_allGrades__blocks_of_district_2407_07-05-2021.csv")
-# # print(df.head())
-# # df['total'] = df['Schools With Missing Data'].sum()
-# # print(df)
-#
-# data = pd.read_csv("/home/chetan/Desktop/semester_assessment_test_exception_overall_overall_allGrades__blocks_of_district_2407_07-05-2021.csv")
-#
-# # sum of all salary
-# print(data)
-# val = data["Total Schools With Missing Data"].sum()
-# print(val)
-# long_month_name="January"
-# datetime_object = datetime.datetime.strptime(long_month_name, "%B")
-# month_number = datetime_object.month
-# print(month_number)
 
-values ={}
-# file_path = "/home/chetan/datasources_config.yml"
-# print(dict_from_csv["crc"])
-# list_keys =list(dict_from_csv.keys())
-# list_values=list(dict_from_csv.values())
-# print(list_keys)
-# print(list_values)
-""
-# df = pd.read_csv(path,header=None,index_col=0)
-# print(df._get_values_tuple('crc'))
+    def test_TAR(self):
+        count=0
+        self.cal = GetData()
+        self.cal.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.attendance).click()
+        if 'teacher-dashboard' not in self.driver.current_url:
+            print("Teacher Report Dashboard is not displayed")
+            count = count + 1
+        else:
+            print("teacher Dashboard is displayed ...")
+            self.driver.find_element_by_id(Data.teacherattendance).click()
+            if "teacher-attendance" in self.driver.current_url:
+                print("Navigated to  Teacher coming soon page ")
+            else:
+                print(" Teacher coming soon page is not exist")
+            self.driver.find_element_by_id(Data.cQube_logo).click()
+            self.cal.page_loading(self.driver)
+        return count
 
-# file_path = "/home/chetan/datasources_config.yml"
-# with open(file_path) as file:
-#     source_list = yaml.load(file, Loader=yaml.FullLoader)
-#     # print(source_list)
-#
-# nifi_crc= source_list['nifi_crc']
-# nifi_attendance= source_list['nifi_attendance']
-# nifi_semester= source_list['nifi_semester']
-# nifi_infra= source_list['nifi_infra']
-# nifi_diksha= source_list['nifi_diksha']
-# nifi_telemetry= source_list['nifi_telemetry']
-# nifi_udise= source_list['nifi_udise']
-# nifi_pat= source_list['nifi_pat']
-# nifi_composite= source_list['nifi_composite']
-# nifi_healthcard= source_list['nifi_healthcard']
-# nifi_teacher_attendance= source_list['nifi_teacher_attendance']
-# nifi_data_replay= source_list['nifi_data_replay']
-# nifi_sat= source_list['nifi_sat']
+    def test_school_map(self):
+        count=0
+        self.cal = GetData()
+        self.cal.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.sch_infra).click()
+        if 'infrastructure-dashboard' not in self.driver.current_url:
+            print("School infrastructure Report Dashboard is not displayed")
+            count = count + 1
+        else:
+            print("infrastructure-dashboard is displayed ...")
+            self.driver.find_element_by_id(Data.inframap).click()
+            if "school-infra-map" in self.driver.current_url:
+                print("Navigated to  School infrastructure map based report")
+            else:
+                print("School infra map based report is not exist")
+            self.driver.find_element_by_id(Data.cQube_logo).click()
+            self.cal.page_loading(self.driver)
+        return count
+
+
+
+    def test_telemetry_report(self):
+        self.cal = GetData()
+        count=0
+        self.cal.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.Telemetry).click()
+        if 'telemetry-dashboard' not in self.driver.current_url:
+            print("telemetry  Report Dashboard is not displayed")
+            count = count + 1
+        else:
+            print("telemetry-dashboard is displayed ...")
+            self.driver.find_element_by_id(Data.tele_report).click()
+            self.cal.page_loading(self.driver)
+            if "telemetry" in self.driver.current_url:
+                print("Navigated to Telemetry report")
+            else:
+                print("Telemetry report is not exist")
+            self.driver.find_element_by_id(Data.cQube_logo).click()
+            self.cal.page_loading(self.driver)
+        return count
+
+    def test_semester_exception(self):
+        self.cal = GetData()
+        count = 0
+        self.cal.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.Exception_Reports).click()
+        if 'exception-dashboard' not in self.driver.current_url:
+            print("exception Dashboard is not displayed")
+            count = count + 1
+        else:
+            print("exception-dashboard is displayed ...")
+            self.driver.find_element_by_id(Data.semesterexception).click()
+            self.cal.page_loading(self.driver)
+            if "sem-exception" in self.driver.current_url:
+                print("Navigated to Semester Exception report")
+            else:
+                print(" Semester Exception  report is not exist")
+            self.driver.find_element_by_id(Data.cQube_logo).click()
+            self.cal.page_loading(self.driver)
+        return count
+
+    def test_completionerror(self):
+        self.cal = GetData()
+        self.cal.page_loading(self.driver)
+        count = 0
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.Exception_Reports).click()
+        if 'exception-dashboard' not in self.driver.current_url:
+            print("exception-dashboard  is not displayed")
+            count = count + 1
+        else:
+            print("exception-dashboard is displayed ...")
+            self.driver.find_element_by_id(Data.isData).click()
+            self.cal.page_loading(self.driver)
+            if "download-missing-data" in self.driver.current_url:
+                print("Navigated to completion error data page")
+            else:
+                print("completion error data page report is not exist")
+            self.driver.find_element_by_id(Data.cQube_logo).click()
+            self.cal.page_loading(self.driver)
+        return count
+
+    def test_udise_report(self):
+        self.cal = GetData()
+        count = 0
+        self.cal.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.sch_infra).click()
+        if 'infrastructure-dashboard' not in self.driver.current_url:
+            print("Udise Dashboard is not displayed")
+            count = count + 1
+        else:
+            print("UDISE-dashboard is displayed ...")
+            self.driver.find_element_by_id(Data.udise).click()
+            self.cal.page_loading(self.driver)
+            if "udise-report" in self.driver.current_url:
+                print("Navigated to udise report home page")
+            else:
+                print("udise report home page report is not exist")
+            self.driver.find_element_by_id(Data.cQube_logo).click()
+            self.cal.page_loading(self.driver)
+        return count
+
+    def test_periodic_map_report(self):
+        self.cal = GetData()
+        count = 0
+        self.cal.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.std_performance).click()
+        if 'sat-dashboard' not in self.driver.current_url:
+            print("sat Dashboard is not displayed")
+            count = count + 1
+        else:
+            print("sat-dashboard is displayed ...")
+            self.driver.find_element_by_id(Data.satmap).click()
+            self.cal.page_loading(self.driver)
+            if "pat-report" in self.driver.current_url:
+                print("Navigated to peirodic map report home page")
+            else:
+                print("periodic map report home page report is not exist")
+            self.driver.find_element_by_id(Data.cQube_logo).click()
+            self.cal.page_loading(self.driver)
+        return count
+
+
+    def test_composite_metrics_report(self):
+        self.cal = GetData()
+        count=0
+        self.cal.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.composite_metrics).click()
+        if 'composite-dashboard' not in self.driver.current_url:
+            print("composite metrics Dashboard is not displayed")
+            count = count + 1
+        else:
+            print("composite-dashboard is displayed ...")
+            self.driver.find_element_by_id(Data.composite_metric).click()
+            if "composite-report" in self.driver.current_url:
+                print("Navigated to Composite metrics report home page")
+            else:
+                print("Composite report home page report is not exist")
+            self.driver.find_element_by_id(Data.cQube_logo).click()
+            self.cal.page_loading(self.driver)
+        return count

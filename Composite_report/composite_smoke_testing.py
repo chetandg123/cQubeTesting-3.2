@@ -110,7 +110,7 @@ class composite_smoke_testing(unittest.TestCase):
     def test_logout_button(self):
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.logout).click()
+        self.data.click_on_logout_button()
         self.data.page_loading(self.driver)
         self.assertEqual('Log in to cQube', self.driver.title, msg="Logout button is not working ")
         print("logout button is working fine ")

@@ -28,12 +28,13 @@ class composite_regression_report(unittest.TestCase):
     def test_composite_icon(self):
         self.data.page_loading(self.driver)
         count = 0
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id('hamburger').click()
+
         self.data.page_loading(self.driver)
-        if 'dashboard' in self.driver.current_url:
-            print("Landing page is displayed ")
+        if 'composite-dashboard' in self.driver.current_url:
+            print("composite-Dashboard page is displayed ")
         else:
-            print('Home button is not working ')
+            print('Hamburger - composite-Dashboard is not working ')
             count = count + 1
         self.assertEqual(0,count,msg="Home btn is not working ")
         self.driver.find_element_by_id('composite').click()
@@ -91,7 +92,7 @@ class composite_regression_report(unittest.TestCase):
     def test_logout_button(self):
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.logout).click()
+        self.data.click_on_logout_button()
         self.data.page_loading(self.driver)
         self.assertEqual('Log in to cQube', self.driver.title, msg="Logout button is not working ")
         print("logout button is working fine ")

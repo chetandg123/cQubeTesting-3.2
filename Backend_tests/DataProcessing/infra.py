@@ -8,7 +8,7 @@ class Infrastructure(unittest.TestCase):
 
     def setUp(self):
         self.processor_name="infra_transformer"
-        self.folder_name="infra"
+        self.folder_name="infra_trans"
         self.cQube_data_storage = "cQube_data_storage"
         self.cal = GetData()
         self.storage_type = self.cal.get_storage_type()
@@ -36,7 +36,7 @@ class Infrastructure(unittest.TestCase):
                 print(self.folder_name.capitalize()+" file is not uploaded to s3")
         else:
             dir_created_result, file_copied_result = self.cal.copy_file_to_local(self.filepath, self.folder_name)
-            time.sleep(5)
+            time.sleep(10)
             if dir_created_result.returncode == 0 or dir_created_result.returncode == 1:
                 print(self.folder_name.capitalize() + " folder is successfully created in emission directory")
                 if file_copied_result.returncode == 0:

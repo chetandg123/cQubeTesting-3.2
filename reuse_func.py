@@ -1128,6 +1128,7 @@ class GetData():
                             break
                     break
                 bytes = self.cal.get_bytes(lst)
+                time.sleep(5)
                 return bytes
             else:
                 print("Nifi is not running \n please start the nifi")

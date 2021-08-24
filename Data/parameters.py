@@ -139,9 +139,7 @@ class Data():
     col_course ="clmnReport"
     col_text ="ut"
     content_textbook ="utc"
-    exception_click ="//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[5]/mat-list-item/div/mat-icon"
     sem_exception = "SemException"
-    ener_textbook="//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[3]/mat-list-item/div/mat-icon"
 
 
     sem_exe ="SemExp"
@@ -331,10 +329,6 @@ class Data():
     sr_school_hyper = "//*[@id='school']/span[5]"
     sr_cluster_hyper = "//*[@id='cluster']/span[3]"
 
-    #Dashboards
-    telmetry_report ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[7]/mat-list-item/div/mat-icon"
-    attendance = "//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[6]/mat-list-item/div/mat-icon"
-    semester_sel = "//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[4]/mat-list-item/div/mat-icon"
 
 
 

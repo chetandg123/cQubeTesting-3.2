@@ -51,7 +51,8 @@ class GetData():
         options = webdriver.ChromeOptions()
         prefs = {'download.default_directory': self.p.get_download_dir()}
         options.add_experimental_option('prefs', prefs)
-        # options.add_argument('--headless')
+        options.add_argument("--window-size=3860,2160")
+        options.add_argument('--headless')
         self.driver = webdriver.Chrome(options=options, executable_path=self.p.get_driver_path())
         return self.driver
 
@@ -71,7 +72,8 @@ class GetData():
 
     def open_cqube_appln(self, driver):
         self.driver = driver
-        self.driver.maximize_window()
+        # self.driver.maximize_window()
+        self.driver.set_window_size(3860,2160)
         try:
             self.driver.get(self.get_domain_name())
         except WebDriverException:

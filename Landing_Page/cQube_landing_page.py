@@ -74,11 +74,11 @@ class cQube_Home(unittest.TestCase):
         self.assertEqual(0, res, msg='Report page is not exist')
         self.data.page_loading(self.driver)
 
-    def test_composite_metrics_Report(self):
-        b = cQube_landing_page(self.driver)
-        res = b.check_composite_metrics()
-        self.assertEqual(0, res, msg='Report page is not exist')
-        self.data.page_loading(self.driver)
+    # def test_composite_metrics_Report(self):
+    #     b = cQube_landing_page(self.driver)
+    #     res = b.check_composite_metrics()
+    #     self.assertEqual(0, res, msg='Report page is not exist')
+    #     self.data.page_loading(self.driver)
 
     def test_patreport(self):
         b = cQube_landing_page(self.driver)
@@ -104,6 +104,47 @@ class cQube_Home(unittest.TestCase):
         self.assertEqual(0, res, msg='Report page is not exist')
         self.data.page_loading(self.driver)
 
+    def test_diksha_usage_by_course(self):
+        b = cQube_landing_page(self.driver)
+        res = b.check_usage_by_course()
+        self.assertEqual(0, res, msg='Report page is not exist')
+        self.data.page_loading(self.driver)
+
+    def test_diksha_usage_by_course_content(self):
+        b = cQube_landing_page(self.driver)
+        res = b.check_usage_by_content_course()
+        self.assertEqual(0, res, msg='Report page is not exist')
+        self.data.page_loading(self.driver)
+
+    def test_etb_usage_by_textbook(self):
+        b = cQube_landing_page(self.driver)
+        res = b.check_usage_by_textbook()
+        self.assertEqual(0, res, msg='Report page is not exist')
+        self.data.page_loading(self.driver)
+
+    def test_etb_usage_by_textbook_content(self):
+        b = cQube_landing_page(self.driver)
+        res = b.check_usage_by_content_textbook()
+        self.assertEqual(0, res, msg='Report page is not exist')
+        self.data.page_loading(self.driver)
+
+    def test_diksha_enrollment(self):
+        b = cQube_landing_page(self.driver)
+        res = b.check_enrollment_report()
+        self.assertEqual(0, res, msg='Report page is not exist')
+        self.data.page_loading(self.driver)
+
+    def test_diksha_completion(self):
+        b = cQube_landing_page(self.driver)
+        res = b.check_tpd_completion_report()
+        self.assertEqual(0, res, msg='Report page is not exist')
+        self.data.page_loading(self.driver)
+
+    def test_diksha_course_progress(self):
+        b = cQube_landing_page(self.driver)
+        res = b.check_course_progress()
+        self.assertEqual(0, res, msg='Report page is not exist')
+        self.data.page_loading(self.driver)
 
     @classmethod
     def tearDownClass(cls):

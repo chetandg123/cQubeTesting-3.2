@@ -20,7 +20,7 @@ class Diksha_homeicon():
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.homeicon).click()
         self.data.page_loading(self.driver)
-        # self.driver.find_element_by_id('homeBtn').click()
+        # self.driver.find_element_by_id(Data.menu_icon).click()
         # if "dashboard" in self.driver.current_url:
         #     print("Navigated to landing page")
         # else:

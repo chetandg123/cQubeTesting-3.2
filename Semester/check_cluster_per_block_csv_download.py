@@ -27,7 +27,7 @@ class ClusterPerBlockCsvDownload():
                 select_block.select_by_index(y)
                 cal.page_loading(self.driver)
                 time.sleep(1)
-                self.driver.find_element_by_id('download').click()
+                self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
                 p= pwd()
                 self.filename = p.get_download_dir() + "/Cluster_per_block_report_sem_2.csv"

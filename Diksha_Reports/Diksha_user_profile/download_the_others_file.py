@@ -25,7 +25,7 @@ class Diksha_others_download():
         download = Select(self.driver.find_element_by_id('downloader'))
         download.select_by_visible_text(' Other ')
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('download').click()
+        self.driver.find_element_by_id(Data.Download).click()
         time.sleep(5)
         self.filename = self.p.get_download_dir() + '/' + self.fname.diskha_stack_others()
         file =  os.path.isfile(self.filename)

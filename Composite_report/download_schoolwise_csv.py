@@ -19,7 +19,7 @@ class school_wise_download():
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.cal.page_loading(self.driver)
         p =pwd()
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         dist =Select(self.driver.find_element_by_name('myDistrict'))
         dist.select_by_index(1)

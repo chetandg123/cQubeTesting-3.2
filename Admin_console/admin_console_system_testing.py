@@ -210,7 +210,7 @@ class adminconsole_system_test(unittest.TestCase):
         else:
             print("Static school file Summary: is not present ")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
 
     def test_logout(self):

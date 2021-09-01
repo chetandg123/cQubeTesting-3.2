@@ -10,6 +10,7 @@ from reuse_func import GetData
 class click_on_blocks():
    def __init__(self,driver ):
        self.driver = driver
+
    def test_blocks_button(self):
        self.p = GetData()
        cal = pwd()
@@ -22,7 +23,7 @@ class click_on_blocks():
        dots = self.driver.find_elements_by_class_name(Data.dots)
        count = len(dots) - 1
        self.p.page_loading(self.driver)
-       self.driver.find_element_by_id('download').click()
+       self.driver.find_element_by_id(Data.Download).click()
        time.sleep(3)
        self.filename = cal.get_download_dir() + "/" + self.fname.scmap_block()+management_name+'_allBlocks_'+self.p.get_current_date()+'.csv'
        print(self.filename)

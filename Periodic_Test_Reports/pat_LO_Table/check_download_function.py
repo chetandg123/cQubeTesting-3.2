@@ -14,7 +14,7 @@ class Download_districtwise():
         self.p = pwd()
         self.load = GetData()
         count = 0
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.fname = file_extention()
         self.driver.find_element_by_id(Data.home).click()

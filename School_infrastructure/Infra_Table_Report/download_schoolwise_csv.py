@@ -17,7 +17,7 @@ class school_wise_donwload():
     def test_schoolwise(self):
         self.data = GetData()
         self.fname =file_extention()
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.data.page_loading(self.driver)

@@ -25,7 +25,7 @@ class clusterlevel_csv():
             self.p.page_loading(self.driver)
             for y in range(1, len(select_block.options)):
                 select_block.select_by_index(y)
-                self.driver.find_element_by_id('download').click()
+                self.driver.find_element_by_id(Data.Download).click()
                 self.p.page_loading(self.driver)
                 self.filename = p.get_download_dir() + "/clusterPerBlock_report.csv"
                 if os.path.isfile(self.filename) != True:

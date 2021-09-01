@@ -20,7 +20,7 @@ class Catagory_series():
         self.load = GetData()
         count = 0
         self.fname = file_extention()
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
@@ -28,7 +28,7 @@ class Catagory_series():
         month = Select(self.driver.find_element_by_id('month'))
         self.year = (year.first_selected_option.text).strip()
         self.month = (month.first_selected_option.text).strip()
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         grades = Select(self.driver.find_element_by_id(Data.grade))
         grades.select_by_index(2)

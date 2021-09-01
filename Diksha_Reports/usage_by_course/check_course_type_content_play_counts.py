@@ -29,7 +29,7 @@ class test_course_based_on_timeperiods():
         if  fname.no_data_found() in self.driver.page_source:
             print("Last 30 days no record records")
         else:
-            self.driver.find_element_by_id('download').click()
+            self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
             self.filename = self.p.get_download_dir() + "/" + fname.location_textbook()
             if not os.path.isfile(self.filename):
@@ -64,7 +64,7 @@ class test_course_based_on_timeperiods():
         if fname.no_data_found() in self.driver.page_source:
             print("Last 7 days showing no records")
         else:
-            self.driver.find_element_by_id('download').click()
+            self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
             self.filename = self.p.get_download_dir() + "/" + fname.location_textbook()
             if not os.path.isfile(self.filename):
@@ -99,7 +99,7 @@ class test_course_based_on_timeperiods():
         if fname.no_data_found() in self.driver.page_source:
             print("Last days showing no records")
         else:
-            self.driver.find_element_by_id('download').click()
+            self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
             self.filename = self.p.get_download_dir() + "/" + fname.location_textbook()
             if not os.path.isfile(self.filename):

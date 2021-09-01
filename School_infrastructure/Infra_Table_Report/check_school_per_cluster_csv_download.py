@@ -32,7 +32,7 @@ class School_per_csv():
                 for z in range(1, len(select_cluster.options)):
                     select_cluster.select_by_index(z)
                     self.p.page_loading(self.driver)
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     self.p.page_loading(self.driver)
                     filename = p.get_download_dir() + "/schoolPerCluster_report.csv"
                     if os.path.isfile(filename) != True:

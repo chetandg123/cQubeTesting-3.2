@@ -28,7 +28,7 @@ class Test_Telemetry(unittest.TestCase):
     def test_navigate_by_dashboard(self):
         count = 0
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('telemData').click()
         if '' in self.driver.current_url:
@@ -37,7 +37,7 @@ class Test_Telemetry(unittest.TestCase):
             print("Telemetry page is not present ")
             count = count + 1
         self.assertEqual(0,count,msg='Telemetry page is not displayed')
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('telemData').click()
         self.data.page_loading(self.driver)
@@ -49,7 +49,7 @@ class Test_Telemetry(unittest.TestCase):
         dots = self.driver.find_elements_by_class_name(Data.dots)
         count = len(dots) - 1
         self.assertNotEqual(0, count  , msg="Markers not present on block level ")
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('telemData').click()
         self.data.page_loading(self.driver)
@@ -63,7 +63,7 @@ class Test_Telemetry(unittest.TestCase):
         count = len(dots) - 1
         self.assertNotEqual(0, count  , msg="Markers not present on cluster level ")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('telemData').click()
         self.data.page_loading(self.driver)
@@ -75,7 +75,7 @@ class Test_Telemetry(unittest.TestCase):
         dots = self.driver.find_elements_by_class_name(Data.dots)
         count = len(dots) - 1
         self.assertNotEqual(0, count, msg="Markers not present on cluster level ")
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('telemData').click()
         self.data.page_loading(self.driver)
@@ -84,7 +84,7 @@ class Test_Telemetry(unittest.TestCase):
         b = last7day_download(self.driver)
         res = b.test_overall_records()
         self.assertTrue(res, msg="last7day's csv file is not downloaded")
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('telemData').click()
         self.data.page_loading(self.driver)
@@ -93,7 +93,7 @@ class Test_Telemetry(unittest.TestCase):
         b = lastday_download(self.driver)
         res = b.test_lastday_records()
         self.assertTrue(res, msg="last7day's csv file is not downloaded")
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('telemData').click()
         self.data.page_loading(self.driver)
@@ -102,7 +102,7 @@ class Test_Telemetry(unittest.TestCase):
         b = overall_download(self.driver)
         res = b.test_overall_records()
         self.assertTrue(res, msg="last7day's csv file is not downloaded")
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('telemData').click()
         self.data.page_loading(self.driver)
@@ -111,7 +111,7 @@ class Test_Telemetry(unittest.TestCase):
         b = lastmonth_download(self.driver)
         res = b.test_lastmonth_records()
         self.assertTrue(res, msg="last7day's csv file is not downloaded")
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('telemData').click()
         self.data.page_loading(self.driver)

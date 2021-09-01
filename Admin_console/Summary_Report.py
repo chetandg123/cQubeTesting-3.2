@@ -27,7 +27,7 @@ class Test_summaryreport(unittest.TestCase):
             print('Summary report page is not displayed')
             count = count + 1
         self.assertEqual(0,count,msg='Summary report page is not working')
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
 
     def test_dashboard_summary(self):
@@ -42,7 +42,7 @@ class Test_summaryreport(unittest.TestCase):
             print('Summary report page is not displayed')
             count = count + 1
         self.assertEqual(0,count,msg='Summary report page is not working')
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
 
     def test_check_summary(self):
@@ -103,7 +103,7 @@ class Test_summaryreport(unittest.TestCase):
         else:
             print("Static school file Summary: is not present ")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
 
     @classmethod

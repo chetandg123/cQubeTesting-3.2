@@ -28,7 +28,7 @@ class test_school_map_schoollevel_records():
         select_block = Select(self.driver.find_element_by_id('choose_block'))
         select_cluster = Select(self.driver.find_element_by_id('choose_cluster'))
         count = 0
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.fname = file_extention()
         for x in range( int(len(select_district.options))-1, int(len(select_district.options))):

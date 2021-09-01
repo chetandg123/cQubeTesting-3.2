@@ -287,7 +287,7 @@ class Blocks():
                     print("District " + select_district.first_selected_option.text + " no data")
                     count = count + 1
                 else:
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     p = pwd()
                     time.sleep(5)
                     self.filename = p.get_download_dir() + "/" + self.fname.sr_districtwise() +management+'_'+timeseries.lower()+'_allGrades__blocks_of_district_' + value.strip() + cal.get_current_date() + '.csv'
@@ -368,7 +368,7 @@ class Blocks():
                         print("District " + select_district.first_selected_option.text + " no data")
                         count = count + 1
                     else:
-                        self.driver.find_element_by_id('download').click()
+                        self.driver.find_element_by_id(Data.Download).click()
                         p = pwd()
                         time.sleep(5)
                         self.filename = p.get_download_dir() + "/" + self.fname.sr_districtwise()+management+'_'+timeseries.lower() + '_allGrades__blockPerDistricts_of_district_' + values+'_' + cal.get_current_date() + '.csv'

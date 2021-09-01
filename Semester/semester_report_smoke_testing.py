@@ -208,7 +208,7 @@ class cQube_Semester_Report(unittest.TestCase):
     #     self.data.page_loading(self.driver)
 
     def test_home_button(self):
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         time.sleep(2)
         self.data.navigate_to_semester_report()
         if "sat-report" in self.driver.current_url:

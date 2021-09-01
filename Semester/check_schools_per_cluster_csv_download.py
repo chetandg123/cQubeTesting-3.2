@@ -40,7 +40,7 @@ class SchoolsPerClusterCsvDownload():
                         print(
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "No data")
                         count = count + 1
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(3)
                     p = pwd()
                     self.filename =  p.get_download_dir_SR_Download1() +"/School_per_cluster_report_sem_2.csv"
@@ -99,7 +99,7 @@ class SchoolsPerClusterCsvDownload():
                         print(
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "No data")
                         count = count + 1
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(3)
                     p = pwd()
                     self.filename =  p.get_download_dir_SR_Download2() +"/School_per_cluster_report_sem_2.csv"
@@ -159,7 +159,7 @@ class SchoolsPerClusterCsvDownload():
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "No data")
                         count = count + 1
                     # assert (len(markers) - 1 != 0), "markers are not present on map"
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(3)
                     p = pwd()
                     self.filename =  p.get_download_dir_SR_Download3() +"/School_per_cluster_report_sem_2.csv"
@@ -218,7 +218,7 @@ class SchoolsPerClusterCsvDownload():
                         print(
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "No data")
                         count = count + 1
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(3)
                     p = pwd()
                     self.filename =  p.get_download_dir_SR_Download4() +"/School_per_cluster_report_sem_2.csv"

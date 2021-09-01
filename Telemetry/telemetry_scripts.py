@@ -30,7 +30,7 @@ class Test_Telemetry(unittest.TestCase):
     def test_navigate_to_telemetry(self):
         count = 0
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         if "home" in self.driver.current_url:
             print("cqube landing page is displayed")
@@ -40,7 +40,7 @@ class Test_Telemetry(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.data.navigate_to_telemetry()
         self.assertEqual(0,count,msg='Homebtn is not worked ')
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
         self.data.page_loading(self.driver)
@@ -48,7 +48,7 @@ class Test_Telemetry(unittest.TestCase):
     def test_navigate_by_dashboard(self):
         count = 0
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
         if '' in self.driver.current_url:
@@ -57,7 +57,7 @@ class Test_Telemetry(unittest.TestCase):
             print("Telemetry page is not present ")
             count = count + 1
         self.assertEqual(0,count,msg='Telemetry page is not displayed')
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
         self.data.page_loading(self.driver)
@@ -69,7 +69,7 @@ class Test_Telemetry(unittest.TestCase):
         dots = self.driver.find_elements_by_class_name(Data.dots)
         count = len(dots) - 1
         self.assertNotEqual(0, count  , msg="Markers not present on block level ")
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
         self.data.page_loading(self.driver)
@@ -83,7 +83,7 @@ class Test_Telemetry(unittest.TestCase):
         count = len(dots) - 1
         self.assertNotEqual(0, count  , msg="Markers not present on cluster level ")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
         self.data.page_loading(self.driver)
@@ -95,7 +95,7 @@ class Test_Telemetry(unittest.TestCase):
         dots = self.driver.find_elements_by_class_name(Data.dots)
         count = len(dots) - 1
         self.assertNotEqual(0, count, msg="Markers not present on cluster level ")
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
         self.data.page_loading(self.driver)
@@ -109,7 +109,7 @@ class Test_Telemetry(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.sr_schools_btn).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
         self.data.page_loading(self.driver)
@@ -118,7 +118,7 @@ class Test_Telemetry(unittest.TestCase):
     def test_clickon_homebtn(self):
         count = 0
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
         if 'telemetry' in self.driver.current_url:
@@ -127,7 +127,7 @@ class Test_Telemetry(unittest.TestCase):
             print("Telemetry page is not present ")
             count = count + 1
         self.assertEqual(0, count, msg='Telemetry page is not displayed')
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
         self.data.page_loading(self.driver)
@@ -155,7 +155,7 @@ class Test_Telemetry(unittest.TestCase):
         # self.assertNotEqual(0,res1,msg='Block level markers are not present')
         # self.assertNotEqual(0,res2,msg='Cluster level markers are not present')
         # self.assertNotEqual(0,res3,msg='School level markers are not present')
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
         self.data.page_loading(self.driver)
@@ -167,7 +167,7 @@ class Test_Telemetry(unittest.TestCase):
         # self.assertNotEqual(0, res2, msg='Cluster level markers are not present')
         # self.assertNotEqual(0, res3, msg='School level markers are not present')
         # self.driver.find_element_by_id(Data.homeicon).click()
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
         self.data.page_loading(self.driver)
@@ -178,7 +178,7 @@ class Test_Telemetry(unittest.TestCase):
         # self.assertNotEqual(0, res1, msg='Block level markers are not present')
         # self.assertNotEqual(0, res2, msg='Cluster level markers are not present')
         # self.assertNotEqual(0, res3, msg='School level markers are not present')
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
         self.data.page_loading(self.driver)
@@ -190,7 +190,7 @@ class Test_Telemetry(unittest.TestCase):
         # self.assertNotEqual(0, res2, msg='Cluster level markers are not present')
         # self.assertNotEqual(0, res3, msg='School level markers are not present')
         # self.driver.find_element_by_id(Data.homeicon).click()
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
         self.data.page_loading(self.driver)
@@ -199,7 +199,7 @@ class Test_Telemetry(unittest.TestCase):
         b =last7day_download(self.driver)
         res = b.test_overall_records()
         self.assertTrue(res,msg="last7day's csv file is not downloaded")
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
         self.data.page_loading(self.driver)
@@ -208,7 +208,7 @@ class Test_Telemetry(unittest.TestCase):
         b = lastday_download(self.driver)
         res = b.test_lastday_records()
         self.assertTrue(res, msg="last7day's csv file is not downloaded")
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
         self.data.page_loading(self.driver)
@@ -217,7 +217,7 @@ class Test_Telemetry(unittest.TestCase):
         b = overall_download(self.driver)
         res = b.test_overall_records()
         self.assertTrue(res, msg="last7day's csv file is not downloaded")
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
         self.data.page_loading(self.driver)
@@ -226,7 +226,7 @@ class Test_Telemetry(unittest.TestCase):
         b = lastmonth_download(self.driver)
         res = b.test_lastmonth_records()
         self.assertTrue(res, msg="last7day's csv file is not downloaded")
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('s3dwn').click()
         self.data.page_loading(self.driver)

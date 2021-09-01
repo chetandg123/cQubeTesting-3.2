@@ -25,7 +25,7 @@ class test_school_map_schoollevel_records():
         self.driver.implicitly_wait(100)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.cal.page_loading(self.driver)
-        management_name = self.driver.find_element_by_id('nm').text
+        management_name = self.driver.find_element_by_id('name').text
         name = management_name[16:].strip().lower()
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
         select_block = Select(self.driver.find_element_by_id('choose_block'))

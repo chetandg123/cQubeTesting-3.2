@@ -38,7 +38,7 @@ class District():
                 count = count + 1
             else:
                 time.sleep(2)
-                self.driver.find_element_by_id('download').click()
+                self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
                 p = pwd()
                 self.filename = p.get_download_dir() + "/" + self.fname.sr_districtwise()+management+'_all_allGrades__blocks_of_district_'+value.strip()+cal.get_current_date()+'.csv'

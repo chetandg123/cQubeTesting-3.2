@@ -30,7 +30,7 @@ class DistrictwiseDownload():
             cal.page_loading(self.driver)
             value = self.driver.find_element_by_id('choose_dist').get_attribute('value')
             value = value[4:]+'_'
-            self.driver.find_element_by_id('download').click()
+            self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
             p = pwd()
             self.filename = p.get_download_dir() + "/" + self.fname.exception_districtwise()+management+'_overall_allGrades__blocks_of_district_'+value.strip()+cal.get_current_date()+'.csv'

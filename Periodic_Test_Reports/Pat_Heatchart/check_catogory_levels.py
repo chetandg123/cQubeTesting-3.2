@@ -21,7 +21,7 @@ class Catagory_series():
         self.fname = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         year = Select(self.driver.find_element_by_id('year'))
         month = Select(self.driver.find_element_by_id('month'))

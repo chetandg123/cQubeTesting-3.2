@@ -23,7 +23,7 @@ class subject_levels():
         self.load.page_loading(self.driver)
         self.load.navigate_to_lo_table_report()
         self.load.page_loading(self.driver)
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.year ,self.month = self.load.get_pat_month_and_year_values()
         grade = Select(self.driver.find_element_by_id(Data.grade))

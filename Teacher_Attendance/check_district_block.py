@@ -39,7 +39,7 @@ class DistrictsBlock():
                     count = count + 1
                 else:
                     time.sleep(2)
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(2)
                     p = pwd()
                     self.filename = p.get_download_dir() + "/Cluster_per_block_report_" + self.month + "_" + self.year + ".csv"

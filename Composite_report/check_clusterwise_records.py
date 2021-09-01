@@ -24,7 +24,7 @@ class composite_schoolevel_records():
         self.driver.implicitly_wait(60)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.cal.page_loading(self.driver)
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         select_district = Select(self.driver.find_element_by_name('myDistrict'))
         count = 0
@@ -53,7 +53,7 @@ class composite_schoolevel_records():
         p = pwd()
         self.cal = GetData()
         self.driver.implicitly_wait(60)
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.cal.page_loading(self.driver)
@@ -92,7 +92,7 @@ class composite_schoolevel_records():
         p = pwd()
         self.cal = GetData()
         self.driver.implicitly_wait(60)
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.cal.page_loading(self.driver)

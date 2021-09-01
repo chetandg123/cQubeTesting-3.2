@@ -29,7 +29,7 @@ class crc_schoollevel():
                 for z in range(1, len(select_cluster.options)):
                     select_cluster.select_by_index(z)
                     self.cal.page_loading(self.driver)
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(2)
                     filename = p.get_download_dir() + "/School_level_CRC_Report.csv"
                     self.cal.page_loading(self.driver)

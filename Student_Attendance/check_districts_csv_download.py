@@ -40,7 +40,7 @@ class DistrictCsvDownload():
                 print("District" + select_district.first_selected_option.text + "no data")
                 count = count + 1
             time.sleep(2)
-            self.driver.find_element_by_id('download').click()
+            self.driver.find_element_by_id(Data.Download).click()
             time.sleep(2)
             p = pwd()
             self.filename = p.get_download_dir() +files.student_districtwise_download()+name+'_blockPerDistricts_of_district_'+distval.strip()+ self.month + "_" + self.year+'_'+cal.get_current_date()+ ".csv"

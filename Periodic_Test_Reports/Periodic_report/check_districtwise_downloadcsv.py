@@ -35,7 +35,7 @@ class Districtwise_csv_download():
                 count = count + 1
             else :
                 time.sleep(2)
-                self.driver.find_element_by_id('download').click()
+                self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(2)
                 p = pwd()
                 self.filename = p.get_download_dir() + "/Block_per_dist_report.csv"

@@ -36,7 +36,7 @@ class ClusterPerBlockCsvDownload():
                 value = self.driver.find_element_by_id('choose_block').get_attribute('value')
                 value = value.split(":")
                 value = value[1].strip() + '_'
-                self.driver.find_element_by_id('download').click()
+                self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(4)
                 p= pwd()
                 self.filename = p.get_download_dir() + "/" + self.fname.exception_blockwise()+management+'_overall_allGrades__clusters_of_block_'+value.strip()+date.today().strftime('%d-%m-%Y').strip()+'.csv'

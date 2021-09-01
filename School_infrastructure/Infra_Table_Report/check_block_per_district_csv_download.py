@@ -24,7 +24,7 @@ class blocklevel_csv():
             self.p.page_loading(self.driver)
             value = self.driver.find_element_by_name('myDistrict').get_attribute('value')
             value = value[4:].strip()+'_'
-            self.driver.find_element_by_id('download').click()
+            self.driver.find_element_by_id(Data.Download).click()
             self.p.page_loading(self.driver)
             self.filename = p.get_download_dir() +'/'+ self.file.sc_districtwise()+value+self.p.get_current_date()+'.csv'
             print(self.filename)

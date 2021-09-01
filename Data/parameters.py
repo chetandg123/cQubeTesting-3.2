@@ -26,7 +26,7 @@ class Data():
     SAR_Details = "//div[@class='row']/div[@class='col-sm-4']/span"
     hyper_link = "//p/span"
     directory = "//p[contains(text(),' Semester report for:')]/span"
-    Download = "download"
+    Download = "download1"
     Download_scator ='download'
     s3bucket_select1 ="//*[@id='table']/thead[2]/tr[2]/td[1]/input"
     summ ="//*[@id='summary']/div/td[2]"
@@ -105,7 +105,7 @@ class Data():
 
     # hyper     ="//*[@id='dist_level']/span"
     hyper = "//p/span"
-    hyper_link='state'
+
     dist_hyper = "//*[@id='block']/span[1]"
     # school_hyper = "//*[@id='school']/span[5]"
     block_hyper = "//*[@id='cluster']/span[3]"

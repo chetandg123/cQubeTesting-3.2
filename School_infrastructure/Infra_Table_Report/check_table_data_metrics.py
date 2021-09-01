@@ -21,7 +21,7 @@ class download_report():
         self.driver.implicitly_wait(20)
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.cal.page_loading(self.driver)
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         District_wise = Select(self.driver.find_element_by_id("downloader"))
         # District_wise.select_by_visible_text(" Dist Wise Infra_Table_Report ")

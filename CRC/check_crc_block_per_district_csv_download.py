@@ -23,7 +23,7 @@ class blockwise():
         for x in range(1, len(select_district.options)):
             select_district.select_by_index(x)
             self.cal.page_loading(self.driver)
-            self.driver.find_element_by_id('download').click()
+            self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
             p = pwd()
             self.filename = p.get_download_dir() + "/Block_level_CRC_Report.csv"

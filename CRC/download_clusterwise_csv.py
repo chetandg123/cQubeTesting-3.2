@@ -22,7 +22,7 @@ class load_clusterwise_csv():
         self.fname=file_extention()
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.cal.page_loading(self.driver)
-        management_name = self.driver.find_element_by_id('nm').text
+        management_name = self.driver.find_element_by_id('name').text
         name = management_name[16:].strip().lower()
         District_wise = Select(self.driver.find_element_by_id("downloader"))
         # District_wise.select_by_visible_text(" Cluster Wise Report ")

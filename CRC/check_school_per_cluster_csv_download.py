@@ -39,7 +39,7 @@ class SchoolsPerClusterCsvDownload():
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "No data")
                         count = count + 1
                     time.sleep(2)
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(2)
                     p = pwd()
                     self.filename = p.get_download_dir_SAR_Download1() + "/Schools_per_cluster_report_.csv"

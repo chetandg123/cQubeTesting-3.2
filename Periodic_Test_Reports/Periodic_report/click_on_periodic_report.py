@@ -11,7 +11,7 @@ class Pat_Report_icon():
         self.data = GetData()
         count = 0
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         time.sleep(2)
         self.driver.find_element_by_id('pat').click()
         self.data.page_loading(self.driver)

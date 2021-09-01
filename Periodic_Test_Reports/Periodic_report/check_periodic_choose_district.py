@@ -42,7 +42,7 @@ class District():
                 print("District" + select_district.first_selected_option.text +"no data")
                 count = count + 1
             else :
-                self.driver.find_element_by_id('download').click()
+                self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(4)
                 p = pwd()
                 file =file_extention()

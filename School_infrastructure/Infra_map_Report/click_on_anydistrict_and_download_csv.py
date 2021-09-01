@@ -21,12 +21,9 @@ class download_icon():
         self.fname = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.p.page_loading(self.driver)
-        managment_name = self.driver.find_element_by_id('nm').text
+        managment_name = self.driver.find_element_by_id('name').text
         name = managment_name[16:].strip().lower()
-        self.driver.find_element_by_id(Data.home).click()
         time.sleep(2)
-        self.p.navigate_to_school_infrastructure_map()
-        self.p.page_loading(self.driver)
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
         self.filename = cal.get_download_dir() + '/' + self.fname.scmap_district()+name+'_allDistricts_'+self.p.get_current_date()+'.csv'

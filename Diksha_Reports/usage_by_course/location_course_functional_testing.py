@@ -29,7 +29,7 @@ class cQube_diskha_course_functional_report(unittest.TestCase):
     def test_navigation_from_hamburger(self):
         count = 0
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.data.navigate_to_column_course()
         self.data.page_loading(self.driver)

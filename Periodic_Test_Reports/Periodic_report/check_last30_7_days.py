@@ -278,7 +278,7 @@ class pat_time_periodwise():
                     print("District " + select_district.first_selected_option.text + " no data")
                     count = count + 1
                 else:
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     p = pwd()
                     time.sleep(5)
                     self.filename = p.get_download_dir() + "/" + self.fname.pat_districtwise() +management+'_'+timeseries.lower()+'_allGrades__blocks_of_district_' + value.strip() + cal.get_current_date() + '.csv'
@@ -360,7 +360,7 @@ class pat_time_periodwise():
                     print("District " + select_district.first_selected_option.text + " no data")
                     count = count + 1
                 else:
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     p = pwd()
                     time.sleep(5)
                     self.filename = p.get_download_dir() + "/" + self.fname.pat_districtwise()+management+'_'+timeseries.lower() + '_allGrades__blocks_of_district_' + values+'_' + cal.get_current_date() + '.csv'
@@ -442,7 +442,7 @@ class pat_time_periodwise():
                     count = count + 1
                 else:
                     time.sleep(2)
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(2)
                     p = pwd()
                     self.filename = p.get_download_dir() + "/" + self.fname.pat_blockwise()+management+'_all_allGrades__clusters_of_block_'+value.strip()+cal.get_current_date()+'.csv'
@@ -494,7 +494,7 @@ class pat_time_periodwise():
                     count = count + 1
                 else:
                     time.sleep(2)
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(3)
                     p = pwd()
                     self.filename = p.get_download_dir() + "/" + self.fname.pat_blockwise()+management+'_'+timeseries+'_allGrades__clusters_of_block_' + values+'_' + cal.get_current_date() + '.csv'
@@ -575,7 +575,7 @@ class pat_time_periodwise():
                     count = count + 1
                 else:
                     time.sleep(2)
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(2)
                     p = pwd()
                     self.filename = p.get_download_dir() + "/" + self.fname.pat_blockwise() + management +"_"+timeseries + '_allGrades__clusters_of_block_' + values+"_"+ cal.get_current_date() + '.csv'
@@ -662,7 +662,7 @@ class pat_time_periodwise():
                                 "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "No data")
                             count = count + 1
                         time.sleep(2)
-                        self.driver.find_element_by_id('download').click()
+                        self.driver.find_element_by_id(Data.Download).click()
                         time.sleep(3)
                         p = pwd()
                         self.filename = p.get_download_dir() + "/" + self.fname.pat_clusterwise() + management + '_' + timeseries + '_allGrades__schools_of_cluster_' + values + cal.get_current_date() + '.csv'
@@ -750,7 +750,7 @@ class pat_time_periodwise():
                                 "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "No data")
                             count = count + 1
                         time.sleep(2)
-                        self.driver.find_element_by_id('download').click()
+                        self.driver.find_element_by_id(Data.Download).click()
                         time.sleep(3)
                         p = pwd()
                         self.filename = p.get_download_dir() + "/" + self.fname.pat_clusterwise() + management + '_' + timeseries + '_allGrades__schools_of_cluster_' + values + cal.get_current_date() + '.csv'

@@ -21,7 +21,7 @@ class school_wise_download():
         self.fname=file_extention()
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.cal.page_loading(self.driver)
-        management_name = self.driver.find_element_by_id('nm').text
+        management_name = self.driver.find_element_by_id('name').text
         name = management_name[16:].strip().lower()
         p =pwd()
         District_wise=Select(self.driver.find_element_by_id("downloader"))

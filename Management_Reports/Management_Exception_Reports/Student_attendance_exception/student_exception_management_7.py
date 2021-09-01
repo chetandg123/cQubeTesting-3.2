@@ -166,7 +166,7 @@ class cQube_Student_Attendance_regression(unittest.TestCase):
     # def test_date_range(self):
     #     daterange = DateRange(self.driver)
     #     result = daterange.check_date_range()
-    #     self.driver.find_element_by_id('homeBtn').click()
+    #     self.driver.find_element_by_id(Data.menu_icon).click()
     #     time.sleep(2)
     #     self.data.navigate_to_student_report()
     #     self.data.page_loading(self.driver)

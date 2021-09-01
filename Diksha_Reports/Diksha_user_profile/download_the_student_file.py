@@ -25,7 +25,7 @@ class Diksha_students_download():
         download = Select(self.driver.find_element_by_id('downloader'))
         download.select_by_visible_text(' Student ')
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('download').click()
+        self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
         self.filename = self.p.get_download_dir() + '/' + self.fname.diskha_stack_student()
         file = os.path.isfile(self.filename)

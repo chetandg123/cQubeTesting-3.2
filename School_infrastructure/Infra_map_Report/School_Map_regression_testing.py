@@ -59,17 +59,12 @@ class cQube_SI_Map_Report(unittest.TestCase):
         else:
             raise self.failureException("Schools per cluster csv report download1 is working")
 
-    def test_click_home_in_districtwise(self):
-        b = district_home(self.driver)
-        res = b.test_district()
-        if "school-infra-map" in self.driver.current_url:
-            print("school infra map based report present")
-        else:
-            print("home icon is not working ")
+
 
     def test_logout(self):
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.driver.find_element_by_id(Data.logout).click()
         self.data.page_loading(self.driver)
         count = 0
@@ -186,16 +181,20 @@ class cQube_SI_Map_Report(unittest.TestCase):
     def test_homebtn(self):
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.sch_infra).click()
+        time.sleep(2)
         self.data.page_loading(self.driver)
         count = 0
-        if 'dashboard' in self.driver.current_url:
-            print("cQube Landing page is displayed ")
+        if 'infrastructure-dashboard' in self.driver.current_url:
+            print("infrastructure-dashboard Dashboard page is displayed ")
         else:
-            print('Homebutton is not working ')
+            print('cQube logo home button is not working ')
             count = count + 1
         self.assertEqual(0,count,msg='Landing page does not exists')
-        self.data.navigate_to_school_infrastructure_map()
+        self.driver.find_element_by_id(Data.inframap).click()
+        time.sleep(2)
         self.data.page_loading(self.driver)
 
 

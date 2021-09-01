@@ -14,7 +14,7 @@ class udise_districts_csv():
         self.p = GetData()
         cal = pwd()
         self.fname =file_extention()
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()

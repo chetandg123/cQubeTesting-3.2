@@ -36,7 +36,7 @@ class test_all_data():
             distname = dists.options[i].text
             names = distname.strip()
             self.data.page_loading(self.driver)
-            self.driver.find_element_by_id('download').click()
+            self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
             self.filename = self.p.get_download_dir() + "/Diksha_"+names+"_data_All.csv"
             if not os.path.isfile(self.filename):
@@ -77,7 +77,7 @@ class test_all_data():
             distname = dists.options[i].text
             names = distname.strip()
             self.data.page_loading(self.driver)
-            self.driver.find_element_by_id('download').click()
+            self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
             self.filename = self.p.get_download_dir() + "/Diksha_"+names+"_data_All.csv"
             file = os.path.isfile(self.filename)
@@ -119,7 +119,7 @@ class test_all_data():
             distname = dists.options[i].text
             names = distname.strip()
             self.data.page_loading(self.driver)
-            self.driver.find_element_by_id('download').click()
+            self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
             self.filename = self.p.get_download_dir() + "/Diksha_"+names+"_data_All.csv"
             file = os.path.isfile(self.filename)

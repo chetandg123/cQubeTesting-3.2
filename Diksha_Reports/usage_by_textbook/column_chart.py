@@ -42,7 +42,7 @@ class cQube_diskha_column_report(unittest.TestCase):
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         if "home" in self.driver.current_url:
             print("Navigated to landing page")
         else:

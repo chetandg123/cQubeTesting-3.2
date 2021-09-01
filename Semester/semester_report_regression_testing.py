@@ -177,7 +177,7 @@ class cQube_Semester_Report(unittest.TestCase):
     #     self.assertEqual(result,0,msg="School wise csv report download is working")
 
     def test_home_button(self):
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         time.sleep(2)
         self.data.navigate_to_semester_report()
         if "sat-report" in self.driver.current_url:

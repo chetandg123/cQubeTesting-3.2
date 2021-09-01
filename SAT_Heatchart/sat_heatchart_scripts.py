@@ -23,7 +23,7 @@ class sat_heat_scripts():
         self.load = GetData()
         count = 0
         self.fname = file_extention()
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
@@ -133,7 +133,7 @@ class sat_heat_scripts():
         cal = GetData()
         count = 0
         self.fname = file_extention()
-        management= self.driver.find_element_by_id('nm').text
+        management= self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         year = Select(self.driver.find_element_by_id('year'))
         month = Select(self.driver.find_element_by_id('month'))
@@ -184,7 +184,7 @@ class sat_heat_scripts():
         self.load = GetData()
         count = 0
         self.fname = file_extention()
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.driver.find_element_by_id(Data.home).click()
         self.load.page_loading(self.driver)
@@ -294,7 +294,7 @@ class sat_heat_scripts():
         self.load = GetData()
         count = 0
         self.fname = file_extention()
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         year = Select(self.driver.find_element_by_id('year'))
         month = Select(self.driver.find_element_by_id('month'))
@@ -345,7 +345,7 @@ class sat_heat_scripts():
         self.fname = file_extention()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.year , self.month = self.load.get_pat_month_and_year_values()
         clust = Select(self.driver.find_element_by_id(Data.cluster_dropdown))
@@ -388,7 +388,7 @@ class sat_heat_scripts():
         self.load = GetData()
         count = 0
         self.fname = file_extention()
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         year = Select(self.driver.find_element_by_id('year'))
         month = Select(self.driver.find_element_by_id('month'))

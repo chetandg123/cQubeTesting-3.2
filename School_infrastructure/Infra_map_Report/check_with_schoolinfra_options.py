@@ -13,7 +13,7 @@ class School_infra_options():
         self.p = GetData()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.p.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.Dashboard).click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.p.page_loading(self.driver)
         self.driver.find_element_by_xpath(Data.School_infra).click()
         self.p.page_loading(self.driver)

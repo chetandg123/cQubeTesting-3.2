@@ -24,7 +24,7 @@ class pat_exception_report():
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('patExcpt').click()
         self.data.page_loading(self.driver)
@@ -121,7 +121,7 @@ class pat_exception_report():
                 count = count + 1
             else:
                 time.sleep(2)
-                self.driver.find_element_by_id('download').click()
+                self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
                 p = pwd()
                 self.filename = p.get_download_dir() + "/" + "periodic_assessment_test_exception_"+management+"_overall_allGrades__blocks_of_district_"+value.strip()+cal.get_current_date()+'.csv'
@@ -161,7 +161,7 @@ class pat_exception_report():
                 value = self.driver.find_element_by_id('choose_block').get_attribute('value')
                 value = value[3:]+'_'
                 time.sleep(2)
-                self.driver.find_element_by_id('download').click()
+                self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(4)
                 p = pwd()
                 self.filename = p.get_download_dir() + "/" +"periodic_assessment_test_exception_"+management+"_overall_allGrades__clusters_of_block_"+value.strip()+cal.get_current_date()+'.csv'
@@ -206,7 +206,7 @@ class pat_exception_report():
                     value = value.split(":")
                     value = value[1].strip() +'_'
                     time.sleep(2)
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(4)
                     p = pwd()
                     self.filename = p.get_download_dir() + "/" +"periodic_assessment_test_exception_"+management+"_overall_allGrades__schools_of_cluster_"+value+cal.get_current_date()+'.csv'

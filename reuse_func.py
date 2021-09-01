@@ -21,7 +21,6 @@ from get_dir import pwd
 class GetData():
     def __init__(self):
         self.p = pwd()
-
     def get_domain_name(self):
         config = configparser.ConfigParser()
         config.read(self.p.get_config_ini_path())
@@ -177,7 +176,7 @@ class GetData():
 
     def click_on_state(self, driver):
         self.driver = driver
-        self.driver.find_element_by_id(Data.hyper_link).click()
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
         time.sleep(4)
 
     def get_data_status(self):
@@ -193,7 +192,7 @@ class GetData():
 
     def get_management_selected_option(self):
         self.driver.implicitly_wait(10)
-        management_name = self.driver.find_element_by_id('management').text
+        management_name = self.driver.find_element_by_id('name').text
         management_name = management_name[16:].strip().lower()
         return management_name
 

@@ -47,12 +47,6 @@ class cQube_SI_Map_Report(unittest.TestCase):
         result = b.test_districtlist()
         self.assertNotEqual(0, result, msg="All Districts are not present in select box!..")
         self.data.page_loading(self.driver)
-    #
-    # def test_dashboard(self):
-    #     print("Dashboard is working")
-    #     b = click_dashboard(self.driver)
-    #     res = b.test_dashboard()
-    #     self.data.page_loading(self.driver)
 
     def test_check_markers_on_map(self):
         print("checking markers on map ")
@@ -61,13 +55,6 @@ class cQube_SI_Map_Report(unittest.TestCase):
         self.assertNotEqual(0,result,msg="Data not present on map")
         self.data.page_loading(self.driver)
 
-    def test_school_infra_options(self):
-        print("school infra drop down")
-        b = School_infra_options(self.driver)
-        res1, res2 = b.test_options()
-        self.assertEqual(res1, "Composite Report", msg="option is not available")
-        self.assertEqual(res2, "Infrastructure access by Location", msg="option is not available")
-        self.data.page_loading(self.driver)
 
     def test_districtwise_download(self):
         b = download_icon(self.driver)

@@ -23,7 +23,7 @@ class cluster_button():
         time.sleep(20)
         dots = self.driver.find_elements_by_class_name(Data.dots)
         count = len(dots)-1
-        self.driver.find_element_by_id('download').click()
+        self.driver.find_element_by_id(Data.Download).click()
         time.sleep(4)
         self.filename = cal.get_download_dir() + '/' + self.fname.scmap_cluster()+management_name+'_allClusters_'+self.p.get_current_date()+'.csv'
         print(self.filename)

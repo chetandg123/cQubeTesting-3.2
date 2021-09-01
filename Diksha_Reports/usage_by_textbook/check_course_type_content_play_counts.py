@@ -29,7 +29,7 @@ class test_course_based_on_timeperiods():
         if self.msg.no_data_available() in self.driver.page_source:
             print("Last 30 days does not having data")
         else:
-            self.driver.find_element_by_id('download').click()
+            self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
             self.filename = self.p.get_download_dir() + "/"+'usage_by_textbook_all_'+self.data.get_current_date()+".csv"
             print(self.filename)
@@ -65,7 +65,7 @@ class test_course_based_on_timeperiods():
         if self.msg.no_data_available() in self.driver.page_source:
             print("Last 7 days does not having data")
         else:
-            self.driver.find_element_by_id('download').click()
+            self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
             self.filename = self.p.get_download_dir() + "/"+'usage_by_textbook_all_'+self.data.get_current_date()+".csv"
             print(self.filename)
@@ -101,7 +101,7 @@ class test_course_based_on_timeperiods():
         if self.msg.no_data_available() in self.driver.page_source:
             print("Last day does not having data")
         else:
-            self.driver.find_element_by_id('download').click()
+            self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
             self.filename = self.p.get_download_dir() + "/"+'usage_by_textbook_all_'+self.data.get_current_date()+".csv"
             print(self.filename)

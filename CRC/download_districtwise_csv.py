@@ -22,7 +22,7 @@ class Districtwise_donwload():
         self.driver.implicitly_wait(20)
         self.fname =file_extention()
         self.driver.find_element_by_xpath(Data.hyper).click()
-        management_name = self.driver.find_element_by_id('nm').text
+        management_name = self.driver.find_element_by_id('name').text
         name = management_name[16:].strip().lower()
         self.cal.page_loading(self.driver)
         District_wise=Select(self.driver.find_element_by_id("downloader"))

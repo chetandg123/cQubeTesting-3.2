@@ -49,7 +49,7 @@ class DistrictBlockCluster():
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "No data")
                         count = count + 1
                     time.sleep(2)
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(4)
                     p = pwd()
                     self.filename =  p.get_download_dir() + '/'+file.teacher_clusterwise_download()+name+'_schoolPerClusters_of_cluster_'+value[1].strip()+'_'+ self.month + "_" + self.year +"_"+ cal.get_current_date()+".csv"

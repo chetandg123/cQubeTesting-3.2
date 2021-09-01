@@ -190,7 +190,7 @@ class cQube_SI_Map_Report(unittest.TestCase):
     def test_homebtn(self):
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         count = 0
         if 'dashboard' in self.driver.current_url:

@@ -43,7 +43,7 @@ class ClusterPerBlockCsvDownload():
                         "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "No Data")
                     count = count + 1
                 time.sleep(2)
-                self.driver.find_element_by_id('download').click()
+                self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(4)
                 p = pwd()
                 self.filename = p.get_download_dir()+'/'+files.teacher_blockwise_download()+name+'_clusterPerBlocks_of_block_' +value.strip()+self.month + "_" + self.year+'_'+cal.get_current_date()+ ".csv"
@@ -104,7 +104,7 @@ class ClusterPerBlockCsvDownload():
                             "cluster"+select_cluster.first_selected_option.text +"No Data")
                         count = count + 1
                     time.sleep(2)
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(5)
                     p = pwd()
                     self.filename = p.get_download_dir() + "/Schools_per_cluster_report_" + self.month + "_" + self.year + ".csv"

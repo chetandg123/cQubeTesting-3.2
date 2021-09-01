@@ -56,7 +56,7 @@ class exception_list_download():
                     #     print(name,"selected management exception is not present in downloaded file")
                     #     count = count + 1
                     os.remove(self.filename)
-            self.driver.find_element_by_id('homeBtn').click()
+            self.driver.find_element_by_id(Data.menu_icon).click()
             time.sleep(5)
         return count
 
@@ -101,7 +101,7 @@ class exception_list_download():
                 #     print(name,"selected management exception is not present in downloaded file")
                 #     count = count + 1
             os.remove(self.filename)
-            self.driver.find_element_by_id('homeBtn').click()
+            self.driver.find_element_by_id(Data.menu_icon).click()
             time.sleep(3)
 
         management_types = Select(self.driver.find_element_by_id('management'))
@@ -137,7 +137,7 @@ class exception_list_download():
                 #     print(name,"selected management exception is not present in downloaded file")
                 #     count = count + 1
             os.remove(self.filename)
-            self.driver.find_element_by_id('homeBtn').click()
+            self.driver.find_element_by_id(Data.menu_icon).click()
             time.sleep(5)
 
         management_types = Select(self.driver.find_element_by_id('management'))
@@ -173,7 +173,7 @@ class exception_list_download():
                 #     print(name,"selected management exception is not present in downloaded file")
                 #     count = count + 1
             os.remove(self.filename)
-            self.driver.find_element_by_id('homeBtn').click()
+            self.driver.find_element_by_id(Data.menu_icon).click()
             time.sleep(5)
 
         management_types = Select(self.driver.find_element_by_id('management'))
@@ -209,7 +209,7 @@ class exception_list_download():
                 #     print(name,"selected management exception is not present in downloaded file")
                 #     count = count + 1
             os.remove(self.filename)
-            self.driver.find_element_by_id('homeBtn').click()
+            self.driver.find_element_by_id(Data.menu_icon).click()
             time.sleep(5)
 
         management_types = Select(self.driver.find_element_by_id('management'))
@@ -245,7 +245,7 @@ class exception_list_download():
                 #     print(name,"selected management exception is not present in downloaded file")
                 #     count = count + 1
             os.remove(self.filename)
-            self.driver.find_element_by_id('homeBtn').click()
+            self.driver.find_element_by_id(Data.menu_icon).click()
             time.sleep(5)
 
         management_types = Select(self.driver.find_element_by_id('management'))
@@ -281,7 +281,7 @@ class exception_list_download():
                 #     print(name,"selected management exception is not present in downloaded file")
                 #     count = count + 1
             os.remove(self.filename)
-            self.driver.find_element_by_id('homeBtn').click()
+            self.driver.find_element_by_id(Data.menu_icon).click()
             time.sleep(5)
 
         management_types = Select(self.driver.find_element_by_id('management'))
@@ -317,7 +317,7 @@ class exception_list_download():
                 #     print(name,"selected management exception is not present in downloaded file")
                 #     count = count + 1
             os.remove(self.filename)
-            self.driver.find_element_by_id('homeBtn').click()
+            self.driver.find_element_by_id(Data.menu_icon).click()
             time.sleep(5)
 
         management_types = Select(self.driver.find_element_by_id('management'))
@@ -353,7 +353,7 @@ class exception_list_download():
                 #     print(name,"selected management exception is not present in downloaded file")
                 #     count = count + 1
             os.remove(self.filename)
-            self.driver.find_element_by_id('homeBtn').click()
+            self.driver.find_element_by_id(Data.menu_icon).click()
             time.sleep(5)
         total_managemnt = int(social + tribal + granted + Govt + central + private + model)
         if int(overall) != total_managemnt:

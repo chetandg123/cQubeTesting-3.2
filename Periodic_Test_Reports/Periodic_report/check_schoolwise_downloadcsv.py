@@ -37,7 +37,7 @@ class DistrictBlockCluster_donwloadcsv():
                             "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "No data")
                         count = count + 1
                     time.sleep(2)
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(3)
                     p = pwd()
                     self.filename = p.get_download_dir() +"/School_per_cluster_report.csv"

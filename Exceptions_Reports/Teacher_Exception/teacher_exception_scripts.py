@@ -24,7 +24,7 @@ class teacher_exception_report():
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id('tarExp').click()
         self.data.page_loading(self.driver)
@@ -123,7 +123,7 @@ class teacher_exception_report():
                 count = count + 1
             else:
                 time.sleep(2)
-                self.driver.find_element_by_id('download').click()
+                self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(2)
                 p = pwd()
                 self.filename = p.get_download_dir() + "/" +"teacher_attendance_exception_"+management+"_Blocks_of_district_"+values.strip()+self.month+'_'+self.year+'_'+cal.get_current_date()+".csv"
@@ -171,7 +171,7 @@ class teacher_exception_report():
                 time.sleep(2)
                 dots = self.driver.find_elements_by_class_name(Data.dots)
                 markers= len(dots)-1
-                self.driver.find_element_by_id('download').click()
+                self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(4)
                 p = pwd()
                 self.filename = p.get_download_dir() + "/" +"teacher_attendance_exception_"+management+"_Clusters_of_block_"+values.strip()+self.month+'_'+self.year+'_'+cal.get_current_date()+".csv"
@@ -222,7 +222,7 @@ class teacher_exception_report():
                     values = value[3:]+'_'
                     dots = self.driver.find_elements_by_class_name(Data.dots)
                     markers=len(dots)-1
-                    self.driver.find_element_by_id('download').click()
+                    self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(4)
                     p = pwd()
                     self.filename = p.get_download_dir() + "/" + "teacher_attendance_exception_"+management+"_schools_of_cluster_"+values.strip()+ self.month + "_" + self.year+'_'+cal.get_current_date()+ ".csv"

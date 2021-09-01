@@ -34,6 +34,6 @@ class click_on_home():
         dots = self.driver.find_elements_by_class_name(Data.dots)
         self.p.page_loading(self.driver)
         count3 = len(dots) - 1
-        self.driver.find_element_by_id(Data.homeicon).click()
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.p.page_loading(self.driver)
         return count1 , count2 ,count3

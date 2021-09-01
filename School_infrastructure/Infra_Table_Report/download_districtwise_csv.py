@@ -14,7 +14,7 @@ class download_district_wise_csv():
         self.cal = GetData()
         self.fname = file_extention()
         self.driver.implicitly_wait(20)
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.cal.page_loading(self.driver)

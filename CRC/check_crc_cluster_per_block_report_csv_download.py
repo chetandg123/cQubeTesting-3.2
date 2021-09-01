@@ -26,7 +26,7 @@ class cluster_csv():
             for y in range(1, len(select_block.options)):
                 select_block.select_by_index(y)
                 self.cal.page_loading(self.driver)
-                self.driver.find_element_by_id('download').click()
+                self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(2)
                 filename = p.get_download_dir() + "/Cluster_level_CRC_Report"
                 if os.path.isfile(filename) != True:

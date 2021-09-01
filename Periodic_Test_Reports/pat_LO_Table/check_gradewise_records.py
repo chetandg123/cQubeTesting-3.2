@@ -18,7 +18,7 @@ class gradewise_records():
         self.p = pwd()
         self.load = GetData()
         count = 0
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.fname = file_extention()
         year = Select(self.driver.find_element_by_id('year'))

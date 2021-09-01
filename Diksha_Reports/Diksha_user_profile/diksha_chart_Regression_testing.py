@@ -38,7 +38,7 @@ class cQube_diskha_chart(unittest.TestCase):
         self.data.page_loading(self.driver)
 
     def test_click_on_diksha_chart_icon(self):
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         count = 0
         self.driver.find_element_by_id("dsc").click()

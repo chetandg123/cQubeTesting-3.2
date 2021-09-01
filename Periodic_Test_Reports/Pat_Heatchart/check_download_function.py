@@ -19,7 +19,7 @@ class Download_districtwise():
         cal = GetData()
         count = 0
         self.fname = file_extention()
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         # self.year,self.month = cal.pat_month_and_year_values()
         year = Select(self.driver.find_element_by_id('year'))

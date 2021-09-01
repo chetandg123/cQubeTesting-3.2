@@ -47,7 +47,7 @@ class cQube_diskha_report(unittest.TestCase):
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         if "home" in self.driver.current_url:
             print("Navigated to landing page")
         else:
@@ -160,7 +160,7 @@ class cQube_diskha_report(unittest.TestCase):
         res = b.test_tablevalue()
 
     def test_click_on_diksha_reporticon(self):
-        self.driver.find_element_by_id('homeBtn').click()
+        self.driver.find_element_by_id(Data.menu_icon).click()
         self.data.page_loading(self.driver)
         count = 0
         self.driver.find_element_by_xpath("//img[@alt='dikshaTable']").click()

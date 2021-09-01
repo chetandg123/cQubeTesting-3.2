@@ -4,6 +4,7 @@ import time
 
 from selenium.webdriver.support.select import Select
 
+from Data.parameters import Data
 from filenames import file_extention
 from get_dir import pwd
 from reuse_func import GetData
@@ -24,7 +25,7 @@ class SchoolInfra_scores():
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(1)
         self.cal.page_loading(self.driver)
-        self.driver.find_element_by_id('download').click()
+        self.driver.find_element_by_id(Data.Download).click()
         time.sleep(2)
         p = pwd()
         self.filename = p.get_download_dir() + "/" + self.fname.scmap_district()+management_name+'_allDistricts_'+self.cal.get_current_date()+'.csv'
@@ -43,7 +44,7 @@ class SchoolInfra_scores():
         chooseinfra.select_by_index(2)
         self.cal.page_loading(self.driver)
         management_name = self.cal.get_management_selected_option()
-        self.driver.find_element_by_id('download').click()
+        self.driver.find_element_by_id(Data.Download).click()
         time.sleep(2)
         p = pwd()
         filename = p.get_download_dir() + "/" + self.fname.scmap_district()+management_name+'_allDistricts_'+self.cal.get_current_date()+'.csv'
@@ -60,7 +61,7 @@ class SchoolInfra_scores():
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(3)
         self.cal.page_loading(self.driver)
-        self.driver.find_element_by_id('download').click()
+        self.driver.find_element_by_id(Data.Download).click()
         time.sleep(2)
         p = pwd()
         management_name = self.cal.get_management_selected_option()
@@ -78,7 +79,7 @@ class SchoolInfra_scores():
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(4)
         self.cal.page_loading(self.driver)
-        self.driver.find_element_by_id('download').click()
+        self.driver.find_element_by_id(Data.Download).click()
         time.sleep(2)
         p = pwd()
         management_name = self.cal.get_management_selected_option()
@@ -96,7 +97,7 @@ class SchoolInfra_scores():
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(5)
         self.cal.page_loading(self.driver)
-        self.driver.find_element_by_id('download').click()
+        self.driver.find_element_by_id(Data.Download).click()
         time.sleep(2)
         p = pwd()
         management_name = self.cal.get_management_selected_option()
@@ -114,7 +115,7 @@ class SchoolInfra_scores():
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(6)
         self.cal.page_loading(self.driver)
-        self.driver.find_element_by_id('download').click()
+        self.driver.find_element_by_id(Data.Download).click()
         time.sleep(2)
         p = pwd()
         management_name = self.cal.get_management_selected_option()
@@ -132,7 +133,7 @@ class SchoolInfra_scores():
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(7)
         self.cal.page_loading(self.driver)
-        self.driver.find_element_by_id('download').click()
+        self.driver.find_element_by_id(Data.Download).click()
         time.sleep(2)
         p = pwd()
         management_name = self.cal.get_management_selected_option()
@@ -150,7 +151,7 @@ class SchoolInfra_scores():
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(8)
         self.cal.page_loading(self.driver)
-        self.driver.find_element_by_id('download').click()
+        self.driver.find_element_by_id(Data.Download).click()
         time.sleep(2)
         p = pwd()
         management_name = self.cal.get_management_selected_option()
@@ -168,7 +169,7 @@ class SchoolInfra_scores():
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(9)
         self.cal.page_loading(self.driver)
-        self.driver.find_element_by_id('download').click()
+        self.driver.find_element_by_id(Data.Download).click()
         time.sleep(2)
         p = pwd()
         management_name = self.cal.get_management_selected_option()
@@ -186,7 +187,7 @@ class SchoolInfra_scores():
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(10)
         self.cal.page_loading(self.driver)
-        self.driver.find_element_by_id('download').click()
+        self.driver.find_element_by_id(Data.Download).click()
         time.sleep(2)
         p = pwd()
         management_name = self.cal.get_management_selected_option()
@@ -204,7 +205,7 @@ class SchoolInfra_scores():
         chooseinfra = Select(self.driver.find_element_by_id('choose_infra'))
         chooseinfra.select_by_index(11)
         self.cal.page_loading(self.driver)
-        self.driver.find_element_by_id('download').click()
+        self.driver.find_element_by_id(Data.Download).click()
         time.sleep(2)
         p = pwd()
         management_name = self.cal.get_management_selected_option()
@@ -227,7 +228,7 @@ class SchoolInfra_scores():
         for i in range(1,len(infraoptions.options)):
             infraoptions.select_by_index(i)
             self.cal.page_loading(self.driver)
-            self.driver.find_element_by_id('download').click()
+            self.driver.find_element_by_id(Data.Download).click()
             time.sleep(2)
             p = pwd()
             self.management_name = self.cal.get_management_selected_option()

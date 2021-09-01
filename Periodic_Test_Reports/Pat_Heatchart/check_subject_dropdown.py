@@ -19,7 +19,7 @@ class subject_levels():
         self.load = GetData()
         count = 0
         self.fname = file_extention()
-        management = self.driver.find_element_by_id('nm').text
+        management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.driver.find_element_by_id(Data.home).click()
         self.load.page_loading(self.driver)

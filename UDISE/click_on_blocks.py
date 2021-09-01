@@ -19,7 +19,7 @@ class click_on_blocks():
        dots = self.driver.find_elements_by_class_name(Data.dots)
        count = len(dots) - 1
        self.p.page_loading(self.driver)
-       self.driver.find_element_by_id('download').click()
+       self.driver.find_element_by_id(Data.Download).click()
        time.sleep(3)
        self.filename = cal.get_download_dir() + '/Block_wise_report.csv'
        self.p.page_loading(self.driver)

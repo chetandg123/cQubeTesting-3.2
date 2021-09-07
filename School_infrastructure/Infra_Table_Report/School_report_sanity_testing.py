@@ -41,7 +41,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
-        self.data.navigate_to_school_infrastructure()
+        self.data.navigate_to_composite_infrastructure()
         self.data.page_loading(self.driver)
 
     def test_blockwise_from_selectbox(self):
@@ -183,7 +183,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.assertEqual("Log in to cQube", self.driver.title, msg="logout is not working ")
         print("logout functionality is working...")
         self.data.login_cqube(self.driver)
-        self.data.navigate_to_school_infrastructure()
+        self.data.navigate_to_composite_infrastructure()
         self.data.page_loading(self.driver)
 
     def test_districtwise_graph(self):

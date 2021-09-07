@@ -11,11 +11,11 @@ class cQube_si_Report(unittest.TestCase):
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
-        self.data.navigate_to_school_infrastructure()
+        self.data.navigate_to_composite_infrastructure()
         self.data.page_loading(self.driver)
 
     def test_dashboard_si_report(self):
-        self.data.navigate_to_school_infrastructure()
+        self.data.navigate_to_composite_infrastructure()
         self.data.page_loading(self.driver)
         if "school-infrastructure" in self.driver.current_url:
             print("School chart  report page is present")
@@ -29,7 +29,7 @@ class cQube_si_Report(unittest.TestCase):
             print("Home page of cQube is displayed")
         else:
             print("cQube home page is not displayed")
-        self.data.navigate_to_school_infrastructure()
+        self.data.navigate_to_composite_infrastructure()
         self.data.page_loading(self.driver)
 
     @classmethod

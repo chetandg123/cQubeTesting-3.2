@@ -11,5 +11,7 @@ class schoolinfra_logout():
         self.p = GetData()
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.p.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        time.sleep(2)
         self.driver.find_element_by_id(Data.logout).click()
 

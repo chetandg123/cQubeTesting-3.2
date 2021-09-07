@@ -41,6 +41,5 @@ class overalldownload():
                     print('Total content usage mis match found')
                     count = count + 1
             os.remove(self.filename)
-
         return count
 

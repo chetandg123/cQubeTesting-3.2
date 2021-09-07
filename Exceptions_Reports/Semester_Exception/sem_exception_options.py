@@ -21,7 +21,7 @@ class sem_options():
         choose.select_by_index(1)
         if 'no data found' in self.driver.page_source:
             print("Semester 1 has not data")
-            self.driver.find_element_by_id(Data.home).click()
+            self.driver.find_element_by_id(Data.cQube_logo).click()
             self.data.page_loading(self.driver)
             self.data.navigate_to_semester_exception()
             self.data.page_loading(self.driver)

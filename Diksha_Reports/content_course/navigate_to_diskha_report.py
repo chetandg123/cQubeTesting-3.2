@@ -11,7 +11,7 @@ class Diksha_page():
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
         self.data.navigate_to_diksha_content_course()
         self.data.page_loading(self.driver)

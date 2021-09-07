@@ -28,7 +28,7 @@ class cQube_chart_percentage_functionalTest(unittest.TestCase):
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
         if 'dashboard' in self.driver.current_url:
             print('Landing page is displayed ')
@@ -49,7 +49,7 @@ class cQube_chart_percentage_functionalTest(unittest.TestCase):
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
         self.driver.find_element_by_xpath("//div[@id='tpd-tp']").click()
         self.data.page_loading(self.driver)

@@ -15,7 +15,9 @@ class Home_functions():
         timeseries = Select(self.driver.find_element_by_id(Data.timeperiods))
         timeseries.select_by_index(2)
         self.load.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.homeicon).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        self.load.page_loading(self.driver)
+        self.load.navigate_to_tpd_content_progress()
         self.load.page_loading(self.driver)
 
 
@@ -24,7 +26,7 @@ class Home_functions():
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.load.page_loading(self.driver)
         self.driver.find_element_by_xpath("//*[@id='tdp-cp']").click()
         self.load.page_loading(self.driver)

@@ -29,7 +29,7 @@ class periodic_grades_downlaod():
             print("Grade dropdown does not contains options ")
             count = count + 1
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
         return count
 
@@ -91,7 +91,7 @@ class periodic_grades_downlaod():
                         print(grade.options[j].text, "is present")
                     self.data.page_loading(self.driver)
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
 

@@ -19,7 +19,7 @@ class subject_levels():
         self.load = GetData()
         count = 0
         self.fname = file_extention()
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.load.page_loading(self.driver)
         self.load.navigate_to_lo_table_report()
         self.load.page_loading(self.driver)

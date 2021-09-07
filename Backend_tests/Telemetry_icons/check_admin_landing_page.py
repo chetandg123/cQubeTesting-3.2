@@ -26,7 +26,7 @@ class Test_admin_landing_page(unittest.TestCase):
             print("Create user screen is present ")
         else:
             print("create user screen is not present ")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
 
@@ -39,7 +39,7 @@ class Test_admin_landing_page(unittest.TestCase):
             print("Change password screen is present ")
         else:
             print("Change password screen is not present ")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
 
@@ -52,7 +52,7 @@ class Test_admin_landing_page(unittest.TestCase):
             print(" logs  screen is present ")
         else:
             print("logs  screen is not present ")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
 
@@ -66,7 +66,7 @@ class Test_admin_landing_page(unittest.TestCase):
             print(" all user  screen is present ")
         else:
             print("all users screen is not present ")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
 
@@ -79,7 +79,7 @@ class Test_admin_landing_page(unittest.TestCase):
             print(" s3FileDownload user  screen is present ")
         else:
             print("s3FileDownload users screen is not present ")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_click_on_summary(self):
@@ -91,7 +91,7 @@ class Test_admin_landing_page(unittest.TestCase):
             print("Navigated summary statistics page")
         else:
             print("Summary statistics page does not exist ")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_click_on_monitor(self):
@@ -116,7 +116,7 @@ class Test_admin_landing_page(unittest.TestCase):
             print("Navigated nifi schedular page")
         else:
             print("nifi schedular page does not exist ")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     @classmethod

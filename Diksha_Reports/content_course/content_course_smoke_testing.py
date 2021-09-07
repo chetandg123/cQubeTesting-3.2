@@ -92,11 +92,6 @@ class cQube_content_course_smoke(unittest.TestCase):
         self.assertEqual(res, 0, msg='Some districts does not have table records')
         self.data.page_loading(self.driver)
 
-    def test_homeicon(self):
-        b =Diksha_homeicon(self.driver)
-        res = b.test_homeicon()
-        print('Home icon is working ')
-        self.data.page_loading(self.driver)
 
     def test_Table_orderwise(self):
         b = Table_orderwise(self.driver)
@@ -113,26 +108,26 @@ class cQube_content_course_smoke(unittest.TestCase):
         self.data.navigate_to_diksha_content_course()
         self.data.page_loading(self.driver)
 
-
-    def test_download_raw_files_overall_period(self):
-        b = download_raw_files_for_each_time_period(self.driver)
-        res = b.test_overall_rawfile_download()
-        self.assertEqual(0,res,msg='Raw file is not downloaded')
-
-    def test_download_raw_files_last_30days_period(self):
-        b = download_raw_files_for_each_time_period(self.driver)
-        res = b.test_last_30_days_rawfile_download()
-        self.assertEqual(0,res,msg='Raw file is not downloaded')
-
-    def test_download_raw_files_last_7_day_period(self):
-        b = download_raw_files_for_each_time_period(self.driver)
-        res = b.test_last_7_days_rawfile_download()
-        self.assertEqual(0,res,msg='Raw file is not downloaded')
-
-    def test_download_raw_files_lastday_period(self):
-        b = download_raw_files_for_each_time_period(self.driver)
-        res = b.test_last_day_rawfile_download()
-        self.assertEqual(0,res,msg='Raw file is not downloaded')
+    #Functionality is removed
+    # def test_download_raw_files_overall_period(self):
+    #     b = download_raw_files_for_each_time_period(self.driver)
+    #     res = b.test_overall_rawfile_download()
+    #     self.assertEqual(0,res,msg='Raw file is not downloaded')
+    #
+    # def test_download_raw_files_last_30days_period(self):
+    #     b = download_raw_files_for_each_time_period(self.driver)
+    #     res = b.test_last_30_days_rawfile_download()
+    #     self.assertEqual(0,res,msg='Raw file is not downloaded')
+    #
+    # def test_download_raw_files_last_7_day_period(self):
+    #     b = download_raw_files_for_each_time_period(self.driver)
+    #     res = b.test_last_7_days_rawfile_download()
+    #     self.assertEqual(0,res,msg='Raw file is not downloaded')
+    #
+    # def test_download_raw_files_lastday_period(self):
+    #     b = download_raw_files_for_each_time_period(self.driver)
+    #     res = b.test_last_day_rawfile_download()
+    #     self.assertEqual(0,res,msg='Raw file is not downloaded')
 
     @classmethod
     def tearDownClass(cls):

@@ -39,7 +39,7 @@ class Student_Exceptions():
         cal = GetData()
         count = 0
         cal.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         cal.page_loading(self.driver)
         cal.navigate_to_student_exception()
         time.sleep(3)
@@ -284,7 +284,7 @@ class Student_Exceptions():
 
     def click_HomeButton(self):
         count = 0
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         cal = GetData()
         if 'dashboard' in self.driver.current_url:
             print('Homebutton is working')

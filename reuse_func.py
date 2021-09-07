@@ -261,7 +261,7 @@ class GetData():
         self.driver.find_element_by_id(Data.teacherattendance).click()
         time.sleep(3)
 
-    def navigate_to_school_infrastructure(self):
+    def navigate_to_composite_infrastructure(self):
         self.driver.implicitly_wait(30)
         self.driver.find_element_by_id(Data.menu_icon).click()
         time.sleep(1)
@@ -839,7 +839,7 @@ class GetData():
         management.select_by_index(n)
         print(management.options[n].text, 'is selected')
         self.data.page_loading(self.driver)
-        self.data.navigate_to_school_infrastructure()
+        self.data.navigate_to_composite_infrastructure()
         self.data.page_loading(self.driver)
 
     def select_management_to_composite_across_metrics_report(self, n):

@@ -43,7 +43,7 @@ class cQube_semester_exception_report(unittest.TestCase):
 
     def test_homebtn(self):
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         time.sleep(2)
         self.driver.find_element_by_id('isdata').click()
         if 'download-missing-data' in self.driver.current_url:

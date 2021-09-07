@@ -33,17 +33,10 @@ class cQube_completion_percentage_regression(unittest.TestCase):
         self.assertEqual(0,res,msg="Completion icon is not working ")
         self.data.page_loading(self.driver)
 
-
     def test_Homebtn_functionalities(self):
         b = Home_functionalities(self.driver)
         res = b.test_homebtn_funtion()
         self.assertEqual(res,0 ,msg="Homebtn is not worked")
-        self.data.page_loading(self.driver)
-
-    def test_hyperlink_function(self):
-        b=Home_functionalities(self.driver)
-        res = b.test_hyperlink_function()
-        print("Hyper link is working ")
         self.data.page_loading(self.driver)
 
     def test_Click_download_icon(self):
@@ -85,6 +78,7 @@ class cQube_completion_percentage_regression(unittest.TestCase):
         self.assertNotEqual(0,res1,msg='Collection names are not present')
         self.assertEqual(0,res2,"Collection name csv file is not downloaded")
         self.data.page_loading(self.driver)
+        time.sleep(3)
 
     def test_collection_records_district(self):
         b = collection_records(self.driver)
@@ -107,11 +101,11 @@ class cQube_completion_percentage_regression(unittest.TestCase):
         self.assertEqual(0, res2, "Collection name csv file is not downloaded")
         self.data.page_loading(self.driver)
 
-    def test_download_raw_files(self):
-        b = download_raw_files_for_each_time_period(self.driver)
-        res = b.test_overall_rawfile_download()
-        self.assertEqual(0,res,msg="Raw file is not downloaded..")
-        self.data.page_loading(self.driver)
+    # def test_download_raw_files(self):
+    #     b = download_raw_files_for_each_time_period(self.driver)
+    #     res = b.test_overall_rawfile_download()
+    #     self.assertEqual(0,res,msg="Raw file is not downloaded..")
+    #     self.data.page_loading(self.driver)
 
 
     @classmethod

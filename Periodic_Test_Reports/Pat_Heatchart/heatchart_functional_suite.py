@@ -34,7 +34,7 @@ class cQube_heatchart_functionalTest(unittest.TestCase):
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.driver.find_element_by_xpath("//div[@id='heatChart']").click()
         if "heat-chart" in self.driver.current_url:
             print('Heatchart icon is working ')
@@ -48,7 +48,7 @@ class cQube_heatchart_functionalTest(unittest.TestCase):
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.navigate_to_heatchart_report()
         self.data.page_loading(self.driver)
         if 'heat-chart' in self.driver.current_url:

@@ -20,7 +20,8 @@ class collection_records():
         self.data.page_loading(self.driver)
         colls = Select(self.driver.find_element_by_id(Data.coll_names))
         colcount = len(colls.options)-1
-        for i in range(1,len(colls.options)):
+        for i in range(1,len(colls.options)-1):
+            time.sleep(1)
             colls.select_by_index(i)
             time.sleep(5)
             self.data.page_loading(self.driver)
@@ -46,7 +47,7 @@ class collection_records():
         colls = Select(self.driver.find_element_by_id(Data.coll_names))
         colcount = len(colls.options) - 1
         self.data.page_loading(self.driver)
-        for j in range(len(district.options)-3,len(district.options)):
+        for j in range(1,len(district.options)-28):
             district.select_by_index(j)
             self.data.page_loading(self.driver)
             value = self.driver.find_element_by_id(Data.sar_district).get_attribute('value')

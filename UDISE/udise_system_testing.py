@@ -22,7 +22,7 @@ class cQube_udise_Report(unittest.TestCase):
 
     def test_udise_icon(self):
         count =0
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
         if 'dashboard' in self.driver.current_url:
             print('cQube Landing page is displayed and home button is working fine')

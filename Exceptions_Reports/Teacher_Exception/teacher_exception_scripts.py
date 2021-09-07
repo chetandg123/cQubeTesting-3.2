@@ -45,7 +45,7 @@ class teacher_exception_report():
         cal = GetData()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         cal.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         cal.page_loading(self.driver)
         cal.navigate_to_teacher_exception()
         cal.page_loading(self.driver)

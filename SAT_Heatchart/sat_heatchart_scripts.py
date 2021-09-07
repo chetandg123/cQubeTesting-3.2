@@ -139,7 +139,7 @@ class sat_heat_scripts():
         month = Select(self.driver.find_element_by_id('month'))
         self.year = (year.first_selected_option.text).strip()
         self.month = (month.first_selected_option.text).strip()
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         cal.page_loading(self.driver)
         cal.navigate_to_sat_heatchart_report()
         self.driver.find_element_by_id(Data.Download).click()
@@ -186,7 +186,7 @@ class sat_heat_scripts():
         self.fname = file_extention()
         management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.load.page_loading(self.driver)
         self.load.navigate_to_sat_heatchart_report()
         self.load.page_loading(self.driver)
@@ -240,7 +240,7 @@ class sat_heat_scripts():
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.load.page_loading(self.driver)
         self.driver.find_element_by_xpath("//div[@id='satHeatChart']").click()
         self.load.page_loading(self.driver)

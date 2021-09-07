@@ -1,0 +1,60 @@
+Index: demo1.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/demo1.py b/demo1.py
+new file mode 100644
+--- /dev/null	(date 1629824159728)
++++ b/demo1.py	(date 1629824159728)
+@@ -0,0 +1,49 @@
++import time
++import unittest
++
++from selenium.webdriver import ActionChains
++from selenium.webdriver.common import keys
++
++from Data.parameters import Data
++from Landing_Page.cQube_icons import cQube_landing_page
++from reuse_func import GetData
++
++class cQube_Home(unittest.TestCase):
++
++    @classmethod
++    def setUpClass(self):
++        self.data = GetData()
++        self.driver = self.data.get_driver()
++        self.driver.implicitly_wait(50)
++        self.data.open_cqube_appln(self.driver)
++        self.data.login_cqube(self.driver)
++        self.data.page_loading(self.driver)
++
++    def test_check_semester_Exception_report_icon(self):
++        count = 0
++        self.data = GetData()
++        self.driver.find_element_by_id(Data.menu_icon).click()
++        time.sleep(1)
++        actionChains = ActionChains(self.driver)
++        option = self.driver.find_element_by_class_name("sideScrollHeight")
++        actionChains.click_and_hold(option).move_by_offset(0, 5000).release().perform()
++        time.sleep(5)
++
++        time.sleep(4)
++        # self.driver.find_element_by_id(Data.Exception_Reports).click()
++        # if 'exception-dashboard' not in self.driver.current_url:
++        #     print("exception-dashboard is not displayed")
++        #     count = count + 1
++        # else:
++        #     print("exception-dashboard is displayed ...")
++        #     self.driver.find_element_by_id(Data.semesterexception).click()
++        #     self.data.page_loading(self.driver)
++        #     if 'sem-exception' in self.driver.current_url:
++        #         print('sem-exception is displayed')
++        #     else:
++        #         print("sem-exception should be display in url ")
++        #         count = count + 1
++        #         self.data.page_loading(self.driver)
++        #         self.driver.find_element_by_id(Data.cQube_logo).click()
++        #         self.data.page_loading(self.driver)
++        # self.assertEqual(0,count,msg='snifdbsd')
+\ No newline at end of file

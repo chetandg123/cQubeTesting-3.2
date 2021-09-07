@@ -24,12 +24,12 @@ class Check_Districtwise():
         Districts = Select(self.driver.find_element_by_id(Data.sar_district))
         course_type = Select(self.driver.find_element_by_id(Data.coursetype))
         time = (self.driver.find_element_by_id('time_range').text).strip()
-        for i in range(1, len(course_type.options)):
+        for i in range(1, len(course_type.options)-1):
             course_type.select_by_index(i)
             self.data.page_loading(self.driver)
             cname = course_type.options[i].text
             course = cname.strip()
-            for j in range(len(Districts.options)-5,len(Districts.options)):
+            for j in range(1,len(Districts.options)-4):
                 Districts.select_by_index(j)
                 self.data.page_loading(self.driver)
                 self.driver.find_element_by_id(Data.Download).click()

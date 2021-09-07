@@ -32,11 +32,12 @@ class district_level_records():
             dists.select_by_index(i)
             time.sleep(2)
             value = self.driver.find_element_by_id(Data.district_dropdown).get_attribute('value')
-            value = value[4:]+'_'
+            value = value[3:]+'_'
             self.load.page_loading(self.driver)
             self.driver.find_element_by_id(Data.Download).click()
-            time.sleep(3)
+            time.sleep(5)
             self.filename = self.p.get_download_dir() +"/" + self.fname.tpd_all_districtwise()+value.strip()+self.load.get_current_date()+'.csv'
+            print(self.filename)
             file = os.path.isfile(self.filename)
             if file != True:
                 print(dists.options[i].text, 'District wise records csv file is not downloaded')

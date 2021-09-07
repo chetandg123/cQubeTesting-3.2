@@ -18,7 +18,7 @@ class enrollment_icon():
             print('Homebtn is not working ')
             count = count + 1
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_xpath("//div[@id='tpd-enroll']").click()
+        self.data.navigate_to_tpd_enrollment_report()
         if 'tpd-enrollment' in self.driver.current_url:
             print('TPD Enrollment report is displayed ')
         else:

@@ -22,8 +22,9 @@ class Home_functionalities():
         timeseries.select_by_index(2)
         self.data.page_loading(self.driver)
         # present = self.driver.find_element_by_id(Data.homeicon).isDisplayed()
-        self.driver.find_element_by_id(Data.homeicon).click()
-        print('checked with homeicon function is working ')
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        self.data.navigate_to_tpd_enrollment_report()
+        print('checked with cQube logo function is working ')
         self.data.page_loading(self.driver)
         # return  present
 
@@ -36,9 +37,9 @@ class Home_functionalities():
         self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
         if 'dashboard' in self.driver.current_url:
-            print('Home button is working ')
+            print('cQube logo functionality is working ')
         else:
-            print('Homebtn is not working ')
+            print('cQube logo is not working ')
             count = count + 1
         self.data.page_loading(self.driver)
         self.data.navigate_to_tpd_enrollment_report()

@@ -25,7 +25,7 @@ class change_password(unittest.TestCase):
         self.data.page_loading(self.driver)
         head = self.driver.find_element_by_id('head').text
         self.assertEqual("Create User", head, msg="create user page is not exists")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_hamburger_change_password(self):
@@ -35,7 +35,7 @@ class change_password(unittest.TestCase):
         self.data.page_loading(self.driver)
         head = self.driver.find_element_by_id('head').text
         self.assertEqual("Change Password", head, msg="create user page is not exists")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_click_changepass_without_inputs(self):
@@ -52,7 +52,7 @@ class change_password(unittest.TestCase):
             count = count + 1
         self.assertEqual(0,count,msg='Password changed without inputs')
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_mismatch_new_and_conf_passwords(self):
@@ -73,7 +73,7 @@ class change_password(unittest.TestCase):
             count = count + 1
         self.assertEqual(0,count,msg='Password is re created with mis match of passwords')
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_check_username_in_changepassword_page(self):
@@ -89,7 +89,7 @@ class change_password(unittest.TestCase):
         print(user,'in screen')
         print(username ,'in config')
         self.assertEqual(username,user,msg='Username and username present in chpass page is different')
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_change_password(self):
@@ -104,7 +104,7 @@ class change_password(unittest.TestCase):
         # self.driver.find_element_by_id('btn').click()
         print('Change password is worked')
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     @classmethod

@@ -1,3 +1,5 @@
+import time
+
 from Data.parameters import Data
 from reuse_func import GetData
 
@@ -11,14 +13,15 @@ class completion_percentage_icon():
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        time.sleep(1)
         if 'dashboard' in self.driver.current_url:
             print('cQube landing page is displayed')
         else:
             print('Homebtn is not working ')
             count = count + 1
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_xpath("//div[@id='tpd-comp']").click()
+        self.data.navigate_to_tpd_completion_percentage()
         if 'tpd-completion' in self.driver.current_url:
             print('TPD Completion percentage report is displayed ')
         else:
@@ -33,7 +36,7 @@ class completion_percentage_icon():
         self.data.page_loading(self.driver)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         if 'dashboard' in self.driver.current_url:
             print('cQube landing page is displayed')
         else:

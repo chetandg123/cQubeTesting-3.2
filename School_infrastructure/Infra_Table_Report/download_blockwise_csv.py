@@ -37,6 +37,6 @@ class donwload_blockwise_csv():
         else:
             print('Block level file is downloaded')
             os.remove(self.filename)
-        return  count
+        return count
 
 

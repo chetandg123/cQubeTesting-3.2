@@ -27,7 +27,7 @@ class Data():
     hyper_link = "//p/span"
     directory = "//p[contains(text(),' Semester report for:')]/span"
     Download = "download1"
-    Download_scator ='download'
+    Download_scator ='download1'
     s3bucket_select1 ="//*[@id='table']/thead[2]/tr[2]/td[1]/input"
     summ ="//*[@id='summary']/div/td[2]"
     # Dash board

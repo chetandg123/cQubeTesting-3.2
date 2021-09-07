@@ -11,7 +11,7 @@ class enrollment_icon():
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         if 'dashboard' in self.driver.current_url:
             print('cQube landing page is displayed')
         else:
@@ -33,7 +33,7 @@ class enrollment_icon():
         self.data.page_loading(self.driver)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         if 'dashboard' in self.driver.current_url:
             print('cQube landing page is displayed')
         else:

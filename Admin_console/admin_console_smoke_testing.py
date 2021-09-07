@@ -24,7 +24,7 @@ class Admin_console_smoketest(unittest.TestCase):
         self.data.page_loading(self.driver)
         head = self.driver.find_element_by_id('head').text
         self.assertEqual("Create User", head, msg="create user page is not exists")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
 
@@ -41,7 +41,7 @@ class Admin_console_smoketest(unittest.TestCase):
             print(role.options[i].text)
             self.data.page_loading(self.driver)
         self.assertNotEqual(0,count,msg='Roles are missing ')
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_application_logs(self):
@@ -57,7 +57,7 @@ class Admin_console_smoketest(unittest.TestCase):
         for i in range(len(log_name.options)):
             log_name.select_by_index(i)
             print(log_name.options[i].text, "is selected")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
 
@@ -76,7 +76,7 @@ class Admin_console_smoketest(unittest.TestCase):
         for i in range(len(log_name.options)):
             log_name.select_by_index(i)
             print(log_name.options[i].text, "is selected")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
 
@@ -94,7 +94,7 @@ class Admin_console_smoketest(unittest.TestCase):
         for i in range(len(log_name.options)):
             log_name.select_by_index(i)
             print(log_name.options[i].text, "is selected")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
 
@@ -111,7 +111,7 @@ class Admin_console_smoketest(unittest.TestCase):
         for i in range(len(log_name.options)):
             log_name.select_by_index(i)
             print(log_name.options[i].text, "is selected")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
 
@@ -130,7 +130,7 @@ class Admin_console_smoketest(unittest.TestCase):
         for i in range(len(log_name.options)):
             log_name.select_by_index(i)
             print(log_name.options[i].text, "is selected")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
 
@@ -148,7 +148,7 @@ class Admin_console_smoketest(unittest.TestCase):
         for i in range(len(log_name.options)):
             log_name.select_by_index(i)
             print(log_name.options[i].text, "is selected")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
 
@@ -162,7 +162,7 @@ class Admin_console_smoketest(unittest.TestCase):
         else:
             print("s3FileDownload is not exists ")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_bucket(self):
@@ -176,7 +176,7 @@ class Admin_console_smoketest(unittest.TestCase):
             bucket_name.select_by_index(i)
             print(bucket_name.options[i].text)
             self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_summary_icon(self):
@@ -190,7 +190,7 @@ class Admin_console_smoketest(unittest.TestCase):
             print('Summary report page is not displayed')
             count = count + 1
         self.assertEqual(0, count, msg='Summary report page is not working')
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_logout(self):
@@ -213,7 +213,7 @@ class Admin_console_smoketest(unittest.TestCase):
         else:
             print("User list report is not present ")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_userlist_table(self):
@@ -225,7 +225,7 @@ class Admin_console_smoketest(unittest.TestCase):
         for i in range(len(table)):
             print(table[i].text)
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
 

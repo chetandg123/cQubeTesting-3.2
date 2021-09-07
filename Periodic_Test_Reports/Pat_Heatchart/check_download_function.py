@@ -26,7 +26,7 @@ class Download_districtwise():
         month = Select(self.driver.find_element_by_id('month'))
         self.year = (year.first_selected_option.text).strip()
         self.month = (month.first_selected_option.text).strip()
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         cal.page_loading(self.driver)
         cal.navigate_to_heatchart_report()
         month = Select(self.driver.find_element_by_id('month'))

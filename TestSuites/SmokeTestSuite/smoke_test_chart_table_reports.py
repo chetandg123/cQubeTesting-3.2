@@ -310,7 +310,7 @@ class MyTestSuite_smoke_chart_tables(unittest.TestCase):
 
     def test_issue14(self):
         self.data.page_loading(self.driver)
-        self.data.navigate_to_school_infrastructure()
+        self.data.navigate_to_composite_infrastructure()
         if 'No data found' in self.driver.page_source:
             print('School infrastructure Report is showing no data found!..')
             self.driver.close()

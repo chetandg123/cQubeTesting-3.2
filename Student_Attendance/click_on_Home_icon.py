@@ -14,7 +14,7 @@ class Home():
         self.driver = driver
 
     def click_HomeButton(self):
-            self.driver.find_element_by_id(Data.home).click()
+            self.driver.find_element_by_id(Data.cQube_logo).click()
             cal = GetData()
             cal.page_loading(self.driver)
             cal.navigate_to_student_report()

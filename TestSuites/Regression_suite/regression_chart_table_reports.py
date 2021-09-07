@@ -61,7 +61,7 @@ class MyTestSuite(unittest.TestCase):
         status = self.data.get_student_status("infrastructure")
         if status == str(True):
             self.data.page_loading(self.driver)
-            self.data.navigate_to_school_infrastructure()
+            self.data.navigate_to_composite_infrastructure()
             if 'No data found' in self.driver.page_source:
                 print('School infrastructure Report is showing no data found!..')
                 self.driver.close()

@@ -1,4 +1,4 @@
-
+import time
 
 from selenium.webdriver.support.select import Select
 
@@ -19,13 +19,15 @@ class Diksha_column_homeicon():
         choose = Select(self.driver.find_element_by_name('timePeriod'))
         choose.select_by_index(2)
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.homeicon).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
+        self.data.navigate_to_column_course()
+        time.sleep(2)
 
     def test_homebutton(self):
         count = 0
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
         # self.data.navigate_to_column_course()
         self.driver.find_element_by_id('dcc').click()

@@ -1,10 +1,6 @@
+import time
 import unittest
-
-
 from School_infrastructure.Infra_Table_Report.Click_on_xaxis_and_yaxis import Graph_values
-
-
-from School_infrastructure.Infra_Table_Report.check_graph_present_on_school_infra import check_with_graph
 from School_infrastructure.Infra_Table_Report.check_homebtn import home
 from School_infrastructure.Infra_Table_Report.check_sc_scattor_blockwise_records import school_blockwise
 from School_infrastructure.Infra_Table_Report.check_sc_scattor_clusterwise_records import Test_schoolwise
@@ -32,7 +28,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
-        self.data.navigate_to_school_infrastructure()
+        self.data.navigate_to_composite_infrastructure()
         self.data.page_loading(self.driver)
 
     def test_dashboard(self):
@@ -73,19 +69,9 @@ class cQube_SI_Report(unittest.TestCase):
     def test_check_hyperlinks(self):
         hyperlinks = Hyperlink(self.driver)
         choose_dist = hyperlinks.click_on_hyperlinks()
-        # if result1 == False and result2 == False and choose_dist == "Choose a District ":
-        #     print("hyperlinks are working")
-        # else:
-        #     raise self.failureException("hyperlinks are not working")
         print('checked with hyperlinks from district , block and cluster level ')
         self.data.page_loading(self.driver)
 
-
-    def test_home(self):
-        b = home(self.driver)
-        res = b.test_homeicon()
-        print("homeicon is working..")
-        self.data.page_loading(self.driver)
 
     def test_homebutton(self):
         b = home(self.driver)
@@ -128,8 +114,10 @@ class cQube_SI_Report(unittest.TestCase):
                          msg="School infrastructure report not exist ")
         self.assertEqual("Log in to cQube", self.driver.title, msg="logout is not working ")
         print("logout functionality is working...")
+        time.sleep(3)
         self.data.login_cqube(self.driver)
-        self.data.navigate_to_school_infrastructure()
+        time.sleep(3)
+        self.data.navigate_to_composite_infrastructure()
         self.data.page_loading(self.driver)
 
     def test_plotxvalues(self):

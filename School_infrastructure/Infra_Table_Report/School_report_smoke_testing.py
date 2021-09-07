@@ -1,7 +1,5 @@
 import time
 import unittest
-
-
 from School_infrastructure.Infra_Table_Report.Click_on_xaxis_and_yaxis import Graph_values
 from School_infrastructure.Infra_Table_Report.check_homebtn import home
 from School_infrastructure.Infra_Table_Report.check_sc_scattor_blockwise_records import school_blockwise
@@ -27,7 +25,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
-        self.data.navigate_to_school_infrastructure()
+        self.data.navigate_to_composite_infrastructure()
         time.sleep(5)
 
     def test_dashboard(self):
@@ -76,11 +74,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.data.page_loading(self.driver)
 
 
-    def test_home(self):
-        b = home(self.driver)
-        res = b.test_homeicon()
-        print("homeicon is working..")
-        self.data.page_loading(self.driver)
+
 
     def test_homebutton(self):
         b = home(self.driver)
@@ -110,7 +104,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.assertEqual("Log in to cQube", self.driver.title, msg="logout is not working ")
         print("logout functionality is working...")
         self.data.login_cqube(self.driver)
-        self.data.navigate_to_school_infrastructure()
+        self.data.navigate_to_composite_infrastructure()
         self.data.page_loading(self.driver)
 
     def test_plotxvalues(self):

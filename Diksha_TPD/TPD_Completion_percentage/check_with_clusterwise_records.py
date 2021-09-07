@@ -62,5 +62,6 @@ class Check_with_all_clusters():
                     os.remove(self.filename)
                     self.data.page_loading(self.driver)
 
+
         return count
 

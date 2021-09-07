@@ -27,7 +27,7 @@ class create_user(unittest.TestCase):
         self.data.page_loading(self.driver)
         head = self.driver.find_element_by_id('head').text
         self.assertEqual("Create User", head, msg="create user page is not exists")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_hamburger_create_user(self):
@@ -35,7 +35,7 @@ class create_user(unittest.TestCase):
         self.driver.find_element_by_id(Data.adduser).click()
         head = self.driver.find_element_by_id('head').text
         self.assertEqual("Create User", head, msg="create user page is not exists")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_create_adminrole(self):
@@ -53,7 +53,7 @@ class create_user(unittest.TestCase):
         self.driver.find_element_by_id("passswd").send_keys(self.data.get_demoadmin_password())
         self.driver.find_element_by_id("btn").click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.driver.find_element_by_id(Data.Dashboard).click()
         self.driver.find_element_by_xpath(Data.userlst).click()
         self.data.page_loading(self.driver)
@@ -62,7 +62,7 @@ class create_user(unittest.TestCase):
         else:
             print("User is not created and also not present in user list ")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
 
     def test_create_report_role(self):
         self.data.page_loading(self.driver)
@@ -79,7 +79,7 @@ class create_user(unittest.TestCase):
         self.driver.find_element_by_id("passswd").send_keys(self.data.get_demoreport_password())
         self.driver.find_element_by_id("btn").click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.driver.find_element_by_id(Data.Dashboard).click()
         self.driver.find_element_by_xpath(Data.userlst).click()
         self.data.page_loading(self.driver)
@@ -88,7 +88,7 @@ class create_user(unittest.TestCase):
         else:
             print("User is not created and also not present in user list ")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
 
     def test_create_emission_role(self):
         self.data.page_loading(self.driver)
@@ -105,7 +105,7 @@ class create_user(unittest.TestCase):
         self.driver.find_element_by_id("passswd").send_keys(self.data.get_demoemission_password())
         self.driver.find_element_by_id("btn").click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.driver.find_element_by_id(Data.Dashboard).click()
         self.driver.find_element_by_xpath(Data.userlst).click()
         self.data.page_loading(self.driver)
@@ -114,7 +114,7 @@ class create_user(unittest.TestCase):
         else:
             print("User is not created and also not present in user list ")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
 
     def test_roles_dropdown(self):
         self.data.page_loading(self.driver)
@@ -130,7 +130,7 @@ class create_user(unittest.TestCase):
             print(role.options[i].text)
             self.data.page_loading(self.driver)
         self.assertNotEqual(0, count, msg='Roles are missing ')
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_without_entering_fields_and_select_any_role(self):

@@ -21,7 +21,7 @@ class subject_levels():
         self.fname = file_extention()
         management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.load.page_loading(self.driver)
         self.load.navigate_to_heatchart_report()
         self.load.page_loading(self.driver)

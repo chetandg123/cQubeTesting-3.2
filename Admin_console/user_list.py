@@ -26,7 +26,7 @@ class user_list(unittest.TestCase):
         head = self.driver.find_element_by_id('head').text
         self.assertEqual("Users List", head, msg="user list page is not exists")
         print('Navigation to userlist page is working ')
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_hamburger_create_user(self):
@@ -37,7 +37,7 @@ class user_list(unittest.TestCase):
         head = self.driver.find_element_by_id('head').text
         self.assertEqual("Users List", head, msg="user list page is not exists")
         print('Navigation to userlist page is working ')
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
 
@@ -51,7 +51,7 @@ class user_list(unittest.TestCase):
         else:
             print("User is not created and also not present in user list ")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_homebtn_function(self):
@@ -60,7 +60,7 @@ class user_list(unittest.TestCase):
         self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
         self.driver.find_element_by_xpath(Data.userlst).click()
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
         if 'admin-dashboard' in self.driver.current_url:
             print('Home button is working ')
@@ -83,7 +83,7 @@ class user_list(unittest.TestCase):
             print("Search box is not searched ")
             count = count + 1
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
         self.assertEqual(0,count,msg="Search box is not working ")
 

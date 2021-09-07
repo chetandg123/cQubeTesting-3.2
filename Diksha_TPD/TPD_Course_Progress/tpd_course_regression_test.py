@@ -28,7 +28,7 @@ class cQube_lpdcontent_regression_Test(unittest.TestCase):
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
         if 'dashboard' in self.driver.current_url:
             print('Landing page is displayed ')
@@ -80,13 +80,13 @@ class cQube_lpdcontent_regression_Test(unittest.TestCase):
         res = b.test_homeicons()
         print("checked with home icons is working")
         self.data.page_loading(self.driver)
-
-    def test_Home_button_functions(self):
-        b = Home_functions(self.driver)
-        res = b.test_homebutton()
-        self.assertEqual(0,res,msg='Navigation failed to content progress chart')
-        print("checked with homebutton is working")
-        self.data.page_loading(self.driver)
+    #
+    # def test_Home_button_functions(self):
+    #     b = Home_functions(self.driver)
+    #     res = b.test_homebutton()
+    #     self.assertEqual(0,res,msg='Navigation failed to content progress chart')
+    #     print("checked with homebutton is working")
+    #     self.data.page_loading(self.driver)
 
     def test_all_districts(self):
         b = district_level_records(self.driver)

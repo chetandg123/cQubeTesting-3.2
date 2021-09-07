@@ -42,7 +42,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.driver = self.data.get_driver()
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
-        self.data.navigate_to_school_infrastructure()
+        self.data.navigate_to_composite_infrastructure()
         self.data.page_loading(self.driver)
 
     def test_blockwise_from_selectbox(self):
@@ -191,7 +191,7 @@ class cQube_SI_Report(unittest.TestCase):
         self.assertNotIn(" School Infrastructure report for: ",self.driver.page_source,msg="School infrastructure report not exist ")
         self.assertEqual("cQube",self.driver.title,msg="logout is not working ")
         self.data.login_cqube(self.driver)
-        self.data.navigate_to_school_infrastructure()
+        self.data.navigate_to_composite_infrastructure()
         self.data.page_loading(self.driver)
 
     @classmethod

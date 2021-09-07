@@ -36,7 +36,7 @@ class adminconsole_system_test(unittest.TestCase):
         self.driver.find_element_by_id('addUser').click()
         head = self.driver.find_element_by_id('head').text
         self.assertEqual("Create User",head,msg="create user page is not exists")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_dashboard_usercreate(self):
@@ -46,7 +46,7 @@ class adminconsole_system_test(unittest.TestCase):
         self.driver.find_element_by_id(Data.cuser).click()
         head = self.driver.find_element_by_id('head').text
         self.assertEqual("Create User", head, msg="create user page is not exists")
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_create_adminrole(self):
@@ -64,7 +64,7 @@ class adminconsole_system_test(unittest.TestCase):
         self.driver.find_element_by_id("passswd").send_keys(self.data.get_demoadmin_password())
         self.driver.find_element_by_id("btn").click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.driver.find_element_by_id(Data.Dashboard).click()
         self.driver.find_element_by_id(Data.userlist).click()
         self.data.page_loading(self.driver)
@@ -73,7 +73,7 @@ class adminconsole_system_test(unittest.TestCase):
         else:
             print("User is not created and also not present in user list ")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
 
     def test_create_report_role(self):
         self.data.page_loading(self.driver)
@@ -90,7 +90,7 @@ class adminconsole_system_test(unittest.TestCase):
         self.driver.find_element_by_id("passswd").send_keys(self.data.get_demoreport_password())
         self.driver.find_element_by_id("btn").click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.driver.find_element_by_id(Data.Dashboard).click()
         self.driver.find_element_by_id(Data.userlist).click()
         self.data.page_loading(self.driver)
@@ -99,7 +99,7 @@ class adminconsole_system_test(unittest.TestCase):
         else:
             print("User is not created and also not present in user list ")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
 
     def test_create_emission_role(self):
         self.data.page_loading(self.driver)
@@ -116,7 +116,7 @@ class adminconsole_system_test(unittest.TestCase):
         self.driver.find_element_by_id("passswd").send_keys(self.data.get_demoemission_password())
         self.driver.find_element_by_id("btn").click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.driver.find_element_by_id(Data.Dashboard).click()
         self.driver.find_element_by_id(Data.userlist).click()
         self.data.page_loading(self.driver)
@@ -125,7 +125,7 @@ class adminconsole_system_test(unittest.TestCase):
         else:
             print("User is not created and also not present in user list ")
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
 
     def test_passwordBox(self):
         self.data.page_loading(self.driver)
@@ -137,7 +137,7 @@ class adminconsole_system_test(unittest.TestCase):
             print('Change password is displayed ')
         else:
             print('Change password is not displayed ')
-        self.driver.find_element_by_id(Data.home).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
 
     def test_navigate_to_s3files(self):

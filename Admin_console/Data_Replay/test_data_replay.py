@@ -51,7 +51,7 @@ class DataReplay(unittest.TestCase):
     #     self.data.page_loading(self.driver)
     #     head = self.driver.find_element_by_id('head').text
     #     self.assertEqual("Create User", head, msg="create user page is not exists")
-    #     self.driver.find_element_by_id(Data.home).click()
+    #     self.driver.find_element_by_id(Data.cQube_logo).click()
     #     self.data.page_loading(self.driver)
 
     @classmethod

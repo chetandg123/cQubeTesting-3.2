@@ -1,6 +1,7 @@
 import time
 import unittest
 from Data.parameters import Data
+from UDISE.click_on_hyperlink import click_on_hyperlink
 from reuse_func import GetData
 
 from UDISE.check_indices_with_download_functionality import udiseindices_scores
@@ -46,13 +47,10 @@ class cQube_udise_Report(unittest.TestCase):
         self.assertEqual(0,count,msg='Udise report icon not working ')
         self.data.page_loading(self.driver)
 
-    # def test_hyperlink(self):
-    #     b = click_on_hyperlink(self.driver)
-    #     res = b.test_link()
-    #     if "udise-report" in self.driver.current_url:
-    #         print("Udise map based report present")
-    #     else:
-    #         print("hyperlink is not working ")
+    def test_hyperlink(self):
+        b = click_on_hyperlink(self.driver)
+        res = b.test_link()
+        self.assertEqual(res,0,msg="Hyperlink link functionality is breaked..")
 
     def test_download_districtcsv(self):
         fn = udise_districts_csv(self.driver)
@@ -88,9 +86,9 @@ class cQube_udise_Report(unittest.TestCase):
     def test_Block_cluster_school_for_udise(self):
         b = Block_cluster_school_for_udise(self.driver)
         res, res1, res2, res3 = b.test_check_total_schoolvalue()
-        self.assertEqual(res, res1, msg="Block level school is same")
-        self.assertEqual(res, res2, msg="Cluster level school is same")
-        self.assertEqual(res, res3, msg="School level school is same")
+        self.assertEqual(res, res1, msg="Block level no of school is not same")
+        self.assertEqual(res, res2, msg="Cluster level  no of school is not same")
+        self.assertEqual(res, res3, msg="School level  no of school is not same")
         self.data.page_loading(self.driver)
 
 
@@ -207,7 +205,7 @@ class cQube_udise_Report(unittest.TestCase):
     def test_logout(self):
         b =click_on_logout(self.driver)
         res = b.test_logout()
-        self.assertEqual('Log in to cQube',res,msg='Logout button is not workig')
+        self.assertEqual('Log in to cQube',res,msg='Logout button is not working')
         self.data.page_loading(self.driver)
         self.data.login_cqube(self.driver)
         self.data.navigate_to_udise_report()

@@ -65,6 +65,8 @@ class cQube_semester_exception_report(unittest.TestCase):
     def test_homepage(self):
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        time.sleep(1)
         self.data.navigate_to_semester_exception()
         count = 0
         self.data.page_loading(self.driver)
@@ -82,10 +84,10 @@ class cQube_semester_exception_report(unittest.TestCase):
         self.data.page_loading(self.driver)
 
 
-    def test_exception_Home(self):
-        b = exception_Home(self.driver)
-        res = b.click_on_blocks_click_on_home_icon()
-        self.assertEqual(0,res , msg="Home button is not working")
+    # def test_exception_Home(self):
+    #     b = exception_Home(self.driver)
+    #     res = b.click_on_blocks_click_on_home_icon()
+    #     self.assertEqual(0,res , msg="Home button is not working")
 
 
     def test_ClusterPerBlockCsvDownload(self):

@@ -1,11 +1,13 @@
 import unittest
 
 from Exceptions_Reports.Download_Exception.demo_exception import exception_download
-from Exceptions_Reports.Download_Exception.download_management_exceptions import exception_list_download
 from reuse_func import GetData
 
 
 class cQube_regression_download_exceptions(unittest.TestCase):
+
+    driver = None
+    data = None
 
     @classmethod
     def setUpClass(self):

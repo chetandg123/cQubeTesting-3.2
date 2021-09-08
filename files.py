@@ -86,7 +86,7 @@ class Files():
 
     udise_district="UDISE_report_Infrastructure_Score_allDistricts_"
     udise_block='UDISE_report_Infrastructure_Score_allBlocks_'
-    udise_cluster='UDISE_report_Infrastructure_Score_allClusters_'
+    udise_cluster='UDISE_report_overall_Infrastructure_Score_allClusters_'
     udise_school='UDISE_report_Infrastructure_Score_allSchools_'
     udise_districtwise='UDISE_report_Infrastructure_Score_blocks_of_district_'
     udise_blockwise='UDISE_report_Infrastructure_Score_clusters_of_block_'

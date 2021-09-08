@@ -15,7 +15,7 @@ class Home_functions():
         timeseries = Select(self.driver.find_element_by_id(Data.exam_dates))
         timeseries.select_by_index(2)
         self.load.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.homeicon).click()
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
 
     def test_homebutton(self):

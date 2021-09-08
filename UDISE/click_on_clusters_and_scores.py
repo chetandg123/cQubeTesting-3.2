@@ -17,17 +17,18 @@ class cluster_btn_scores():
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.p.page_loading(self.driver)
         self.driver.find_element_by_id(Data.scm_cluster).click()
-        self.p.page_loading(self.driver)
-        time.sleep(5)
+        time.sleep(10)
         scores = Select(self.driver.find_element_by_id("choose_infra"))
-        for i in range(1,len(scores.options)):
-            time.sleep(2)
+        print("no of infra scores:",len(scores.options))
+        for i in range(1,len(scores.options)-1):
+            time.sleep(1)
             scores.select_by_index(i)
+            time.sleep(3)
             self.p.page_loading(self.driver)
             markers = self.driver.find_elements_by_class_name(Data.dots)
             dots = len(markers) - 1
             if dots == 0:
-                print(scores.options[i].text, 'does not contains markers on map ')
+                print(i, 'does not contains markers on map ')
                 count = count + 1
         self.p.page_loading(self.driver)
         scores.select_by_index(1)

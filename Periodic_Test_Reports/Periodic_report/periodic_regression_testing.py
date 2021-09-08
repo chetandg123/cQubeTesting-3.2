@@ -23,6 +23,9 @@ from reuse_func import GetData
 
 class periodic_regression(unittest.TestCase):
 
+    driver = None
+    data = None
+
     @classmethod
     def setUpClass(self):
         self.data = GetData()

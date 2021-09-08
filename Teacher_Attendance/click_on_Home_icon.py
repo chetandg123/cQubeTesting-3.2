@@ -24,7 +24,7 @@ class Home():
         self.driver.find_element_by_id(Data.SAR_Blocks_btn).click()
         cal = GetData()
         cal.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.homeicon).click()
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
         cal.page_loading(self.driver)
 
 

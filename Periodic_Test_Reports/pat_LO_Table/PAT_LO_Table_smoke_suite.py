@@ -17,6 +17,9 @@ from reuse_func import GetData
 
 class cQube_pat_lotable_smoke_test(unittest.TestCase):
 
+    driver = None
+    data = None
+
     @classmethod
     def setUpClass(self):
         self.data = GetData()

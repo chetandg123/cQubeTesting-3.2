@@ -1166,7 +1166,7 @@ class GetData():
         self.cal.get_processor_group_error_msg(processor_name)
 
     def click_on_logout_button(self):
-        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         time.sleep(1)
         self.driver.find_element_by_id(Data.logout)
         time.sleep(2)

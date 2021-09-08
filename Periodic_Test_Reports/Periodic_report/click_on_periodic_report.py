@@ -1,5 +1,6 @@
 import time
 
+from Data.parameters import Data
 from reuse_func import GetData
 
 
@@ -11,9 +12,9 @@ class Pat_Report_icon():
         self.data = GetData()
         count = 0
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         time.sleep(2)
-        self.driver.find_element_by_id('pat').click()
+        self.data.navigate_to_periodic_report()
         self.data.page_loading(self.driver)
         if 'pat-report' in self.driver.current_url:
             print('Navigated to Periodic Assessment report')

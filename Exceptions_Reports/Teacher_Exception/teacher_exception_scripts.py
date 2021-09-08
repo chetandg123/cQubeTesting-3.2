@@ -24,9 +24,9 @@ class teacher_exception_report():
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('tarExp').click()
+        self.data.navigate_to_teacher_exception()
         self.data.page_loading(self.driver)
         if "teacher-attendance-exception" in self.driver.current_url:
             print("Teacher exception report page is dispayed")
@@ -37,7 +37,9 @@ class teacher_exception_report():
 
 
     def click_on_logout(self):
-        self.driver.find_element_by_id(Data.Logout).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.logout).click()
         return self.driver.title
 
     def test_click_on_dashboard(self):

@@ -14,7 +14,7 @@ class Home():
         cal.page_loading(self.driver)
 
     def click_HomeButton(self):
-            self.driver.find_element_by_id(Data.homeicon).click()
+            self.driver.find_element_by_xpath(Data.hyper_link).click()
             cal = GetData()
             cal.page_loading(self.driver)
             return self.driver.current_url

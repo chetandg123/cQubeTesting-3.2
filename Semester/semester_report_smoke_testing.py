@@ -18,6 +18,9 @@ from reuse_func import GetData
 
 class cQube_Semester_Report(unittest.TestCase):
 
+    driver = None
+    data = None
+
     @classmethod
     def setUpClass(self):
         self.data = GetData()
@@ -80,6 +83,8 @@ class cQube_Semester_Report(unittest.TestCase):
 
     def test_logout(self):
         state = GetData()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        time.sleep(1)
         state.click_on_state(self.driver)
         element = WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable((By.ID, Data.Logout))
@@ -167,7 +172,7 @@ class cQube_Semester_Report(unittest.TestCase):
     def test_download(self):
         state = GetData()
         state.click_on_state(self.driver)
-        element = self.driver.find_element_by_id(Data.sar_download)
+        element = self.driver.find_element_by_id(Data.Download)
         try:
             element.click()
             time.sleep(2)
@@ -208,7 +213,7 @@ class cQube_Semester_Report(unittest.TestCase):
     #     self.data.page_loading(self.driver)
 
     def test_home_button(self):
-        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         time.sleep(2)
         self.data.navigate_to_semester_report()
         if "sat-report" in self.driver.current_url:

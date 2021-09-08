@@ -19,6 +19,9 @@ from reuse_func import GetData
 
 class cQube_Student_Attendance(unittest.TestCase):
 
+    data = None
+    driver = None
+
     @classmethod
     def setUpClass(self):
         self.data = GetData()
@@ -84,6 +87,8 @@ class cQube_Student_Attendance(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        time.sleep(1)
         self.driver.find_element_by_id(Data.logout).click()
         self.assertEqual("Log in to cQube", self.driver.title,msg="Logout is not worked")
         time.sleep(2)
@@ -126,53 +131,34 @@ class cQube_Student_Attendance(unittest.TestCase):
     #     except WebDriverException:
     #         raise self.failureException("Select month is not working")
 
-    def test_choose_district(self):
-        state = GetData()
-        state.click_on_state(self.driver)
-        choose_district = Select(self.driver.find_element_by_id(Data.sar_district))
-        try:
-            for x in range(1, len(choose_district.options)):
-                choose_district.select_by_index(x)
-                self.data.page_loading(self.driver)
-            print("Choose District is working")
-        except WebDriverException:
-            raise self.failureException("Choose District is not working")
-
-    def test_choose_block(self):
-        self.data.click_on_state(self.driver)
-        choose_district = Select(self.driver.find_element_by_id(Data.sar_district))
-        choose_block = Select(self.driver.find_element_by_id(Data.sar_block))
-
-        try:
-            for x in range(len(choose_district.options) - 1, len(choose_district.options)):
-                choose_district.select_by_index(x)
-                self.data.page_loading(self.driver)
-                for y in range(len(choose_block.options) - 1, len(choose_block.options)):
-                    choose_block.select_by_index(y)
-                    self.data.page_loading(self.driver)
-            print("Choose District and Block is working")
-        except WebDriverException:
-            raise self.failureException("Choose District and Block is not working")
-
-    def test_choose_cluster(self):
-        self.data.click_on_state(self.driver)
-        choose_district = Select(self.driver.find_element_by_id(Data.sar_district))
-        choose_block = Select(self.driver.find_element_by_id(Data.sar_block))
-        choose_cluster = Select(self.driver.find_element_by_id(Data.sar_cluster))
-
-        try:
-            for x in range(len(choose_district.options) - 1, len(choose_district.options)):
-                choose_district.select_by_index(x)
-                self.data.page_loading(self.driver)
-                for y in range(len(choose_block.options) - 1, len(choose_block.options)):
-                    choose_block.select_by_index(y)
-                    self.data.page_loading(self.driver)
-                    for z in range(1, len(choose_cluster.options)):
-                        choose_cluster.select_by_index(z)
-                        self.data.page_loading(self.driver)
-            print("Choose District,Block and Cluster is working")
-        except WebDriverException:
-            raise self.failureException("Choose District,Block and Cluster is not working")
+    def test_choose_district_block_cluster(self):
+        dist = DistrictCsvDownload(self.driver, self.year, self.month)
+        result = dist.check_districts_csv_download()
+        if result == 0:
+            print("Block per district csv report download is working")
+            print("on selection of each district")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Block per district csv report download is working")
+        block = ClusterPerBlockCsvDownload(self.driver, self.year, self.month)
+        result = block.check_csv_download()
+        if result == 0:
+            print("Cluster per block csv report download is working")
+            print("on selection of each district and block")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Cluster per block csv report download is working")
+        schools = DistrictBlockCluster(self.driver, self.year, self.month)
+        result = schools.check_district_block_cluster()
+        if result == 0:
+            print("Schools per cluster csv download report is working")
+            print("on selection of each district,block and cluster")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Schools per cluster csv report download is working")
 
     def test_home_icon(self):
         home = Home(self.driver)
@@ -186,7 +172,7 @@ class cQube_Student_Attendance(unittest.TestCase):
     def test_download(self):
         state = GetData()
         state.click_on_state(self.driver)
-        element = self.driver.find_element_by_id(Data.sar_download)
+        element = self.driver.find_element_by_id(Data.Download)
         try:
             element.click()
             time.sleep(3)

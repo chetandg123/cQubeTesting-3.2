@@ -9,6 +9,9 @@ from reuse_func import GetData
 
 class cQube_regression_Student_exception(unittest.TestCase):
 
+    driver = None
+    data = None
+
     @classmethod
     def setUpClass(self):
         self.data = GetData()

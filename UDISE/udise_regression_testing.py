@@ -19,6 +19,9 @@ from UDISE.download_districtwise_csv import udise_districts_csv
 
 class cQube_udise_Report(unittest.TestCase):
 
+    driver = None
+    data = None
+
     @classmethod
     def setUpClass(self):
         self.data = GetData()
@@ -38,7 +41,7 @@ class cQube_udise_Report(unittest.TestCase):
         else:
             print('Home button is not working')
             count = count + 1
-        self.driver.find_element_by_id('udise').click()
+        self.data.navigate_to_udise_report()
         self.data.page_loading(self.driver)
         if 'udise-report' in self.driver.current_url:
             print('UDISE Infra_Table_Report home page is displayed ')
@@ -51,10 +54,8 @@ class cQube_udise_Report(unittest.TestCase):
     def test_hyperlink(self):
         b = click_on_hyperlink(self.driver)
         res = b.test_link()
-        if "udise-report" in self.driver.current_url:
-            print("Udise map based report present")
-        else:
-            print("hyperlink is not working ")
+        self.assertEqual(res,0,msg="Hyperlink link functionality is breaked..")
+
 
     def test_download_districtcsv(self):
         fn = udise_districts_csv(self.driver)
@@ -73,9 +74,9 @@ class cQube_udise_Report(unittest.TestCase):
     def test_Block_cluster_school_for_udise(self):
         b = Block_cluster_school_for_udise(self.driver)
         res,res1,res2,res3 = b.test_check_total_schoolvalue()
-        self.assertEqual(res,res1,msg="Block level school is same")
-        self.assertEqual(res,res2,msg="Cluster level school is same")
-        self.assertEqual(res,res3,msg="School level school is same")
+        self.assertEqual(res,res1,msg="Block level no of school is not same")
+        self.assertEqual(res,res2,msg="Cluster level  no of school is not same")
+        self.assertEqual(res,res3,msg="School level  no of school is not same")
         self.data.page_loading(self.driver)
 
     def test_block_wise_download(self):
@@ -108,7 +109,7 @@ class cQube_udise_Report(unittest.TestCase):
         else:
             print('Home button is not working')
             count = count + 1
-        self.driver.find_element_by_id('udise').click()
+        self.data.navigate_to_udise_report()
         self.data.page_loading(self.driver)
         if 'udise-report' in self.driver.current_url:
             print('UDISE Infra_Table_Report home page is displayed ')

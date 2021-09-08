@@ -38,8 +38,8 @@ class composite_smoke_testing(unittest.TestCase):
         else:
             print('Home button is not working ')
             count = count + 1
-        self.assertEqual(0,count,msg="Home btn is not working ")
-        self.driver.find_element_by_id('composite').click()
+        self.assertEqual(0,count,msg="cQube logo btn is not working ")
+        self.data.navigate_to_composite_report()
         self.data.page_loading(self.driver)
 
     def test_districtwise_csv_download(self):
@@ -103,8 +103,8 @@ class composite_smoke_testing(unittest.TestCase):
     def test_homebutton(self):
         b = Homebutton_icon(self.driver)
         res = b.test_homebutton()
-        self.assertEqual(0, res, msg="Home button is not working")
-        print("Home button is working ")
+        self.assertEqual(0, res, msg="cQube logo button is not working")
+        print("cQube logo button is working ")
         self.data.page_loading(self.driver)
 
     def test_logout_button(self):

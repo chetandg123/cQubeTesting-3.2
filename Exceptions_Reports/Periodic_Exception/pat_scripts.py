@@ -37,7 +37,12 @@ class pat_exception_report():
 
 
     def click_on_logout(self):
-        self.driver.find_element_by_id(Data.Logout).click()
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        time.sleep(1)
+        self.driver.find_element_by_id(Data.logout).click()
+        print(self.driver.title)
         return self.driver.title
 
     def test_click_on_dashboard(self):
@@ -168,7 +173,7 @@ class pat_exception_report():
                 print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     print(
-                        "District" + select_district.first_selected_option.text + "Block " + select_block.first_selected_option.text + "csv is not downloaded")
+                        "District " + select_district.first_selected_option.text + "Block " + select_block.first_selected_option.text + "csv is not downloaded")
                     count = count + 1
                 else:
                     df = pd.read_csv(self.filename)
@@ -213,7 +218,7 @@ class pat_exception_report():
                     print(self.filename)
                     if os.path.isfile(self.filename) != True:
                         print(
-                            "District" + select_district.first_selected_option.text + "Block " + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text +  "csv is not downloaded")
+                            "District " + select_district.first_selected_option.text + "Block " + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text +  "csv is not downloaded")
                         count = count + 1
                     else:
                         with open(self.filename) as fin:
@@ -348,6 +353,7 @@ class pat_exception_report():
                 print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     print("Over all time series csv file is not downloaded")
+                    count = count + 1
                 else:
                     df = pd.read_csv(self.filename)
                     schools = df['Total Schools With Missing Data'].sum()

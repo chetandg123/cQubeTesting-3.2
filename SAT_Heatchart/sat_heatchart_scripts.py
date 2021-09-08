@@ -232,7 +232,7 @@ class sat_heat_scripts():
         timeseries = Select(self.driver.find_element_by_id(Data.exam_dates))
         timeseries.select_by_index(2)
         self.load.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.homeicon).click()
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.load.page_loading(self.driver)
 
     def test_homebutton(self):
@@ -242,7 +242,7 @@ class sat_heat_scripts():
         self.load.page_loading(self.driver)
         self.driver.find_element_by_id(Data.cQube_logo).click()
         self.load.page_loading(self.driver)
-        self.driver.find_element_by_xpath("//div[@id='satHeatChart']").click()
+        self.load.navigate_to_sat_heatchart_report()
         self.load.page_loading(self.driver)
         if 'sat-heat-chart' in self.driver.current_url:
             print('SAT heat chart is present ')
@@ -258,6 +258,8 @@ class sat_heat_scripts():
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        time.sleep(1)
         self.driver.find_element_by_id(Data.logout).click()
         if 'Log in to cQube' in self.driver.title:
             print("Logout button is working ")

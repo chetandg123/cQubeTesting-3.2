@@ -1,6 +1,7 @@
 import time
 import unittest
 
+from Data.parameters import Data
 from Periodic_Test_Reports.Periodic_report.Click_on_hyper_link_in_periodic_report import Hyperlink
 from Periodic_Test_Reports.Periodic_report.check_blocklevel_download_csv import Block_level_records
 from Periodic_Test_Reports.Periodic_report.check_clusterlevel_download_csv import ClusterwiseCsv
@@ -19,6 +20,9 @@ from reuse_func import GetData
 
 class periodic_smoke(unittest.TestCase):
 
+    driver = None
+    data = None
+
     @classmethod
     def setUpClass(self):
         self.data = GetData()
@@ -35,6 +39,8 @@ class periodic_smoke(unittest.TestCase):
         res = b.click_HomeButton()
         self.assertEqual(0, res, msg='home button is not worked ')
         print('Home button is working ')
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        time.sleep(1)
         self.data.navigate_to_periodic_report()
         self.data.page_loading(self.driver)
 

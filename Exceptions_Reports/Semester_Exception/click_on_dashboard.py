@@ -13,6 +13,8 @@ class sem_dashboard():
         cal = GetData()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         cal.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        time.sleep(1)
         cal.navigate_to_semester_exception()
         cal.page_loading(self.driver)
         if 'sem-exception' in self.driver.current_url:

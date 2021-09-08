@@ -14,6 +14,9 @@ from reuse_func import GetData
 
 class composite_regression_report(unittest.TestCase):
 
+    driver = None
+    data = None
+
     @classmethod
     def setUpClass(self):
         self.data = GetData()
@@ -28,16 +31,16 @@ class composite_regression_report(unittest.TestCase):
     def test_composite_icon(self):
         self.data.page_loading(self.driver)
         count = 0
-        self.driver.find_element_by_id('hamburger').click()
-
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        self.driver.find_element_by_id(Data.composite_metrics)
         self.data.page_loading(self.driver)
         if 'composite-dashboard' in self.driver.current_url:
             print("composite-Dashboard page is displayed ")
         else:
-            print('Hamburger - composite-Dashboard is not working ')
+            print('cQube logo - composite-Dashboard is not working ')
             count = count + 1
         self.assertEqual(0,count,msg="Home btn is not working ")
-        self.driver.find_element_by_id('composite').click()
+        self.driver.find_element_by_id(Data.composite_metric).click()
         self.data.page_loading(self.driver)
 
     def test_districtwise_csv_download(self):

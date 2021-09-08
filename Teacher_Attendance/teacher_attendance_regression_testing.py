@@ -25,6 +25,9 @@ from reuse_func import GetData
 
 class cQube_Teacher_Attendance_regression(unittest.TestCase):
 
+    driver = None
+    data = None
+
     @classmethod
     def setUpClass(self):
         self.data = GetData()
@@ -40,7 +43,7 @@ class cQube_Teacher_Attendance_regression(unittest.TestCase):
 
     def test_click_on_teacher_attendence_report(self):
         sar = DahboardSar(self.driver)
-        result = sar.click_on_sar()
+        result = sar.click_on_tar()
         if "Teacher Attendance Infra_Table_Report" in self.driver.page_source:
             print("Navigating to Student Attendance Infra_Table_Report is working")
         else:
@@ -50,20 +53,17 @@ class cQube_Teacher_Attendance_regression(unittest.TestCase):
         block = Blocks(self.driver)
         result = block.check_markers_on_block_map()
         self.assertNotEqual(0, len(result) - 1, msg="Dots are not present on map")
-        print("Blocks button is working")
-        print("Markers are present on the map")
+        print("Blocks button is working & Markers are present on the map")
 
         cluster = Clusters(self.driver)
         result = cluster.check_markers_on_clusters_map()
         self.assertNotEqual(0, len(result) - 1, msg="Dots are not present on map")
-        print("Clusters button is working")
-        print("Markers are present on the map")
+        print("Clusters button is working & Markers are present on the map")
 
         school = Schools(self.driver)
         result = school.check_markers_on_clusters_map()
         self.assertNotEqual(0, int(len(result) - 1), msg="Dots are not present on map")
-        print("Schools button is working")
-        print("Markers are present on the map")
+        print("Schools button is working & Markers are present on the map")
 
     def test_districtwise_csv_download(self):
         csv = DistrictwiseCsv(self.driver, self.year, self.month)
@@ -101,23 +101,23 @@ class cQube_Teacher_Attendance_regression(unittest.TestCase):
 
     def test_choose_district_block_cluster(self):
         dist = DistrictCsvDownload(self.driver, self.year, self.month)
-        # result = dist.check_districts_csv_download()
-        # if result == 0:
-        #     print("Block per district csv report download is working")
-        #     print("on selection of each district")
-        #     print("The footer value of no of schools and no of students are")
-        #     print("equals to downloaded file")
-        # else:
-        #     raise self.failureException("Block per district csv report download is working")
-        # block = ClusterPerBlockCsvDownload(self.driver, self.year, self.month)
-        # result = block.check_csv_download()
-        # if result == 0:
-        #     print("Cluster per block csv report download is working")
-        #     print("on selection of each district and block")
-        #     print("The footer value of no of schools and no of students are")
-        #     print("equals to downloaded file")
-        # else:
-        #     raise self.failureException("Cluster per block csv report download is working")
+        result = dist.check_districts_csv_download()
+        if result == 0:
+            print("Block per district csv report download is working")
+            print("on selection of each district")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Block per district csv report download is working")
+        block = ClusterPerBlockCsvDownload(self.driver, self.year, self.month)
+        result = block.check_csv_download()
+        if result == 0:
+            print("Cluster per block csv report download is working")
+            print("on selection of each district and block")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Cluster per block csv report download is working")
         schools = DistrictBlockCluster(self.driver, self.year, self.month)
         result = schools.check_district_block_cluster()
         if result == 0:

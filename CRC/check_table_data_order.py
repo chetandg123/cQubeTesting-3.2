@@ -12,8 +12,8 @@ class Check_order_of_tabledata():
         self.driver.implicitly_wait(20)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.p.page_loading(self.driver)
-        title = self.driver.find_element_by_id(Data.Dashboard).text
-        self.p.navigate_to_crc_report()
+        # title = self.driver.find_element_by_id(Data.Dashboard).text
+        # self.p.navigate_to_crc_report()
         self.p.page_loading(self.driver)
         self.driver.find_element_by_xpath(Data.t_head).click()
         self.p.page_loading(self.driver)
@@ -30,5 +30,5 @@ class Check_order_of_tabledata():
 
         self.driver.find_element_by_xpath(Data.hyper).click()
         self.p.page_loading(self.driver)
-        return title
+        return len(value)
 

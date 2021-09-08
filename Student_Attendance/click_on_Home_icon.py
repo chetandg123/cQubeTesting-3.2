@@ -24,7 +24,9 @@ class Home():
         self.driver.find_element_by_id(Data.SAR_Blocks_btn).click()
         cal = GetData()
         cal.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.homeicon).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        time.sleep(1)
+        cal.navigate_to_student_report()
         cal.page_loading(self.driver)
 
     #Student_Acedemic dropdown

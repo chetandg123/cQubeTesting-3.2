@@ -9,7 +9,10 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from Data.parameters import Data
 from Teacher_Attendance.Click_on_hyper_link_in_TAR import Hyperlink
+from Teacher_Attendance.check_cluster_per_block_csv_download import ClusterPerBlockCsvDownload
 from Teacher_Attendance.check_data_range import DateRange
+from Teacher_Attendance.check_district_block_cluster import DistrictBlockCluster
+from Teacher_Attendance.check_districts_csv_download import DistrictCsvDownload
 from Teacher_Attendance.check_with_total_schools_in_TAR import TotalSchools
 from Teacher_Attendance.check_with_total_student_in_TAR import TotalStudents
 from Teacher_Attendance.click_on_Home_icon import Home
@@ -19,6 +22,9 @@ from reuse_func import GetData
 
 
 class cQube_Teacher_Attendance_SmokeTest(unittest.TestCase):
+
+    driver = None
+    data = None
 
     @classmethod
     def setUpClass(self):
@@ -36,7 +42,7 @@ class cQube_Teacher_Attendance_SmokeTest(unittest.TestCase):
 
     def test_click_on_student_attendence_report(self):
         sar = DahboardSar(self.driver)
-        result = sar.click_on_sar()
+        result = sar.click_on_tar()
         if "teacher-attendance" in result:
             print("Teacher Attendance Infra_Table_Report is Working")
         else:
@@ -125,6 +131,35 @@ class cQube_Teacher_Attendance_SmokeTest(unittest.TestCase):
     #         print("Select month is working")
     #     except WebDriverException:
     #         raise self.failureException("Select month is not working")
+
+    def test_choose_district_block_cluster(self):
+        dist = DistrictCsvDownload(self.driver, self.year, self.month)
+        result = dist.check_districts_csv_download()
+        if result == 0:
+            print("Block per district csv report download is working")
+            print("on selection of each district")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Block per district csv report download is working")
+        block = ClusterPerBlockCsvDownload(self.driver, self.year, self.month)
+        result = block.check_csv_download()
+        if result == 0:
+            print("Cluster per block csv report download is working")
+            print("on selection of each district and block")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Cluster per block csv report download is working")
+        schools = DistrictBlockCluster(self.driver, self.year, self.month)
+        result = schools.check_district_block_cluster()
+        if result == 0:
+            print("Schools per cluster csv download report is working")
+            print("on selection of each district,block and cluster")
+            print("The footer value of no of schools and no of students are")
+            print("equals to downloaded file")
+        else:
+            raise self.failureException("Schools per cluster csv report download is working")
 
     def test_choose_district(self):
         state = GetData()

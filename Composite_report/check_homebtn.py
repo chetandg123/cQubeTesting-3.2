@@ -24,7 +24,7 @@ class Homebutton_icon():
        self.driver.implicitly_wait(20)
        self.driver.find_element_by_xpath(Data.hyper).click()
        self.p.page_loading(self.driver)
-       self.driver.find_element_by_id(Data.menu_icon).click()
+       self.driver.find_element_by_id(Data.cQube_logo).click()
        self.p.page_loading(self.driver)
        if 'dashboard' in self.driver.current_url:
            print("home button is working fine , landing page is displayed ")

@@ -28,10 +28,14 @@ from reuse_func import GetData
 
 class cQube_CRC_Report(unittest.TestCase):
 
+    driver = None
+    data = None
+
     @classmethod
     def setUpClass(self):
             self.data = GetData()
             self.driver = self.data.get_driver()
+            self.driver.implicitly_wait(50)
             self.data.open_cqube_appln(self.driver)
             self.data.login_cqube(self.driver)
             self.data.navigate_to_crc_report()
@@ -84,7 +88,7 @@ class cQube_CRC_Report(unittest.TestCase):
     def test_homeicon(self):
         b = Homeicon(self.driver)
         result = b.test_homeicon()
-        self.assertTrue(result, msg="Home button not working ")
+        self.assertEqual(result,0, msg="Hyperlink not working ")
         print("checking with home icon and it is working ")
         self.data.page_loading(self.driver)
 
@@ -122,7 +126,7 @@ class cQube_CRC_Report(unittest.TestCase):
     def test_orderwise_tabledata(self):
         b = Check_order_of_tabledata(self.driver)
         result = b.test_order()
-        self.assertEqual(result, "menu", msg="Menu is not exist")
+        self.assertNotEqual(result,0, msg="Menu is not exist")
         print("check order of table records is working ")
         self.data.page_loading(self.driver)
 

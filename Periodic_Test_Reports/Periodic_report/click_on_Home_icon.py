@@ -14,7 +14,7 @@ class Home():
         cal.page_loading(self.driver)
         self.driver.find_element_by_id(Data.block_btn).click()
         cal.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.homeicon).click()
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
         cal.page_loading(self.driver)
 
 

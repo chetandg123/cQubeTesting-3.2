@@ -19,6 +19,9 @@ from reuse_func import GetData
 
 class Test_Telemetry(unittest.TestCase):
 
+    driver = None
+    data = None
+
     @classmethod
     def setUpClass(self):
         self.data = GetData()
@@ -35,18 +38,15 @@ class Test_Telemetry(unittest.TestCase):
     def test_navigate_by_dashboard(self):
         count = 0
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('telemData').click()
-        if '' in self.driver.current_url:
+        self.data.navigate_to_telemetry()
+        if 'telemetry' in self.driver.current_url:
             print("Telemetry page is present ")
         else:
             print("Telemetry page is not present ")
             count = count + 1
         self.assertEqual(0,count,msg='Telemetry page is not displayed')
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('telemData').click()
         self.data.page_loading(self.driver)
 
     def test_click_on_blocks_cluster_school(self):
@@ -117,9 +117,7 @@ class Test_Telemetry(unittest.TestCase):
             print(files.telemetry_school()+'is downloaded csv file')
             os.remove(self.filename)
         self.assertEqual(0,count,msg='File is not downloaded')
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('telemData').click()
+        self.data.navigate_to_telemetry()
         self.data.page_loading(self.driver)
 
 
@@ -132,9 +130,7 @@ class Test_Telemetry(unittest.TestCase):
         self.assertNotEqual(0, res2, msg='Cluster level markers are not present')
         self.assertNotEqual(0, res3, msg='School level markers are not present')
         print('Last 7 days checked for block , cluster and school levels ')
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('telemData').click()
+        self.data.navigate_to_telemetry()
         self.data.page_loading(self.driver)
 
     def test_last7day_timeperiod(self):
@@ -143,9 +139,9 @@ class Test_Telemetry(unittest.TestCase):
         self.assertNotEqual(0, res1, msg='Block level markers are not present')
         self.assertNotEqual(0, res2, msg='Cluster level markers are not present')
         self.assertNotEqual(0, res3, msg='School level markers are not present')
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('telemData').click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        time.sleep(1)
+        self.data.navigate_to_telemetry()
         self.data.page_loading(self.driver)
 
     def test_lastmonth_timeperiod(self):
@@ -154,9 +150,7 @@ class Test_Telemetry(unittest.TestCase):
         self.assertNotEqual(0, res1, msg='Block level markers are not present')
         self.assertNotEqual(0, res2, msg='Cluster level markers are not present')
         self.assertNotEqual(0, res3, msg='School level markers are not present')
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('telemData').click()
+        self.data.navigate_to_telemetry()
         self.data.page_loading(self.driver)
 
     def test_overall_period(self):
@@ -165,45 +159,39 @@ class Test_Telemetry(unittest.TestCase):
         self.assertNotEqual(0, res1, msg='Block level markers are not present')
         self.assertNotEqual(0, res2, msg='Cluster level markers are not present')
         self.assertNotEqual(0, res3, msg='School level markers are not present')
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('telemData').click()
+        self.data.navigate_to_telemetry()
         self.data.page_loading(self.driver)
 
     def test_last7day_download(self):
         b = last7day_download(self.driver)
         res = b.test_last_7_records()
         self.assertTrue(res, msg="last 7day's csv file is not downloaded")
-        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('telemData').click()
+        self.data.navigate_to_telemetry()
         self.data.page_loading(self.driver)
 
     def test_lastday_download(self):
         b = lastday_download(self.driver)
         res = b.test_lastday_records()
         self.assertTrue(res, msg="last7day's csv file is not downloaded")
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('telemData').click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        time.sleep(1)
+        self.data.navigate_to_telemetry()
         self.data.page_loading(self.driver)
 
     def test_overall_download(self):
         b = overall_download(self.driver)
         res = b.test_overall_records()
         self.assertTrue(res, msg="last7day's csv file is not downloaded")
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('telemData').click()
+        self.data.navigate_to_telemetry()
         self.data.page_loading(self.driver)
 
     def test_lastmonth_download(self):
         b = lastmonth_download(self.driver)
         res = b.test_lastmonth_records()
         self.assertTrue(res, msg="last7day's csv file is not downloaded")
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('telemData').click()
+        self.data.navigate_to_telemetry()
         self.data.page_loading(self.driver)
 
 
@@ -215,18 +203,15 @@ class Test_Telemetry(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.driver.find_element_by_id(Data.schoolbtn).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('telemData').click()
+        self.data.navigate_to_telemetry()
         self.data.page_loading(self.driver)
 
 
     def test_clickon_homebtn(self):
         count = 0
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
-        # self.driver.find_element_by_id('telemData').click()
         self.data.navigate_to_telemetry()
         if 'telemetry' in self.driver.current_url:
             print("Telemetry page is present ")
@@ -235,21 +220,19 @@ class Test_Telemetry(unittest.TestCase):
             count = count + 1
         self.assertEqual(0, count, msg='Telemetry page is not displayed')
         self.data.page_loading(self.driver)
-        # self.driver.find_element_by_id(Data.menu_icon).click()
-        # self.data.page_loading(self.driver)
-        # self.driver.find_element_by_id('telemData').click()
-        # self.data.page_loading(self.driver)
+
 
 
 
     def test_logout(self):
         self.data.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        time.sleep(1)
         self.driver.find_element_by_id(Data.logout).click()
         time.sleep(5)
         self.assertEqual('Log in to cQube',self.driver.title,msg="logout is not working ")
         self.data.login_cqube(self.driver)
         time.sleep(2)
-        # self.driver.find_element_by_id('telemData').click()
         self.data.navigate_to_telemetry()
         time.sleep(5)
         count = 0

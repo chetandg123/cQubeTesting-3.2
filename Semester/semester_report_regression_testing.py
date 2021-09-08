@@ -1,6 +1,7 @@
 import time
 import unittest
 
+from Data.parameters import Data
 from Semester.Click_on_hyper_link_in_semester_report import Hyperlink
 from Semester.check_semester_choose_district import District
 from Semester.check_semester_choose_district_block import DistrictsBlock
@@ -23,6 +24,9 @@ from Semester.semester_options import Semester_options
 from reuse_func import GetData
 
 class cQube_Semester_Report(unittest.TestCase):
+
+    driver = None
+    data = None
 
     @classmethod
     def setUpClass(self):
@@ -55,8 +59,7 @@ class cQube_Semester_Report(unittest.TestCase):
         block = Blocks(self.driver)
         result = block.check_markers_on_block_map()
         self.assertNotEqual(0, len(result) - 1, msg="Dots are not present on map")
-        print("Blocks button is working")
-        print("Markers are present on the map")
+        print("Blocks button is working and Markers are present on the map")
 
     # def test_click_on_blocks_cluster_schools(self):
     #     block = Blocks(self.driver)
@@ -177,7 +180,7 @@ class cQube_Semester_Report(unittest.TestCase):
     #     self.assertEqual(result,0,msg="School wise csv report download is working")
 
     def test_home_button(self):
-        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         time.sleep(2)
         self.data.navigate_to_semester_report()
         if "sat-report" in self.driver.current_url:

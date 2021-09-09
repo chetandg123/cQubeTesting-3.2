@@ -9,8 +9,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from Data.parameters import Data
 from Semester.Click_on_hyper_link_in_semester_report import Hyperlink
-from Semester.check_with_total_schools_in_SR import TotalSchools
-from Semester.check_with_total_student_in_SR import TotalStudents
 from Semester.click_on_Home_icon import Home
 from Semester.click_on_semester_report import SemesterReport
 from reuse_func import GetData
@@ -85,10 +83,8 @@ class cQube_Semester_Report(unittest.TestCase):
         state = GetData()
         self.driver.find_element_by_id(Data.cQube_logo).click()
         time.sleep(1)
-        state.click_on_state(self.driver)
         element = WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.ID, Data.Logout))
-        )
+            EC.element_to_be_clickable((By.ID, Data.logout)))
         try:
             element.click()
             print("Logout Button is working")
@@ -182,15 +178,15 @@ class cQube_Semester_Report(unittest.TestCase):
             raise self.failureException("Download Button is not working")
         self.data.page_loading(self.driver)
 
-    def test_markers_on_map(self):
-        state = GetData()
-        state.click_on_state(self.driver)
-        dots = self.driver.find_elements_by_class_name(Data.dots)
-        if int(len(dots) - 1) != 0:
-            print('Markers are present on the map')
-        else:
-            raise self.failureException("Markers are not present on the map")
-        self.data.page_loading(self.driver)
+    # def test_markers_on_map(self):
+    #     self.driver.find_element_by_xpath(Data.hyper_link).click()
+    #     time.sleep(4)
+    #     dots = self.driver.find_elements_by_class_name(Data.dots)
+    #     if int(len(dots) - 1) != 0:
+    #         print('Markers are present on the map')
+    #     else:
+    #         raise self.failureException("Markers are not present on the map")
+    #     self.data.page_loading(self.driver)
 
     # def test_no_of_schools_is_equals_at_districts_blocks_clusters_schools(self):
     #     tc = TotalSchools(self.driver)

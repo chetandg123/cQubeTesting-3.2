@@ -157,7 +157,7 @@ class DistrictsBlock():
                         self.driver.find_element_by_id(Data.Download).click()
                         time.sleep(4)
                         p = pwd()
-                        self.filename = p.get_download_dir() + "/" + self.fname.sr_blockwise() + management +"_"+timeseries + '_allGrades__clusterPerBlocks_of_block_' + values+"_"+ cal.get_current_date() + '.csv'
+                        self.filename = p.get_download_dir() + "/" + self.fname.sr_blockwise() + management +"_"+timeseries + '_allGrades__clusters_of_block_' + values+"_"+ cal.get_current_date() + '.csv'
                         print(self.filename)
                         if not os.path.isfile(self.filename):
                             print(

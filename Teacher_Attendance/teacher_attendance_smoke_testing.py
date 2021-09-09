@@ -91,6 +91,8 @@ class cQube_Teacher_Attendance_SmokeTest(unittest.TestCase):
         self.data.page_loading(self.driver)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        time.sleep(1)
         self.driver.find_element_by_id(Data.logout).click()
         self.assertEqual("Log in to cQube", self.driver.title,msg="Logout is not worked")
         time.sleep(2)
@@ -221,7 +223,7 @@ class cQube_Teacher_Attendance_SmokeTest(unittest.TestCase):
     def test_download(self):
         state = GetData()
         state.click_on_state(self.driver)
-        element = self.driver.find_element_by_id(Data.sar_download)
+        element = self.driver.find_element_by_id(Data.Download)
         try:
             element.click()
             time.sleep(3)

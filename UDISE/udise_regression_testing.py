@@ -26,7 +26,7 @@ class cQube_udise_Report(unittest.TestCase):
     def setUpClass(self):
         self.data = GetData()
         self.driver = self.data.get_driver()
-        self.driver.implicitly_wait(60)
+        self.driver.implicitly_wait(100)
         self.data.open_cqube_appln(self.driver)
         self.data.login_cqube(self.driver)
         self.data.navigate_to_udise_report()
@@ -120,87 +120,71 @@ class cQube_udise_Report(unittest.TestCase):
         self.data.page_loading(self.driver)
 
 
-    def test_block_btn_scores(self):
-        b = block_btn_scores(self.driver)
-        res =b.test_click_blocks()
-        self.assertEqual(0,res,msg='Markers are not present at selected indices')
-        print('Checking block level with indices score dropdown')
-        self.data.page_loading(self.driver)
-
-    def test_cluster_btn_scores(self):
-        b = cluster_btn_scores(self.driver)
-        res =b.test_click_clusters()
-        self.assertEqual(0,res,msg='Markers are not present at selected indices')
-        print('Checking cluster level with indices score dropdown')
-        self.data.page_loading(self.driver)
+    # def test_block_btn_scores(self):
+    #     b = block_btn_scores(self.driver)
+    #     res =b.test_click_blocks()
+    #     self.assertEqual(0,res,msg='Markers are not present at selected indices')
+    #     print('Checking block level with indices score dropdown')
+    #     self.data.page_loading(self.driver)
+    #
+    # def test_cluster_btn_scores(self):
+    #     b = cluster_btn_scores(self.driver)
+    #     res =b.test_click_clusters()
+    #     self.assertEqual(0,res,msg='Markers are not present at selected indices')
+    #     print('Checking cluster level with indices score dropdown')
+    #     self.data.page_loading(self.driver)
 
     def test_indices_download(self):
         b = udiseindices_scores(self.driver)
         indices_score = b.infrastructure_score()
-        b.remove_csv()
         self.assertNotEqual(0, indices_score, msg='Failed')
 
         administation = b.administation()
-        b.remove_csv()
         self.assertNotEqual(0, administation, msg='Failed')
 
         artslab = b.artslab()
-        b.remove_csv()
         self.assertNotEqual(0, artslab, msg='Failed')
 
         community = b.community()
-        b.remove_csv()
         self.assertNotEqual(0, community, msg='Failed')
 
         Enrollment = b.Enrollment()
-        b.remove_csv()
         self.assertNotEqual(0, Enrollment, msg='Failed')
 
         grant = b.grant_expenditure()
-        b.remove_csv()
         self.assertNotEqual(0, grant, msg='Failed')
 
         ictlab = b.ictlab()
-        b.remove_csv()
         self.assertNotEqual(0, ictlab, msg='Failed')
 
         Medical = b.Medical()
-        b.remove_csv()
         self.assertNotEqual(0, Medical, msg='Failed')
 
         nsqf = b.nsqf()
-        b.remove_csv()
         self.assertNotEqual(0, nsqf, msg='Failed')
 
         policy = b.policy()
-        b.remove_csv()
         self.assertNotEqual(0, policy, msg='Failed')
 
         Safety = b.Safety()
-        b.remove_csv()
         self.assertNotEqual(0, Safety, msg='Failed')
 
         School_infrastructure = b.School_infrastructure()
-        b.remove_csv()
         self.assertNotEqual(0, School_infrastructure, msg='Failed')
 
         School_inspection = b.School_inspection()
-        b.remove_csv()
         self.assertNotEqual(0, School_inspection, msg='Failed')
 
         School_perfomance = b.School_perfomance()
-        b.remove_csv()
         self.assertNotEqual(0, School_perfomance, msg='Failed')
 
-        Science_lab = b.Science_lab()
-        b.remove_csv()
-        self.assertNotEqual(0, Science_lab, msg='Failed')
-
-        Teacher_profile = b.Teacher_profile()
-        b.remove_csv()
-        self.assertNotEqual(0, Teacher_profile, msg='Failed')
-        print('selecting each indices and checking csv file is downloading or not ')
-        self.data.page_loading(self.driver)
+        # Science_lab = b.Science_lab()
+        # self.assertNotEqual(0, Science_lab, msg='Failed')
+        #
+        # Teacher_profile = b.Teacher_profile()
+        # self.assertNotEqual(0, Teacher_profile, msg='Failed')
+        # print('selecting each indices and checking csv file is downloading or not ')
+        # self.data.page_loading(self.driver)
 
 
 

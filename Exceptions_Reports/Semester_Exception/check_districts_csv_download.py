@@ -34,7 +34,7 @@ class DistrictwiseDownload():
             self.driver.find_element_by_id(Data.Download).click()
             time.sleep(3)
             p = pwd()
-            self.filename = p.get_download_dir() + "/" + self.fname.exception_districtwise()+management+'_overall_allGrades__blocks_of_district_'+value.strip()+cal.get_current_date()+'.csv'
+            self.filename = p.get_download_dir() + "/" + self.fname.exception_districtwise()+management+'_overall_allGrades__blockPerDistricts_of_district_'+value.strip()+cal.get_current_date()+'.csv'
             print(self.filename)
             if os.path.isfile(self.filename) != True:
                 print("District" + select_district.first_selected_option.text + "csv is not downloaded")

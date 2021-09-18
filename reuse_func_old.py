@@ -7,7 +7,6 @@ import time
 from datetime import date
 
 # import psycopg2
-import psycopg2
 import requests
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException, WebDriverException
@@ -19,7 +18,6 @@ from get_dir import pwd
 
 
 class GetData():
-
     def __init__(self):
         self.p = pwd()
 
@@ -52,8 +50,7 @@ class GetData():
         options = webdriver.ChromeOptions()
         prefs = {'download.default_directory': self.p.get_download_dir()}
         options.add_experimental_option('prefs', prefs)
-        options.add_argument("--window-size=3860,2160")
-        options.add_argument('--headless')
+        # options.add_argument('--headless')
         self.driver = webdriver.Chrome(options=options, executable_path=self.p.get_driver_path())
         return self.driver
 
@@ -73,8 +70,7 @@ class GetData():
 
     def open_cqube_appln(self, driver):
         self.driver = driver
-        # self.driver.maximize_window()
-        self.driver.set_window_size(3860,2160)
+        self.driver.maximize_window()
         try:
             self.driver.get(self.get_domain_name())
         except WebDriverException:
@@ -104,60 +100,59 @@ class GetData():
         self.page_loading(self.driver)
 
     def navigate_to_telemetry(self):
-        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.Telemetry).click()
-        time.sleep(2)
-        self.driver.find_element_by_id(Data.tele_report).click()
+        # self.driver.find_element_by_xpath(Selenium_Locators.telmetry_report).click()
+        # time.sleep(2)
+        self.driver.find_element_by_id("telemReport").click()
         self.page_loading(self.driver)
 
     def navigate_to_periodic_report(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.std_performance).click()
+        self.driver.find_element_by_xpath(Data.semester_sel).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.patmap).click()
+        self.driver.find_element_by_id("patReport").click()
         time.sleep(4)
 
     def navigate_to_heatchart_report(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.std_performance).click()
+        self.driver.find_element_by_xpath(Data.semester_sel).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.patheatchart).click()
+        self.driver.find_element_by_id("heatChart").click()
         time.sleep(4)
 
     def navigate_to_lo_table_report(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.std_performance).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.patlotable).click()
-        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.semester_sel).click()
+        time.sleep(2)
+        self.driver.find_element_by_id("lotable").click()
+        time.sleep(4)
 
     def navigate_to_sat_heatchart_report(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.std_performance).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.sat_heatchart).click()
-        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.semester_sel).click()
+        time.sleep(2)
+        self.driver.find_element_by_id("satHeatChart").click()
+        time.sleep(4)
 
     def navigate_to_composite_report(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.composite_metrics).click()
-        self.driver.find_element_by_id(Data.composite_metric).click()
-        time.sleep(3)
+        self.driver.find_element_by_id('compositRep').click()
+        time.sleep(8)
 
     def logs_page(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
         self.driver.find_element_by_xpath("//a[@id='logs']").click()
         time.sleep(3)
@@ -178,8 +173,8 @@ class GetData():
 
     def click_on_state(self, driver):
         self.driver = driver
-        self.driver.find_element_by_xpath(Data.hyper_link).click()
-        time.sleep(4)
+        self.driver.find_element_by_id(Data.sar_hyper_link).click()
+        time.sleep(5)
 
     def get_data_status(self):
         errMsg = self.driver.find_element_by_css_selector('p#errMsg')
@@ -187,14 +182,14 @@ class GetData():
 
     def navigate_passwordchange(self):
         self.driver.implicitly_wait(10)
-        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
         self.driver.find_element_by_xpath(Data.user_options).click()
         time.sleep(2)
 
     def get_management_selected_option(self):
         self.driver.implicitly_wait(10)
-        management_name = self.driver.find_element_by_id('name').text
+        management_name = self.driver.find_element_by_id('nm').text
         management_name = management_name[16:].strip().lower()
         return management_name
 
@@ -202,14 +197,12 @@ class GetData():
         year = self.driver.find_element_by_id('year').text
         month = self.driver.find_element_by_id('month').text
         return year , month
-
     def pat_year_month_firstselected(self):
         year = Select(self.driver.find_element_by_id('year'))
         month = Select(self.driver.find_element_by_id('month'))
         year = year.first_selected_option.text
         month = month.first_selected_option.text
         return year , month
-
     def get_student_month_and_year_values(self):
         times = Select(self.driver.find_element_by_id('period'))
         # times.select_by_visible_text(' Year and Month ')
@@ -246,39 +239,39 @@ class GetData():
         return self.year,self.month
 
     def navigate_to_student_report(self):
-        self.driver.implicitly_wait(15)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.attendance).click()
-        time.sleep(2)
-        self.driver.find_element_by_id(Data.studentattendance).click()
+        self.driver.implicitly_wait(30)
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(3)
+        self.driver.find_element_by_xpath(Data.attendance).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.SAR).click()
+        time.sleep(6)
 
     def navigate_to_teacher_attendance_report(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.attendance).click()
-        time.sleep(2)
-        self.driver.find_element_by_id(Data.teacherattendance).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(3)
+        self.driver.find_element_by_xpath(Data.attendance).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.teacher).click()
+        time.sleep(6)
 
-    def navigate_to_composite_infrastructure(self):
+    def navigate_to_school_infrastructure(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.sch_infra).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.composite).click()
+        self.driver.find_element_by_xpath(Data.School_infra).click()
         time.sleep(3)
+        self.driver.find_element_by_id(Data.Report).click()
+        time.sleep(5)
 
     def navigate_to_school_infrastructure_map(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.sch_infra).click()
+        self.driver.find_element_by_xpath(Data.School_infra).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.inframap).click()
+        self.driver.find_element_by_id(Data.Reportmap).click()
         time.sleep(5)
 
     def select_month_year(self, y, m):
@@ -292,165 +285,161 @@ class GetData():
 
     def navigate_to_semester_report(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(3)
-        self.driver.find_element_by_id(Data.std_performance).click()
+        self.driver.find_element_by_xpath(Data.semester_sel).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.satmap).click()
+        self.driver.find_element_by_id("sat").click()
         time.sleep(5)
 
     def navigate_to_udise_report(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.sch_infra).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.udise).click()
-        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.School_infra).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.udise_report).click()
+        time.sleep(5)
 
     def navigate_to_crc_report(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.crc_visit).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.crcreport).click()
-        time.sleep(3)
+        self.driver.find_element_by_id(Data.CRC).click()
+        time.sleep(4)
 
     def navigate_to_diksha_graph(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.tpd_opts).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath(Data.diksha).click()
         time.sleep(2)
         self.driver.find_element_by_id(Data.diksha_graph).click()
-        time.sleep(3)
+        time.sleep(6)
 
     def navigate_to_diksha_content_course(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.tpd_opts).click()
-        time.sleep(2)
-        self.driver.find_element_by_id(Data.content_course).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(3)
+        self.driver.find_element_by_xpath(Data.tpds).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.diksha_table).click()
+        time.sleep(6)
 
     def navigate_to_tpd_content_progress(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.tpd_opts).click()
-        time.sleep(2)
-        self.driver.find_element_by_id(Data.course_progress).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(3)
+        self.driver.find_element_by_xpath(Data.tpds).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.tpd_progress).click()
+        time.sleep(6)
 
     def navigate_to_tpd_enrollment_report(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.tpd_opts).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.tpds).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.tpd_enrollment).click()
+        self.driver.find_element_by_id('tpd-enroll').click()
         time.sleep(3)
 
     def navigate_to_tpd_completion_percentage(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.tpd_opts).click()
-        time.sleep(2)
-        self.driver.find_element_by_id(Data.completion_percentage).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(3)
+        self.driver.find_element_by_xpath(Data.tpds).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//a[@id='tpd-comp']").click()
+        time.sleep(6)
 
     def navigate_to_health_card_index(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.progress_card).click()
-        time.sleep(2)
-        self.driver.find_element_by_id(Data.Progresscard).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(3)
+        self.driver.find_element_by_xpath("//a[@id='healthCard']").click()
+        time.sleep(6)
 
     def navigate_to_tpd_percentage_progress(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.tpds).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.tpds).click()
         time.sleep(2)
         self.driver.find_element_by_id(Data.tpd_percentage).click()
-        time.sleep(3)
+        time.sleep(6)
 
     def navigate_to_diksha_content_textbook(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.diksha_ETB).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath(Data.ener_textbook).click()
         time.sleep(2)
         self.driver.find_element_by_id(Data.content_textbook).click()
-        time.sleep(3)
+        time.sleep(6)
 
     def navigate_to_column_course(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.tpd_opts).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.usage_course).click()
-        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.tpds).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.col_course).click()
+        time.sleep(6)
 
     def navigate_to_column_textbook(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.diksha_ETB).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.usage_textbook).click()
-        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.ener_textbook).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.col_text).click()
+        time.sleep(6)
 
     def navigate_to_completion_error(self):
         self.driver.implicitly_wait(30)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.tpd_opts).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath(Data.exception_click).click()
         time.sleep(2)
         self.driver.find_element_by_id(Data.completion).click()
-        time.sleep(3)
+        time.sleep(6)
 
     def navigate_to_semester_exception(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.Exception_Reports).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.semesterexception).click()
-        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.exception_click).click()
+        time.sleep(2)
+        self.driver.find_element_by_id(Data.sem_exception).click()
+        time.sleep(5)
 
     def navigate_to_pat_exception(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.Exception_Reports).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.patexception).click()
-        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.exception_click).click()
+        time.sleep(2)
+        self.driver.find_element_by_id('patexp').click()
+        time.sleep(5)
 
     def navigate_to_teacher_exception(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.Exception_Reports).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.teacherexception).click()
-        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.exception_click).click()
+        time.sleep(2)
+        self.driver.find_element_by_id('tarExcpt').click()
+        time.sleep(5)
 
     def navigate_to_student_exception(self):
         self.driver.implicitly_wait(20)
-        self.driver.find_element_by_id(Data.menu_icon).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.Exception_Reports).click()
+        self.driver.find_element_by_id(Data.Dashboard).click()
         time.sleep(2)
-        self.driver.find_element_by_id(Data.studentexception).click()
-        time.sleep(3)
+        self.driver.find_element_by_xpath(Data.exception_click).click()
+        time.sleep(2)
+        self.driver.find_element_by_id('sarExp').click()
+        time.sleep(5)
 
     def Details_text(self):
         Details = self.driver.find_elements_by_xpath(Data.details)
@@ -700,12 +689,12 @@ class GetData():
         config.read(self.p.get_config_ini_path())
         return config['config']['basedirpath']
 
-    # def connect_to_postgres(self):
-    #     config = configparser.ConfigParser()
-    #     config.read(self.p.get_config_ini_path())
-    #     con = psycopg2.connect(host=config['config']['host'], database=config['config']['database'],
-    #                            user=config['config']['user'], password=config['config']['db_password'])
-    #     return con
+    def connect_to_postgres(self):
+        config = configparser.ConfigParser()
+        config.read(self.p.get_config_ini_path())
+        con = psycopg2.connect(host=config['config']['host'], database=config['config']['database'],
+                               user=config['config']['user'], password=config['config']['db_password'])
+        return con
 
     def get_db_name(self):
         config = configparser.ConfigParser()
@@ -841,7 +830,7 @@ class GetData():
         management.select_by_index(n)
         print(management.options[n].text, 'is selected')
         self.data.page_loading(self.driver)
-        self.data.navigate_to_composite_infrastructure()
+        self.data.navigate_to_school_infrastructure()
         self.data.page_loading(self.driver)
 
     def select_management_to_composite_across_metrics_report(self, n):
@@ -920,58 +909,51 @@ class GetData():
 
 
     def get_processor_group_id(self, processor_name):
-            self.cal = GetData()
-            if self.cal.check_nifi_status() == 200:
-                self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
-                lst = []
-                response = requests.get(self.url)
-                json_resp = json.loads(response.text)
-                for x in json_resp.values():
-                    for y in x:
-                        lst.append({"name": y['status']['name'], "id": y['id']})
-                        # print(y['status']['name']+" "+y['id'])
-                for x in lst:
-                    if x['name'] == processor_name:
-                        return x['id']
-            else:
-                print("Nifi is not running \n please start the nifi")
+        self.cal = GetData()
+        self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
+        lst = []
+        response = requests.get(self.url)
+        json_resp = json.loads(response.text)
+        for x in json_resp.values():
+            for y in x:
+                lst.append({"name": y['status']['name'], "id": y['id']})
+                # print(y['status']['name']+" "+y['id'])
+        for x in lst:
+            if x['name'] == processor_name:
+                return x['id']
 
     def start_nifi_processor(self, id):
-        self.cal = GetData()
-        self.processor_id= self.cal.get_processor_group_id(id)
         while 1 :
+            self.cal = GetData()
             if self.cal.check_nifi_status() == 200:
-                self.url = self.cal.get_domain_name()+"/nifi-api/flow/process-groups/" + self.processor_id
-                payload = {"id": self.processor_id, "state": "RUNNING",
+                self.url = self.cal.get_domain_name()+"/nifi-api/flow/process-groups/" + id
+                payload = {"id": id, "state": "RUNNING",
                            "disconnectedNodeAcknowledged": "false"}
                 headers = {"Content-Type": "application/json"}
                 pg_resp = requests.put(self.url, headers=headers, json=payload)
                 if pg_resp.status_code == 200:
-                    print("successfully started the "+id+" processor")
+                    print("successfully started the processor")
                     break
                 else:
-                    print("Not started the "+id+" processor")
-                    break
+                    print("Not started the processor")
             else:
                 print("Nifi is not running \n please start the nifi")
                 time.sleep(2*60)
 
     def stop_nifi_processor(self, id):
-        self.cal = GetData()
-        self.processor_id = self.cal.get_processor_group_id(id)
         while 1:
+            self.cal = GetData()
             if self.cal.check_nifi_status() == 200:
-                self.url = self.cal.get_domain_name()+"/nifi-api/flow/process-groups/" + self.processor_id
-                payload = {"id": self.processor_id, "state": "STOPPED",
+                self.url = self.cal.get_domain_name()+"/nifi-api/flow/process-groups/" + id
+                payload = {"id": id, "state": "STOPPED",
                            "disconnectedNodeAcknowledged": "false"}
                 headers = {"Content-Type": "application/json"}
                 pg_resp = requests.put(self.url, headers=headers, json=payload)
                 if pg_resp.status_code == 200:
-                    print("successfully stopped the "+id+" processor")
+                    print("successfully stopped the processor")
                     break
                 else:
-                    print("Not stopped the "+id+" processor")
-                    break
+                    print("Not stopped the processor")
             else:
                 print("Nifi is not running \n please start the nifi")
                 time.sleep(2 * 60)
@@ -981,71 +963,11 @@ class GetData():
         ini = os.path.join(cwd, 'config.ini')
         return ini
 
-    def get_nifi_static(self):
-        config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
-        return config['datasource']['nifi_static']
 
     def get_nifi_crc(self):
         config = configparser.ConfigParser()
         config.read(self.p.get_config_ini_path())
         return config['datasource']['nifi_crc']
-
-    def get_nifi_attendance(self):
-        config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
-        return config['datasource']['nifi_attendance']
-
-    def get_nifi_infra(self):
-        config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
-        return config['datasource']['nifi_infra']
-
-    def get_nifi_diksha(self):
-        config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
-        return config['datasource']['nifi_diksha']
-
-    def get_nifi_telemetry(self):
-        config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
-        return config['datasource']['nifi_telemetry']
-
-    def get_nifi_udise(self):
-        config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
-        return config['datasource']['nifi_udise']
-
-    def get_nifi_pat(self):
-        config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
-        return config['datasource']['nifi_pat']
-
-    def get_nifi_composite(self):
-        config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
-        return config['datasource']['nifi_composite']
-
-
-    def get_nifi_healthcard(self):
-        config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
-        return config['datasource']['nifi_healthcard']
-
-    def get_nifi_teacher_attendance(self):
-        config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
-        return config['datasource']['nifi_teacher_attendance']
-
-    def get_nifi_data_replay(self):
-        config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
-        return config['datasource']['nifi_data_replay']
-
-    def get_nifi_sat(self):
-        config = configparser.ConfigParser()
-        config.read(self.p.get_config_ini_path())
-        return config['datasource']['nifi_sat']
 
     def get_filepath(self, config_name):
         config = configparser.ConfigParser()
@@ -1071,53 +993,19 @@ class GetData():
     def copy_file_to_local(self,filepath,folder_name):
         self.cal = GetData()
         create_dir= "mkdir "+self.cal.get_emission_directory()+folder_name
-        copy_file = "cp "+filepath+" "+self.cal.get_emission_directory()+folder_name
-        dir_created_result = subprocess.run([create_dir], shell=True)
-        file_copied_result = subprocess.run([copy_file], shell=True)
-        return dir_created_result, file_copied_result
-
-    def copy_files_to_local(self,filepath,folder_name):
-        self.cal = GetData()
-        create_dir= "mkdir "+self.cal.get_emission_directory()+" "+folder_name
         copy_file = "cp source_filepath" + self.cal.get_emission_directory()
-        dir_created_result = subprocess.run([create_dir], shell=True)
-        file_copied_result = subprocess.run([copy_file], shell=True)
-        return dir_created_result,file_copied_result
+        result = subprocess.run([create_dir], shell=True)
+        result = subprocess.run([copy_file], shell=True)
 
 
     def check_nifi_status(self):
-        self.cal = GetData()
-        #self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
         self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
         response = requests.get(self.url)
         result = response.status_code
         return result
 
-    # def get_queued_count(self,processor_name):
-    #     while 1:
-    #         self.cal = GetData()
-    #         if self.cal.check_nifi_status() == 200:
-    #             self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
-    #             response = requests.get(self.url)
-    #             json_resp = json.loads(response.text)
-    #             for x in json_resp.values():
-    #                 for y in x:
-    #                     if y['status']['name'] == processor_name:
-    #                         # return y['bulletins']
-    #                           return y['status']['aggregateSnapshot']['queued']
-    #                     break
-    #         else:
-    #             print("Nifi is not running \n please start the nifi")
-    #             time.sleep(2 * 60)
-    def get_bytes(self,lst):
-        bytes = lst[0]
-        bytes = bytes.split(' ')
-        print(bytes)
-        return int(float(bytes[0]))
-
     def get_queued_count(self,processor_name):
         while 1:
-            lst=[]
             self.cal = GetData()
             if self.cal.check_nifi_status() == 200:
                 self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
@@ -1127,54 +1015,9 @@ class GetData():
                     for y in x:
                         if y['status']['name'] == processor_name:
                             # return y['bulletins']
-                            lst.append( y['status']['aggregateSnapshot']['queued'])
-                            break
-                    break
-                bytes = self.cal.get_bytes(lst)
-                time.sleep(5)
-                return bytes
+                              return y['status']['aggregateSnapshot']['queued']
+                        break
             else:
                 print("Nifi is not running \n please start the nifi")
                 time.sleep(2 * 60)
-
-    def get_processor_group_error_msg(self,processor_name):
-        lst=[]
-        while 1:
-            self.cal = GetData()
-            if self.cal.check_nifi_status() == 200:
-                self.url = self.cal.get_domain_name() + "/nifi-api/process-groups/root/process-groups"
-                response = requests.get(self.url)
-                json_resp = json.loads(response.text)
-                for x in json_resp.values():
-                    for y in x:
-                        if y['status']['name'] == processor_name:
-                            if len(y['bulletins']) == 0:
-                                break
-                            else:
-                                for x in y['bulletins']:
-                                    lst.append(x['bulletin']['message'])
-                            break
-                    break
-
-
-                return lst
-
-            else:
-                print("Nifi is not running \n please start the nifi")
-                time.sleep(2 * 60)
-
-    def clear_error_message_list(self,processor_name):
-        self.cal = GetData()
-        self.cal.get_processor_group_error_msg(processor_name)
-
-    def click_on_logout_button(self):
-        self.driver.find_element_by_id(Data.cQube_logo).click()
-        time.sleep(1)
-        self.driver.find_element_by_id(Data.logout)
-        time.sleep(2)
-
-
-
-
-
 

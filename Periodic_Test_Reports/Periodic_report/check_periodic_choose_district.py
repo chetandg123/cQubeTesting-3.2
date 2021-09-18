@@ -46,7 +46,7 @@ class District():
                 time.sleep(4)
                 p = pwd()
                 file =file_extention()
-                self.filename = p.get_download_dir() + "/"+file.pat_districtwise()+management+"_"+self.year+'_'+self.month+'_allGrades__blocks_of_district_'+value.strip()+cal.get_current_date()+'.csv'
+                self.filename = p.get_download_dir() + "/"+file.pat_districtwise()+management+"_"+self.year+'_'+self.month+'_allGrades__blockPerDistricts_of_district_'+value.strip()+cal.get_current_date()+'.csv'
                 print(self.filename)
                 if not os.path.isfile(self.filename):
                     print("District" + select_district.first_selected_option.text + "csv is not downloaded")

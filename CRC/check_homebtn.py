@@ -45,3 +45,5 @@ class Homeicon():
        self.p.navigate_to_crc_report()
        self.p.page_loading(self.driver)
        return count
+
+

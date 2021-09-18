@@ -12,7 +12,8 @@ class exception_Home():
         cal = GetData()
         count = 0
         cal.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.homeicon).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        cal.navigate_to_semester_exception()
         cal = GetData()
         cal.page_loading(self.driver)
         if 'sem-exception' in self.driver.current_url:

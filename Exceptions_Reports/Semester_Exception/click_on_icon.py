@@ -14,9 +14,9 @@ class semester_exception_icon():
         count = 0
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id(Data.menu_icon).click()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
         self.data.page_loading(self.driver)
-        self.driver.find_element_by_id('SemExp').click()
+        self.data.navigate_to_semester_exception()
         self.data.page_loading(self.driver)
         if "sem-exception" in self.driver.current_url:
             print("Semester exception report page is dispayed")

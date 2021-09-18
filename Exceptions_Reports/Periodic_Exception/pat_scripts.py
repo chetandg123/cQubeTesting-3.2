@@ -129,7 +129,7 @@ class pat_exception_report():
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
                 p = pwd()
-                self.filename = p.get_download_dir() + "/" + "periodic_assessment_test_exception_"+management+"_overall_allGrades__blocks_of_district_"+value.strip()+cal.get_current_date()+'.csv'
+                self.filename = p.get_download_dir() + "/" + "periodic_assesment_test_exception_"+management+"_overall_allGrades__blockPerDistricts_of_district_"+value.strip()+cal.get_current_date()+'.csv'
                 print(self.filename)
                 if not os.path.isfile(self.filename):
                     print("District" + select_district.first_selected_option.text + "csv is not downloaded")
@@ -169,7 +169,7 @@ class pat_exception_report():
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(4)
                 p = pwd()
-                self.filename = p.get_download_dir() + "/" +"periodic_assessment_test_exception_"+management+"_overall_allGrades__clusters_of_block_"+value.strip()+cal.get_current_date()+'.csv'
+                self.filename = p.get_download_dir() + "/" +"periodic_assesment_test_exception_"+management+"_overall_allGrades__clusterPerBlocks_of_block_"+value.strip()+cal.get_current_date()+'.csv'
                 print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     print(
@@ -214,7 +214,7 @@ class pat_exception_report():
                     self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(4)
                     p = pwd()
-                    self.filename = p.get_download_dir() + "/" +"periodic_assessment_test_exception_"+management+"_overall_allGrades__schools_of_cluster_"+value+cal.get_current_date()+'.csv'
+                    self.filename = p.get_download_dir() + "/" +"periodic_assesment_test_exception_"+management+"_overall_allGrades__schoolPerClusters_of_cluster_"+value+cal.get_current_date()+'.csv'
                     print(self.filename)
                     if os.path.isfile(self.filename) != True:
                         print(
@@ -349,7 +349,7 @@ class pat_exception_report():
             else:
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
-                self.filename = self.p.get_download_dir() + '/' + "periodic_assessment_test_exception_"+management+"_overall_allGrades__allBlocks_"+cal.get_current_date()+'.csv'
+                self.filename = self.p.get_download_dir() + '/' + "periodic_assesment_test_exception_"+management+"_overall_allGrades__allBlocks_"+cal.get_current_date()+'.csv'
                 print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     print("Over all time series csv file is not downloaded")

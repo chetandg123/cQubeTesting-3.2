@@ -86,7 +86,7 @@ class Files():
 
     udise_district="UDISE_report_Infrastructure_Score_allDistricts_"
     udise_block='UDISE_report_Infrastructure_Score_allBlocks_'
-    udise_cluster='UDISE_report_overall_Infrastructure_Score_allClusters_'
+    udise_cluster='UDISE_report_'
     udise_school='UDISE_report_Infrastructure_Score_allSchools_'
     udise_districtwise='UDISE_report_Infrastructure_Score_blocks_of_district_'
     udise_blockwise='UDISE_report_Infrastructure_Score_clusters_of_block_'
@@ -113,21 +113,21 @@ class Files():
     location_course ="usage_by_course_all_"
     location_textbook="usage_by_textbook_all_"
 
-    pchart_district ='periodic_assessment_test_heatmap_'
-    pchart_districtwise='periodic_assessment_test_heatmap_'
-    pchart_blockwise='periodic_assessment_test_heatmap_'
-    pchart_clusterwise='periodic_assessment_test_heatmap_'
-    pchart_view ="periodic_assessment_test_heatmap_"
-    subject_wise ="periodic_assessment_test_heatmap_"
-    pchart_grades ="periodic_assessment_test_heatmap_"
+    pchart_district ='periodic_assesment_test_heatmap_'
+    pchart_districtwise='periodic_assesment_test_heatmap_'
+    pchart_blockwise='periodic_assesment_test_heatmap_'
+    pchart_clusterwise='periodic_assesment_test_heatmap_'
+    pchart_view ="periodic_assesment_test_heatmap_"
+    subject_wise ="periodic_assesment_test_heatmap_"
+    pchart_grades ="periodic_assesment_test_heatmap_"
 
-    patlo_district = 'periodic_assessment_test_loTable_'
-    patlo_districtwise = 'periodic_assessment_test_loTable_'
-    patlo_blockwise = 'periodic_assessment_test_loTable_'
-    patlo_clusterwise = 'periodic_assessment_test_loTable_'
-    patlo_view = "periodic_assessment_test_loTable_"
-    patlo_subjectwise = "periodic_assessment_test_loTable_"
-    patlo_grades = "periodic_assessment_test_loTable_"
+    patlo_district = 'periodic_assesment_test_loTable_'
+    patlo_districtwise = 'periodic_assesment_test_loTable_'
+    patlo_blockwise = 'periodic_assesment_test_loTable_'
+    patlo_clusterwise = 'periodic_assesment_test_loTable_'
+    patlo_view = "periodic_assesment_test_loTable_"
+    patlo_subjectwise = "periodic_assesment_test_loTable_"
+    patlo_grades = "periodic_assesment_test_loTable_"
 
     student_academic ="student_academic_"
     teacher_academic ="teacher_academic_"

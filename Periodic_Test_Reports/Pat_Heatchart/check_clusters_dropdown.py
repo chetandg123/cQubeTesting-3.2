@@ -44,7 +44,7 @@ class Clusterswise():
                     val = bvalue[1].strip()
                     self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(4)
-                    self.filename = self.p.get_download_dir() + '/' + self.fname.pchart_clusters() + management + '_' + gradenum + "_schools_of_cluster_" + value +'_'+ self.month + '_' + self.year + '_' + \
+                    self.filename = self.p.get_download_dir() + '/' + self.fname.pchart_clusters() + management + '_' + gradenum + "_clusters_of_block_"+val+'_'+ self.month + '_' + self.year + '_' + \
                                     self.load.get_current_date() + '.csv'
                     print(self.filename)
                     file = os.path.isfile(self.filename)
@@ -85,18 +85,21 @@ class Clusterswise():
                     for k in range(1, len(clust.options)):
                         clust.select_by_index(k)
                         self.load.page_loading(self.driver)
-                        value =self.driver.find_element_by_id(Data.cluster_dropdown).get_attribute('value')
-                        value = value[3:]+'_'
-                        print(value)
-                        self.driver.find_element_by_id(Data.Download).click()
-                        time.sleep(3)
-                        self.filename = self.p.get_download_dir() + '/' + self.fname.pchart_schools()+management+'_'+gradenum+"_schools_of_cluster_"+value.strip()+self.month+'_'+self.year+'_'+ \
-                        self.load.get_current_date()+'.csv'
-                        print(self.filename)
-                        file = os.path.isfile(self.filename)
-                        if file != True:
-                            print(clust.options[k].text, 'Cluster wise records csv file is not downloaded')
-                            count = count + 1
-                        self.load.page_loading(self.driver)
-                        os.remove(self.filename)
-        return count
+                        if 'No data found' in self.driver.page_source:
+                            print("No data available ")
+                        else:
+                            value =self.driver.find_element_by_id(Data.cluster_dropdown).get_attribute('value')
+                            value = value[3:]+'_'
+                            print(value)
+                            self.driver.find_element_by_id(Data.Download).click()
+                            time.sleep(3)
+                            self.filename = self.p.get_download_dir() + '/' + self.fname.pchart_schools()+management+'_'+gradenum+"_schools_of_cluster_"+value.strip()+self.month+'_'+self.year+'_'+ \
+                            self.load.get_current_date()+'.csv'
+                            print(self.filename)
+                            file = os.path.isfile(self.filename)
+                            if file != True:
+                                print(clust.options[k].text, 'Cluster wise records csv file is not downloaded')
+                                count = count + 1
+                            self.load.page_loading(self.driver)
+                            os.remove(self.filename)
+                            return count

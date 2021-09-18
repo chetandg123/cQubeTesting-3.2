@@ -24,13 +24,16 @@ class cluster_btn_scores():
             time.sleep(1)
             scores.select_by_index(i)
             time.sleep(3)
+            if 'No data found' in self.driver.page_source:
+                print(scores.options[i].text,'showing no data found!..')
+            else:
+                self.p.page_loading(self.driver)
+                markers = self.driver.find_elements_by_class_name(Data.dots)
+                dots = len(markers) - 1
+                if dots == 0:
+                    print(i, 'does not contains markers on map ')
+                    count = count + 1
             self.p.page_loading(self.driver)
-            markers = self.driver.find_elements_by_class_name(Data.dots)
-            dots = len(markers) - 1
-            if dots == 0:
-                print(i, 'does not contains markers on map ')
-                count = count + 1
-        self.p.page_loading(self.driver)
-        scores.select_by_index(1)
-        time.sleep(2)
-        return count
+            scores.select_by_index(1)
+            time.sleep(2)
+            return count

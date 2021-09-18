@@ -40,7 +40,7 @@ class ClusterPerBlockCsvDownload():
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(4)
                 p= pwd()
-                self.filename = p.get_download_dir() + "/" + self.fname.exception_blockwise()+management+'_overall_allGrades__clusters_of_block_'+value.strip()+date.today().strftime('%d-%m-%Y').strip()+'.csv'
+                self.filename = p.get_download_dir() + "/" + self.fname.exception_blockwise()+management+'_overall_allGrades__clusterPerBlocks_of_block_'+value.strip()+date.today().strftime('%d-%m-%Y').strip()+'.csv'
                 print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     print("District" + select_district.first_selected_option.text + "Block " + select_block.first_selected_option.text   + "csv is not downloaded")

@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
-class Data():
-
-    # for new cQube usecase theme
+class locators():
     login = "login"
     email = "username"
     passwd = "password"
@@ -10,7 +8,7 @@ class Data():
     conf_pass = "cnfPasswd"
     change_pass_btn = "btn"
     homeicon = "home"
-    logout = "logoutBtn"
+    logout = "logout"
     fieldReq = "/html/body/app-root/app-login/div[1]/div[2]/div[2]/form/div[2]/div/label"
     Grade = "grades"
     Subject = "subjects"
@@ -28,61 +26,19 @@ class Data():
     SAR_Details = "//div[@class='row']/div[@class='col-sm-4']/span"
     hyper_link = "//p/span"
     directory = "//p[contains(text(),' Semester report for:')]/span"
-    Download = "download1"
-    Download_scator ='download1'
+    Download = "download"
+    Download_scator ='download'
     s3bucket_select1 ="//*[@id='table']/thead[2]/tr[2]/td[1]/input"
     summ ="//*[@id='summary']/div/td[2]"
     # Dash board
+    Dashboard = "menu"
     header = "//h4"
-    # Data Replay
+    # Selenium_Locators Replay
     data_replay_icon_id = "replay"
     data_source_select_box_id = "dataSources"
     data_replay_submit_button_css_selector = "div > button:first-of-type"
     data_replay_cancel_button_css_selector = "div > button:last-of-type"
     data_replay_select_year_class = "time"
-
-    #menu_opts
-    menu_icon = "menuIcon"
-    cQube_logo = "cubeLogo"
-    sch_infra = "SchInfra"
-    std_performance = "stdPerformance"
-    attendance = "attendance"
-    tpd_opts = "tpd"
-    diksha_ETB = "etb"
-    crc_visit = "crc"
-    composite_metrics = "composite"
-    progress_card = "progressCard"
-    Exception_Reports = "exceptList"
-    Telemetry = "telemetry"
-
-    #Dashboard_icons
-    inframap = "imr"
-    composite = "cr"
-    udise = "udise"
-    usage_course = "dcc"
-    content_course = "dtr"
-    course_progress = "tdp-cp"
-    tpd_enrollment = "tpd-enroll"
-    completion_percentage = "tpd-comp"
-    usage_textbook = "ut"
-    content_textbook = "utc"
-    crcreport = "crcr"
-    Progresscard = "healthCard"
-    satmap = "sat"
-    sat_heatchart = "satHeatChart"
-    patmap = "pat1"
-    patheatchart = "heatChart"
-    patlotable = "lotable"
-    studentattendance="sar"
-    teacherattendance="tar"
-    semesterexception="SemExp"
-    patexception="patExcpt"
-    isData ="isdata"
-    studentexception ="sarExcpt"
-    teacherexception="tarExp"
-    tele_report="telemData"
-    composite_metric="composite"
-
     # school_infra_Report
     # school_infra = "si"
     infro_dist = "//select[@name='myDistrict']/option"
@@ -107,7 +63,6 @@ class Data():
 
     # hyper     ="//*[@id='dist_level']/span"
     hyper = "//p/span"
-
     dist_hyper = "//*[@id='block']/span[1]"
     # school_hyper = "//*[@id='school']/span[5]"
     block_hyper = "//*[@id='cluster']/span[3]"
@@ -134,13 +89,16 @@ class Data():
 
     diksha ="//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[3]/mat-list-item/div/mat-icon"
     tpds ="//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[2]/mat-list-item/div/mat-icon"
+    ener_textbook="//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[3]/mat-list-item/div/mat-icon"
+    exception_click ="//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[5]/mat-list-item/div/mat-icon"
+
     diksha_graph ="chrtReport"
     diksha_table = "dtblReport"
     tpd_progress ="tpd-cp"
     tpd_percentage ="tpd-tp"
     col_course ="clmnReport"
     col_text ="ut"
-    # content_textbook ="utc"
+    content_textbook ="utc"
     sem_exception = "SemException"
 
 
@@ -163,12 +121,19 @@ class Data():
     select_clusters = 'myCluster'
     select_month = 'month'
     select_year = 'year'
+    # login = "//button[@type='submit']"
+    select_sem_district = '/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-sem-view/div/div[2]/div[2]/select[1]'
+    select_sem_blocks = '/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-sem-view/div/div[2]/div[2]/select[2]'
+    select_sem_clusters = '/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-sem-view/div/div[2]/div[2]/select[3]'
 
+    CRC_Districts = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-bar-chart/div/div[3]/div[2]/select[1]/option"
     # User_option
     user_options = "//button[@id='usr']/span/mat-icon"
     u_create = "crtUsr"
     p_change = "chPass"
 
+    No_schools = '/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-map-view/div/div[4]/div[2]'
+    No_sem_schools = '/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-sem-view/div/div[4]/div[2]'
     SR_Blocks_btn = "block"
     SR_Clusters_btn = "cluster"
     SR_Schools_btn = "school"
@@ -209,9 +174,89 @@ class Data():
     period = "period"
 
 
+    SAR_Dnames = "//*[@id='choose_dist']/option"
+    SAR_Bnames = "//*[@id='choose_block']/option"
+    SAR_cnames = "//*[@id='choose_cluster']/option"
 
+    # semester
+    no_schools = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-map-view/div/div[4]/div[2]/span"
+    no_students = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-map-view/div/div[4]/div[1]/span"
+    zoom_in = "//a[@title='Zoom in']"
+    zoom_out = "//a[@title='Zoom out']"
+    dash_name = "//h4"
+    # list of names
+    SR_Dnames = "//*[@id='choose_dist']/option"
+    SR_Bnames = "//*[@id='choose_block']/option"
+    SR_cnames = "//*[@id='choose_cluster']/option"
 
+    crcdist = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-map-view/div/div[2]/div[2]/select[1]/option"
 
+    year = "//select[@id='year']/option[1]"
+    monthnames = "//select[@id='month']/option"
+    august = "//select[@id='month']/option[2]"
+    Sept = "//select[@id='month']/option[3]"
+    Oct = "//select[@id='month']/option[4]"
+    blockslist = "//select[@name='myBlock']/option"
+    clusterlist = "//select[@name='myCluster']/option"
+    back = "//a"
+    reg_user = "//a"
+    details = "//div[@class='col-sm-4']/span"
+    # Dash board
+    TAR = "tar"
+    SR = "sr"
+    CRC = "crcReport"
+
+    # xpath of Dashboard
+
+    crcvisits = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-bar-chart/div/div[5]/div[1]/span"
+    totalschools = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-bar-chart/div/div[5]/div[2]/span"
+
+    visited = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-bar-chart/div/div[5]/div[3]/span"
+    notvisited = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-bar-chart/div/div[5]/div[4]/span"
+
+    range = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-bar-chart/div/div[5]/div[5]/span"
+
+    # Table in CRC
+    crc_districtwise_csv = "//*[@id='select']/select/option[2]"
+    crc_clusterwise_csv = "//*[@id='select']/select/option[4]"
+    # rowby data
+    distrows = "//tr[@class='odd']/td"
+    headers = "//tr[@role='row']/th"
+    footer = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-crc-report/div[1]/div[5]/div/span"
+
+    crc_districtlist = "//*[@id='dist']/option"
+    crc_blocklist = "//*[@id='block']/option"
+    crc_clusterlist = "//*[@id='cluster']/option"
+
+    # select_type
+    distwise = "//select[@name='downloadType']/option[2]"
+    blkwise = "//select[@name='downloadType']/option[3]"
+    clusterwise = "//select[@name='downloadType']/option[4]"
+    schoolwise = "//select[@name='downloadType']/option[5]"
+
+    crcdistrict = "//select[@name='myDistrict']/option"
+    selecttype = "//*[@id='select']/select/option"
+
+    Notemsg = "//div[@class='col-sm-12']/p/b"
+    value2 = "Anand"
+    # semester Infra_Table_Report
+    srDist = "//select[@class='ng-untouched ng-pristine ng-valid']/option"
+    srcluster = "//select[@class='ng-pristine ng-valid ng-touched']/option"
+    srblock = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav-content/div/app-sem-view/div/div[2]/div[2]/select[2]/option"
+    sr_students = "students"
+    sr_schools = "schools"
+
+    # Semester
+
+    SRD1 = "//*[@id='choose_dist']/option[2]"
+    SRB1 = "//*[@id='choose_block']/option[2]"
+    SRC1 = "//*[@id='choose_cluster']/option[2]"
+
+    # CRC
+
+    CRD1 = "//*[@id='dist']/option[2]"
+    CRB1 = "//*[@id='block']/option[2]"
+    CRC1 = "//*[@id='cluster']/option[2]"
 
 
 
@@ -227,7 +272,6 @@ class Data():
     column_report ="clmnReport"
     completion ="cmplnErr"
     compl_download ="//button[contains(text(),'Download')]"
-
    #semester Infra_Table_Report
     sr_by_xpath = "//*[@id='sr']"
     sr_by_id = "sr"
@@ -243,6 +287,19 @@ class Data():
     sr_dist_hyper = "//*[@id='block']/span[1]"
     sr_school_hyper = "//*[@id='school']/span[5]"
     sr_cluster_hyper = "//*[@id='cluster']/span[3]"
+
+    #Dashboards
+    telmetry_report ="/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[7]/mat-list-item/div/mat-icon"
+    attendance = "//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[6]/mat-list-item/div/mat-icon"
+    semester_sel = "//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[4]/mat-list-item/div/mat-icon"
+    crc_report = "//*[@id='crcReport']/div/div[1]"
+
+
+
+    crc_sel2 ="//*[@id='select']/select/option[2]"
+    crc_sel3 ="//*[@id='select']/select/option[3]"
+    crc_sel4 ="//*[@id='select']/select/option[4]"
+    crc_sel5 = "//*[@id='select']/select/option[5]"
 
     #admin console
     createuser_icon ="//*[@id='crtUsr']/img"
@@ -278,7 +335,7 @@ class Data():
     grade ="grade"
     subjects ="subject"
 
-    #TPD Reports
+    #LPD Reports
     timeperiods ="timePeriod"
     district_sel ="district"
     block_sel ="block"
@@ -308,6 +365,7 @@ class Data():
     # Health card report
     levels="level"
     submt ="button"
+
     search="myInput"
     itags="//div[@id='div3']/div/span"
     access_report="//p/a"
@@ -349,15 +407,5 @@ class Data():
     state_udise="//*[@id='udise']/div[2]/div/table/tbody/tr/td"
     state_crc="//*[@id='crc']/div[2]/div/table/tbody/tr/td"
 
-    #Old cQube Theme
-    # Dashboards hamburger options
-    telmetry_report = "/html/body/app-root/app-home/mat-sidenav-container/mat-sidenav/div/mat-nav-list/div/mat-nav-list[7]/mat-list-item/div/mat-icon"
-    attendance_old = "//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[6]/mat-list-item/div/mat-icon"
-    semester_sel = "//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[4]/mat-list-item/div/mat-icon"
-    crc_report = "//*[@id='crcReport']/div/div[1]"
-    diksha_old = "//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[3]/mat-list-item/div/mat-icon"
-    tpds_old = "//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[2]/mat-list-item/div/mat-icon"
-    ener_textbook = "//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[3]/mat-list-item/div/mat-icon"
-    exception_click = "//*[@id='sideNav']/div/div[1]/div/div/mat-nav-list/div/mat-nav-list[5]/mat-list-item/div/mat-icon"
 
 

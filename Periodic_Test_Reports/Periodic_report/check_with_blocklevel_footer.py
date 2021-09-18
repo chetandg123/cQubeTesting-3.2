@@ -25,6 +25,7 @@ class Block_level_footers():
         management = management[16:].lower().strip()
         self.driver.find_element_by_id(Data.block_btn).click()
         cal.page_loading(self.driver)
+        time.sleep(2)
         marker = self.driver.find_elements_by_class_name(Data.dots)
         counts = len(marker ) -1
         self.driver.find_element_by_id(Data.Download).click()

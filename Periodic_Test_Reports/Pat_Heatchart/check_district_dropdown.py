@@ -43,7 +43,7 @@ class districtwise():
                 dists.select_by_index(i)
                 print(dists.options[i].text)
                 value = self.driver.find_element_by_id(Data.district_dropdown).get_attribute('value')
-                value = value[5:]+'_'
+                value = value[4:]+'_'
                 self.load.page_loading(self.driver)
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)

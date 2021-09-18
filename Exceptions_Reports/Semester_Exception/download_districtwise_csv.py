@@ -28,7 +28,7 @@ class check_DistrictwiseCsv():
         self.driver.find_element_by_id(Data.Download).click()
         time.sleep(3)
         p = pwd()
-        self.filename = p.get_download_dir() + "/" + self.fname.exception_district()+management+'_overall_allGrades__allBlocks_'+cal.get_current_date()+'.csv'
+        self.filename = p.get_download_dir() + "/" + self.fname.exception_district()+management+'_overall_allGrades__allDistricts_'+cal.get_current_date()+'.csv'
         print(self.filename)
         cal.page_loading(self.driver)
         if not os.path.isfile(self.filename):

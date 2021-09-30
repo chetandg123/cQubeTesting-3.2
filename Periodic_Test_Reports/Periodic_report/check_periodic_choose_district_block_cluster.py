@@ -47,48 +47,49 @@ class DistrictBlockCluster():
                     time.sleep(3)
                     nodata = self.driver.find_element_by_id("errMsg").text
                     markers = self.driver.find_elements_by_class_name(Data.dots)
-                    if len(markers) - 1 == 0:
+                    if len(markers) - 1 == 0 or 'no data found' in self.driver.page_source:
                         print(
-                            "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "No data")
-                        count = count + 1
-                    self.driver.find_element_by_id(Data.Download).click()
-                    time.sleep(3)
-                    p = pwd()
-                    self.filename = p.get_download_dir() +"/" + self.fname.pat_clusterwise()+management+"_"+self.year+'_'+self.month+'_allGrades__schoolPerClusters_of_cluster_'+value.strip()+self.cal.get_current_date()+'.csv'
-                    print(self.filename)
-                    if not os.path.isfile(self.filename):
-                        print(
-                            "District" + select_district.first_selected_option.text + "Block" + select_block.first_selected_option.text + "Cluster" + select_cluster.first_selected_option.text + "csv is not downloaded")
+                            "District " + select_district.first_selected_option.text + "Block " + select_block.first_selected_option.text + "Cluster " + select_cluster.first_selected_option.text + "No data")
                         count = count + 1
                     else:
-                         values = pd.read_csv(self.filename)
-                         school = int(values['Total Schools'])
-                         students = int(values['Total Students'])
-                         attend = int(values['Students Attended'])
-                         schools = self.driver.find_element_by_id('schools').text
-                         scs = re.sub('\D', '', schools)
+                        self.driver.find_element_by_id(Data.Download).click()
+                        time.sleep(3)
+                        p = pwd()
+                        self.filename = p.get_download_dir() +"/" + self.fname.pat_clusterwise()+management+"_"+self.year+'_'+self.month+'_allGrades__schools_of_cluster_'+value.strip()+self.cal.get_current_date()+'.csv'
+                        print(self.filename)
+                        if not os.path.isfile(self.filename):
+                            print(
+                                "District " + select_district.first_selected_option.text + "Block " + select_block.first_selected_option.text + "Cluster " + select_cluster.first_selected_option.text + "csv is not downloaded")
+                            count = count + 1
+                        else:
+                             values = pd.read_csv(self.filename)
+                             school = int(values['Total Schools'])
+                             students = int(values['Total Students'])
+                             attend = int(values['Students Attended'])
+                             schools = self.driver.find_element_by_id('schools').text
+                             scs = re.sub('\D', '', schools)
 
-                         student = self.driver.find_element_by_id('students').text
-                         stds = re.sub('\D', '', student)
+                             student = self.driver.find_element_by_id('students').text
+                             stds = re.sub('\D', '', student)
 
-                         attended = self.driver.find_element_by_id('studentsAttended').text
-                         attds = re.sub('\D', '', attended)
+                             attended = self.driver.find_element_by_id('studentsAttended').text
+                             attds = re.sub('\D', '', attended)
 
-                         if int(scs) != int(school):
-                             print("schools count in footer and csv file records count mismatched", int(scs),
-                                   int(schools))
-                             count = count + 1
+                             if int(scs) != int(school):
+                                 print("schools count in footer and csv file records count mismatched", int(scs),
+                                       int(schools))
+                                 count = count + 1
 
-                         if int(stds) != int(students):
-                             print("student count in footer and csv file records count mismatched", int(scs),
-                                   int(schools))
-                             count = count + 1
+                             if int(stds) != int(students):
+                                 print("student count in footer and csv file records count mismatched", int(scs),
+                                       int(schools))
+                                 count = count + 1
 
-                         if int(attds) != int(attend):
-                             print("Attended count in footer and csv file records count mismatched", int(scs),
-                                   int(schools))
-                             count = count + 1
+                             if int(attds) != int(attend):
+                                 print("Attended count in footer and csv file records count mismatched", int(scs),
+                                       int(schools))
+                                 count = count + 1
 
-                    os.remove(self.filename)
-                    return count
+                        os.remove(self.filename)
+                        return count
 

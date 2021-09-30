@@ -18,7 +18,7 @@ class cQube_teacher_exception_regression_report(unittest.TestCase):
     def setUpClass(self):
             self.data = GetData()
             self.driver = self.data.get_driver()
-            self.driver.implicitly_wait(100)
+            self.driver.implicitly_wait(50)
             self.data.open_cqube_appln(self.driver)
             self.data.login_cqube(self.driver)
             self.data.navigate_to_teacher_exception()
@@ -28,30 +28,32 @@ class cQube_teacher_exception_regression_report(unittest.TestCase):
             self.year = year.first_selected_option.text
             self.month = month.first_selected_option.text
 
+    def test_SchoolPerClusterCsvDownload(self):
+        b = teacher_exception_report(self.driver,self.year, self.month)
+        time.sleep(2)
+        res2 = b.SchoolPerClusterCsvDownload()
+        self.assertEqual(0, res2, msg='Some School level files are not downloaded')
+        print('Checking each school wise markers and csv file downloading ')
+        self.data.page_loading(self.driver)
 
     def test_DistrictwiseDownload(self):
         b = teacher_exception_report(self.driver,self.year, self.month)
-        res1,res2 = b.check_districts_csv_download()
-        self.assertNotEqual(res1,0,msg='Markers are not present')
+        res2 = b.check_districts_csv_download()
         self.assertEqual(0, res2, msg="Some district level csv file is not downloaded")
         print('Checking each districtwise markers and csv file downloading ')
+        time.sleep(2)
         self.data.page_loading(self.driver)
 
     def test_ClusterPerBlockCsvDownload(self):
         b = teacher_exception_report(self.driver,self.year, self.month)
-        res1,res2 = b.ClusterPerBlockCsvDownload()
-        self.assertNotEqual(res1,0,msg='Markers are not present')
+        time.sleep(2)
+        res2 = b.ClusterPerBlockCsvDownload()
+        # self.assertEqual(res1,0,msg='Markers are not present')
         self.assertEqual(0,res2 , msg='Some cluster level files are not downloaded')
         print('Checking each cluster markers and csv file downloading ')
         self.data.page_loading(self.driver)
 
-    def test_SchoolPerClusterCsvDownload(self):
-        b = teacher_exception_report(self.driver,self.year, self.month)
-        res1,res2 = b.SchoolPerClusterCsvDownload()
-        self.assertNotEqual(0,res1,msg='Markers are not present')
-        self.assertEqual(0, res2, msg='Some School level files are not downloaded')
-        print('Checking each school wise markers and csv file downloading ')
-        self.data.page_loading(self.driver)
+
 
 
 

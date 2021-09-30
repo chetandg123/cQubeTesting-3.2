@@ -22,8 +22,10 @@ class periodic_grades():
         grade =Select(self.driver.find_element_by_id(Data.Grade))
         counter = len(grade.options)
         for i in range(1,len(grade.options)):
+            time.sleep(2)
             grade.select_by_index(i)
             print(grade.options[i].text)
+            time.sleep(2)
             self.data.page_loading(self.driver)
         return counter
 

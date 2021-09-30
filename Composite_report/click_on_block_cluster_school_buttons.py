@@ -14,6 +14,7 @@ class Blocks_cluster_schools_Buttons():
         count = 0
         self.data  = GetData()
         self.driver.find_element_by_xpath(Data.hyper_link).click()
+        time.sleep(3)
         self.driver.find_element_by_id('allBlock').click()
         self.data.page_loading(self.driver)
         graph = self.driver.find_element_by_id('myChart')

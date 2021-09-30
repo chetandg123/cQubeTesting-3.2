@@ -135,12 +135,12 @@ class periodic_regression(unittest.TestCase):
         self.data.page_loading(self.driver)
 
 
-    def test_periodic_grades(self):
-        b = periodic_grades(self.driver)
-        res = b.check_grade_dropdown_options()
-        self.assertNotEqual(0,res,msg="Grade options not present")
-        print("checking with each grades")
-        self.data.page_loading(self.driver)
+    # def test_periodic_grades(self):
+    #     b = periodic_grades(self.driver)
+    #     res = b.check_grade_dropdown_options()
+    #     self.assertNotEqual(0,res,msg="Grade options not present")
+    #     print("checking with each grades")
+    #     self.data.page_loading(self.driver)
 
     def test_grades_subjects(self):
         b = periodic_grades(self.driver)

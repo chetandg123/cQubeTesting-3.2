@@ -19,6 +19,7 @@ class download_blockwise_csv():
         self.fname = file_extention()
         self.driver.implicitly_wait(20)
         self.driver.find_element_by_xpath(Data.hyper).click()
+        time.sleep(3)
         self.cal.page_loading(self.driver)
         management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()

@@ -105,6 +105,7 @@ class teacher_exception_report():
 
     def check_districts_csv_download(self):
         cal = GetData()
+        self.markers = 1
         self.fname = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
@@ -113,7 +114,8 @@ class teacher_exception_report():
         self.year,self.month = cal.get_student_month_and_year_values()
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
         count = 0
-        for x in range(1, len(select_district.options)):
+        for x in range(1, len(select_district.options)-1):
+            time.sleep(1)
             select_district.select_by_index(x)
             cal.page_loading(self.driver)
             value = self.driver.find_element_by_id('choose_dist').get_attribute('value')
@@ -121,14 +123,14 @@ class teacher_exception_report():
             markers = self.driver.find_elements_by_class_name(Data.dots)
             time.sleep(3)
             if (len(markers) - 1) == 0:
-                print("District" + select_district.first_selected_option.text + "no data")
+                print("District " + select_district.first_selected_option.text + " no data")
                 count = count + 1
+                return  count
             else:
-                time.sleep(2)
                 self.driver.find_element_by_id(Data.Download).click()
-                time.sleep(2)
+                time.sleep(3)
                 p = pwd()
-                self.filename = p.get_download_dir() + "/" +"teacher_attendance_exception_"+management+"_Blocks_of_district_"+values.strip()+self.month+'_'+self.year+'_'+cal.get_current_date()+".csv"
+                self.filename = p.get_download_dir() + "/" +"teacher_attendance_exception_"+management+"_blockPerDistricts_of_district_"+values.strip()+self.month+'_'+self.year+'_'+cal.get_current_date()+".csv"
                 print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     return "File Not Downloaded"
@@ -148,11 +150,12 @@ class teacher_exception_report():
                             print("school count mismatched", int(teacher), int(ta))
                             count = count + 1
                     os.remove(self.filename)
-                return markers, count
+                return count
 
 
     def ClusterPerBlockCsvDownload(self):
         cal = GetData()
+        marker = 0
         self.fname = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
@@ -173,10 +176,11 @@ class teacher_exception_report():
                 time.sleep(2)
                 dots = self.driver.find_elements_by_class_name(Data.dots)
                 markers= len(dots)-1
+                marker = marker + markers
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(4)
                 p = pwd()
-                self.filename = p.get_download_dir() + "/" +"teacher_attendance_exception_"+management+"_Clusters_of_block_"+values.strip()+self.month+'_'+self.year+'_'+cal.get_current_date()+".csv"
+                self.filename = p.get_download_dir() + "/" +"teacher_attendance_exception_"+management+"_clusterPerBlocks_of_block_"+values.strip()+self.month+'_'+self.year+'_'+cal.get_current_date()+".csv"
                 print(self.filename)
                 if os.path.isfile(self.filename) != True:
                     return "File Not Downloaded"
@@ -195,12 +199,14 @@ class teacher_exception_report():
                             print("Teacher count mismatched", int(teacher), int(ta))
                             count = count + 1
                     os.remove(self.filename)
-                return markers, count
+                print(markers,count)
+            return count
 
     def SchoolPerClusterCsvDownload(self):
         cal = GetData()
         self.fname = file_extention()
-        cal.click_on_state(self.driver)
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
+        time.sleep(3)
         cal.page_loading(self.driver)
         management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
@@ -209,44 +215,50 @@ class teacher_exception_report():
         select_block = Select(self.driver.find_element_by_id('choose_block'))
         select_cluster=Select(self.driver.find_element_by_id('choose_cluster'))
         count = 0
-        for x in range(len(select_district.options)-1, len(select_district.options)):
-            select_district.select_by_index(x)
-            cal.page_loading(self.driver)
-            for y in range(1, len(select_block.options)):
-                time.sleep(2)
-                select_block.select_by_index(y)
+        if 'No data found' in self.driver.page_source:
+            print("No data found showing on report")
+            count = count+1
+            return count
+        else:
+            for x in range(len(select_district.options)-1, len(select_district.options)):
+                time.sleep(1)
+                select_district.select_by_index(x)
                 cal.page_loading(self.driver)
-                for z in range(1,len(select_cluster.options)):
-                    select_cluster.select_by_index(z)
-                    cal.page_loading(self.driver)
+                for y in range(1, len(select_block.options)):
                     time.sleep(2)
-                    value =self.driver.find_element_by_id('choose_cluster').get_attribute('value')
-                    values = value[3:]+'_'
-                    dots = self.driver.find_elements_by_class_name(Data.dots)
-                    markers=len(dots)-1
-                    self.driver.find_element_by_id(Data.Download).click()
-                    time.sleep(4)
-                    p = pwd()
-                    self.filename = p.get_download_dir() + "/" + "teacher_attendance_exception_"+management+"_schools_of_cluster_"+values.strip()+ self.month + "_" + self.year+'_'+cal.get_current_date()+ ".csv"
-                    print(self.filename)
-                    if os.path.isfile(self.filename) != True:
-                        return "File Not Downloaded"
-                    else:
-                        with open(self.filename) as fin:
-                            csv_reader = csv.reader(fin, delimiter=',')
-                            header = next(csv_reader)
-                            teacher = 0
-                            for row in csv.reader(fin):
-                                teacher += int(row[8])
+                    select_block.select_by_index(y)
+                    cal.page_loading(self.driver)
+                    for z in range(1,len(select_cluster.options)):
+                        select_cluster.select_by_index(z)
+                        cal.page_loading(self.driver)
+                        time.sleep(2)
+                        value =self.driver.find_element_by_id('choose_cluster').get_attribute('value')
+                        values = value[3:]+'_'
+                        dots = self.driver.find_elements_by_class_name(Data.dots)
+                        markers=len(dots)-1
+                        self.driver.find_element_by_id(Data.Download).click()
+                        time.sleep(4)
+                        p = pwd()
+                        self.filename = p.get_download_dir() + "/" + "teacher_attendance_exception_"+management+"_schoolPerClusters_of_cluster_"+values.strip()+ self.month + "_" + self.year+'_'+cal.get_current_date()+ ".csv"
+                        print(self.filename)
+                        if os.path.isfile(self.filename) != True:
+                            return "File Not Downloaded"
+                        else:
+                            with open(self.filename) as fin:
+                                csv_reader = csv.reader(fin, delimiter=',')
+                                header = next(csv_reader)
+                                teacher = 0
+                                for row in csv.reader(fin):
+                                    teacher += int(row[8])
 
-                            teach = self.driver.find_element_by_id("students").text
-                            ta = re.sub('\D', "", teach)
+                                teach = self.driver.find_element_by_id("students").text
+                                ta = re.sub('\D', "", teach)
 
-                            if int(teacher) != int(ta):
-                                print("Teacher count mismatched", int(teacher), int(ta))
-                                count = count + 1
-                        os.remove(self.filename)
-                    return markers, count
+                                if int(teacher) != int(ta):
+                                    print("Teacher count mismatched", int(teacher), int(ta))
+                                    count = count + 1
+                            os.remove(self.filename)
+            return count
 
     def check_markers_on_block_map(self):
         cal = GetData()

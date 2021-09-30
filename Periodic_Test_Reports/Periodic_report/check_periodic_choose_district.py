@@ -38,18 +38,18 @@ class District():
             value = value[4:]+'_'
             markers = self.driver.find_elements_by_class_name(Data.dots)
             time.sleep(3)
-            if (len(markers)- 1) == 0 :
-                print("District" + select_district.first_selected_option.text +"no data")
+            if (len(markers)- 1) == 0 or 'no data found' in self.driver.page_source:
+                print("District" + select_district.first_selected_option.text +" no data found")
                 count = count + 1
-            else :
+            else:
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(4)
                 p = pwd()
                 file =file_extention()
-                self.filename = p.get_download_dir() + "/"+file.pat_districtwise()+management+"_"+self.year+'_'+self.month+'_allGrades__blockPerDistricts_of_district_'+value.strip()+cal.get_current_date()+'.csv'
+                self.filename = p.get_download_dir() + "/"+file.pat_districtwise()+management+"_"+self.year+'_'+self.month+'_allGrades__blocks_of_district_'+value.strip()+cal.get_current_date()+'.csv'
                 print(self.filename)
                 if not os.path.isfile(self.filename):
-                    print("District" + select_district.first_selected_option.text + "csv is not downloaded")
+                    print("District " + select_district.first_selected_option.text + "csv is not downloaded")
                     count = count + 1
                 else:
                     values = pd.read_csv(self.filename)

@@ -55,6 +55,7 @@ class GetData():
         options.add_argument("--window-size=3860,2160")
         options.add_argument('--headless')
         self.driver = webdriver.Chrome(options=options, executable_path=self.p.get_driver_path())
+        print("Current session is {}".format(self.driver.session_id))
         return self.driver
 
     def get_current_date(self):

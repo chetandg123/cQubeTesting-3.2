@@ -100,15 +100,15 @@ class Files():
     telemetry_lastday='telemerty_allDistricts_last_day_'
     telemetry_lastmonth='telemerty_allDistricts_last_30_days_'
 
-    pat_district='periodic_assessment_test_'
-    pat_block='periodic_assessment_test_'
-    pat_cluster='periodic_assessment_test_'
-    pat_school='periodic_assessment_test_'
-    pat_districtwise='periodic_assessment_test_'
-    pat_blockwise='periodic_assessment_test_'
-    pat_clusterwise='periodic_assessment_test_'
-    pat_gradewise ='periodic_assessment_test_'
-    pat_subjectwise='periodic_assessment_test_'+management+'_all_Grade_'
+    pat_district='periodic_assesment_test_'
+    pat_block='periodic_assesment_test_'
+    pat_cluster='periodic_assesment_test_'
+    pat_school='periodic_assesment_test_'
+    pat_districtwise='periodic_assesment_test_'
+    pat_blockwise='periodic_assesment_test_'
+    pat_clusterwise='periodic_assesment_test_'
+    pat_gradewise ='periodic_assesment_test_'
+    pat_subjectwise='periodic_assesment_test_'+management+'_all_Grade_'
 
     location_course ="usage_by_course_all_"
     location_textbook="usage_by_textbook_all_"

@@ -17,6 +17,8 @@ class download_clusterwise_csv():
         p = pwd()
         self.cal = GetData()
         self.fname = file_extention()
+        self.driver.find_element_by_xpath(Data.hyper_link).click()
+        time.sleep(3)
         management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         self.driver.find_element_by_xpath(Data.hyper).click()

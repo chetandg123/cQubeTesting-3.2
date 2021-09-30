@@ -42,17 +42,17 @@ class timeseries_patreport():
                 for j in range(1,len(dist.options)-1):
                     dist.select_by_index(j)
                     value = self.driver.find_element_by_id('choose_dist').get_attribute('value')
-                    value = (value[4:]+'_').strip()
+                    value = value.split(":")
                     time.sleep(2)
                     markers = self.driver.find_elements_by_class_name(Data.dots)
                     dots = len(markers) -1
                     self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(4)
-                    self.filename = p.get_download_dir() + '/'+ self.fname.pat_districtwise()+management+'_all_allGrades__blocks_of_district_'+value.strip()+self.data.get_current_date()+'.csv'
+                    self.filename = p.get_download_dir() + '/'+ self.fname.pat_districtwise()+management+'_all_allGrades__blocks_of_district_'+value[1].strip()+'_'+self.data.get_current_date()+'.csv'
                     print(self.filename)
                     time.sleep(2)
                     if os.path.isfile(self.filename) !=True:
-                        print( dist.options[i],"district csv file not downloaded ")
+                        print(dist.options[i].text," district csv file not downloaded ")
                         count = count + 1
                     else:
                         markers = self.driver.find_elements_by_class_name(Data.dots)

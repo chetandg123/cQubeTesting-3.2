@@ -34,12 +34,12 @@ class pwd():
 
     def get_regression_map_reports(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/Regression_Report/Regression_cQbue.html')
+        report_path = os.path.join(cwd, 'Reports/Regression_Report/Regression_cQube_Map_Reports.html')
         return report_path
 
     def get_regression_chart_table_reports(self):
         cwd = os.path.dirname(__file__)
-        report_path = os.path.join(cwd, 'Reports/Regression_Report/Regression_chart_table_reports.html')
+        report_path = os.path.join(cwd, 'Reports/Regression_Report/Regression_cQube_chart_table_reports.html')
         return report_path
 
     def get_diksha_tpds_regression_report(self):

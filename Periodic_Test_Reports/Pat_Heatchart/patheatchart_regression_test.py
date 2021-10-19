@@ -32,12 +32,12 @@ class cQube_heatchart_regression_test(unittest.TestCase):
         self.data.navigate_to_heatchart_report()
 
 
-    def test_Catagory_series(self):
-        b =Catagory_series(self.driver)
-        res = b.viewbys_options()
-        self.assertEqual(0,res,msg='View by csv file is not downloaded')
-        self.data.page_loading(self.driver)
-        time.sleep(4)
+    # def test_Catagory_series(self):
+    #     b =Catagory_series(self.driver)
+    #     res = b.viewbys_options()
+    #     self.assertEqual(0,res,msg='View by csv file is not downloaded')
+    #     self.data.page_loading(self.driver)
+    #     time.sleep(4)
 
     def test_Download_districtwise(self):
         b =Download_districtwise(self.driver)

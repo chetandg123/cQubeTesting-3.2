@@ -53,10 +53,6 @@ class cQube_teacher_exception_regression_report(unittest.TestCase):
         print('Checking each cluster markers and csv file downloading ')
         self.data.page_loading(self.driver)
 
-
-
-
-
     def test_Data_not_recieved(self):
         b = teacher_exception_report(self.driver,self.year, self.month)
         res,r1,r2,r3 = b.test_total_not_recieved_data()
@@ -87,7 +83,6 @@ class cQube_teacher_exception_regression_report(unittest.TestCase):
         self.assertEqual(0, res2, msg='Footer mis match found at school level')
         print('Checked schoolwise markers and csv file downloading ')
         self.data.page_loading(self.driver)
-
 
     def test_teacher_exception_icon(self):
         b = teacher_exception_report(self.driver,self.year, self.month)

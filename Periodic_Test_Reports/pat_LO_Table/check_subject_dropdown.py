@@ -35,23 +35,23 @@ class subject_levels():
         for i in range(2, len(subject.options)):
             subject.select_by_index(i)
             self.load.page_loading(self.driver)
-            if subject.options[i].text in self.driver.page_source:
+            if subject.options[i].text in self.driver.page_source and 'No data found' in self.driver.page_source:
                 print(subject.options[i].text, 'is displayed chart table ')
                 self.load.page_loading(self.driver)
+                return count
             else:
-                print(subject.options[i].text, 'is not displayed ')
-                count = count + 1
-            self.driver.find_element_by_id(Data.Download).click()
-            time.sleep(3)
-            self.filename = self.p.get_download_dir() + '/' + self.fname.patlo_subjects()+management+'_'+ gradenum + '_' + (
-                subject.options[i].text).strip() + \
-                            '_allDistricts_' + self.month + '_' + self.year + '_' + self.load.get_current_date() + '.csv'
-            print(self.filename)
-            if os.path.isfile(self.filename) != True:
-                print(subject.options[i].text, 'csv file is not downloaded')
-                count = count + 1
-            self.load.page_loading(self.driver)
-            os.remove(self.filename)
-        return count
+                print(subject.options[i].text, 'is displayed ')
+                self.driver.find_element_by_id(Data.Download).click()
+                time.sleep(3)
+                self.filename = self.p.get_download_dir() + '/' + self.fname.patlo_subjects()+management+'_'+ gradenum + '_' + (
+                    subject.options[i].text).strip() + \
+                                '_allDistricts_' + self.month + '_' + self.year + '_' + self.load.get_current_date() + '.csv'
+                print(self.filename)
+                if os.path.isfile(self.filename) != True:
+                    print(subject.options[i].text, 'csv file is not downloaded')
+                    count = count + 1
+                self.load.page_loading(self.driver)
+                os.remove(self.filename)
+            return count
 
 

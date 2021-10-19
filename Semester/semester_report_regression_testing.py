@@ -72,50 +72,50 @@ class cQube_Semester_Report(unittest.TestCase):
     #     self.data.page_loading(self.driver)
 
 
-    def test_last30_districts(self):
-        block = Blocks(self.driver)
-        result = block.check_last_30_days_districts()
-        self.assertEqual(0,result,msg='Some footer value mismatch found ')
-        self.assertEqual(0,result,msg='Files are not downloaded')
-
-    def test_last7days_districts(self):
-        block = Blocks(self.driver)
-        result = block.check_last_7_days_districts()
-        self.assertEqual(0, result, msg='Some footer value mismatch found ')
-        self.assertEqual(0, result, msg='Files are not downloaded')
-
-    def test_last30days_district_blockwise_clusterwise(self):
-        block = DistrictsBlock(self.driver)
-        result = block.check_last30days_districts_block()
-        if result == 0:
-            print("Cluster per block csv report download is working")
-            print("on selection of each district and block")
-        else:
-            raise self.failureException("Cluster per block csv report download not is working")
-        schools = DistrictBlockCluster(self.driver)
-        result = schools.check_last30_district_block_cluster()
-        if result == 0:
-            print("Schools per cluster csv download report is working")
-            print("on selection of each district,block and cluster")
-            print("The footer value of no of schools and no of students are")
-            print("equals to downloaded file")
-        else:
-            raise self.failureException("Schools per cluster csv report download not is working")
-
-    def test_last7days_district_blockwise_clusterwise(self):
-        block = DistrictsBlock(self.driver)
-        result = block.check_last7days_districts_block()
-        self.assertEqual(result,0,msg="Cluster per block csv report download not is working")
-
-        schools = DistrictBlockCluster(self.driver)
-        result = schools.check_last7_district_block_cluster()
-        if result == 0:
-            print("Schools per cluster csv download report is working")
-            print("on selection of each district,block and cluster")
-            print("The footer value of no of schools and no of students are")
-            print("equals to downloaded file")
-        else:
-            raise self.failureException("Schools per cluster csv report download not is working")
+    # def test_last30_districts(self):
+    #     block = Blocks(self.driver)
+    #     result = block.check_last_30_days_districts()
+    #     self.assertEqual(0,result,msg='Some footer value mismatch found ')
+    #     self.assertEqual(0,result,msg='Files are not downloaded')
+    #
+    # def test_last7days_districts(self):
+    #     block = Blocks(self.driver)
+    #     result = block.check_last_7_days_districts()
+    #     self.assertEqual(0, result, msg='Some footer value mismatch found ')
+    #     self.assertEqual(0, result, msg='Files are not downloaded')
+    #
+    # def test_last30days_district_blockwise_clusterwise(self):
+    #     block = DistrictsBlock(self.driver)
+    #     result = block.check_last30days_districts_block()
+    #     if result == 0:
+    #         print("Cluster per block csv report download is working")
+    #         print("on selection of each district and block")
+    #     else:
+    #         raise self.failureException("Cluster per block csv report download not is working")
+    #     schools = DistrictBlockCluster(self.driver)
+    #     result = schools.check_last30_district_block_cluster()
+    #     if result == 0:
+    #         print("Schools per cluster csv download report is working")
+    #         print("on selection of each district,block and cluster")
+    #         print("The footer value of no of schools and no of students are")
+    #         print("equals to downloaded file")
+    #     else:
+    #         raise self.failureException("Schools per cluster csv report download not is working")
+    #
+    # def test_last7days_district_blockwise_clusterwise(self):
+    #     block = DistrictsBlock(self.driver)
+    #     result = block.check_last7days_districts_block()
+    #     self.assertEqual(result,0,msg="Cluster per block csv report download not is working")
+    #
+    #     schools = DistrictBlockCluster(self.driver)
+    #     result = schools.check_last7_district_block_cluster()
+    #     if result == 0:
+    #         print("Schools per cluster csv download report is working")
+    #         print("on selection of each district,block and cluster")
+    #         print("The footer value of no of schools and no of students are")
+    #         print("equals to downloaded file")
+    #     else:
+    #         raise self.failureException("Schools per cluster csv report download not is working")
 
 
     def test_click_on_clusters(self):

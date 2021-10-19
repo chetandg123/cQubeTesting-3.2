@@ -81,19 +81,23 @@ class periodic_grades():
                 subjects.select_by_index(j)
                 self.data.page_loading(self.driver)
                 sub = (subjects.options[j].text).strip()
-                self.driver.find_element_by_id(Data.Download).click()
-                time.sleep(3)
-                self.filename = p.get_download_dir() + '/' + files.pat_gradewise()+management+'_all_Grade_'+gradenum.strip()+'_'+sub+'_allDistricts_' + self.data.get_current_date()+'.csv'
-                print(self.filename)
-                if os.path.isfile(self.filename) != True:
-                    print('grade wise wise csv file is not downloaded')
-                    count = count+1
+                if 'No data found' in self.driver.page_source:
+                    print(grade.options[i].text , subjects.options[j].text ,' No data found showing')
+                    return count
                 else:
-                    file = open(self.filename)
-                    read = file.read()
-                    os.remove(self.filename)
-                    if grade.options[j].text in read:
-                        print(grade.options[j].text, "is present")
-                    self.data.page_loading(self.driver)
-        return count
+                    self.driver.find_element_by_id(Data.Download).click()
+                    time.sleep(3)
+                    self.filename = p.get_download_dir() + '/' + files.pat_gradewise()+management+'_all_Grade_'+gradenum.strip()+'_'+sub+'_allDistricts_' + self.data.get_current_date()+'.csv'
+                    print(self.filename)
+                    if os.path.isfile(self.filename) != True:
+                        print('grade wise wise csv file is not downloaded')
+                        count = count+1
+                    else:
+                        file = open(self.filename)
+                        read = file.read()
+                        os.remove(self.filename)
+                        if grade.options[j].text in read:
+                            print(grade.options[j].text, "is present")
+                        self.data.page_loading(self.driver)
+                return count
 

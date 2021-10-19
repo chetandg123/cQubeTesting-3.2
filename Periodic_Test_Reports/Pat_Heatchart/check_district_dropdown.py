@@ -45,6 +45,7 @@ class districtwise():
                 value = self.driver.find_element_by_id(Data.district_dropdown).get_attribute('value')
                 value = value[4:]+'_'
                 self.load.page_loading(self.driver)
+                time.sleep(2)
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
                 self.filename = self.p.get_download_dir() + '/' + self.fname.pchart_blocks()+management+'_'+gradenum+ \

@@ -87,6 +87,7 @@ class Clusterswise():
                         self.load.page_loading(self.driver)
                         if 'No data found' in self.driver.page_source:
                             print("No data available ")
+                            return count
                         else:
                             value =self.driver.find_element_by_id(Data.cluster_dropdown).get_attribute('value')
                             value = value[3:]+'_'

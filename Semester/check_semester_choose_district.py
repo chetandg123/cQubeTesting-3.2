@@ -22,6 +22,11 @@ class District():
         self.fname = file_extention()
         cal.click_on_state(self.driver)
         cal.page_loading(self.driver)
+        year = Select(self.driver.find_element_by_id('year'))
+        self.year = year.first_selected_option.text
+        semester = self.driver.find_element_by_id('choose_semester').get_attribute('value')
+        value = semester.split(":")
+        self.semester = value[1].strip()
         management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
@@ -30,7 +35,8 @@ class District():
             select_district.select_by_index(x)
             cal.page_loading(self.driver)
             value = self.driver.find_element_by_id('choose_dist').get_attribute('value')
-            value = value[4:]+'_'
+            value = value.split(":")
+            val = value[1].strip()
             markers = self.driver.find_elements_by_class_name(Data.dots)
             time.sleep(3)
             if (len(markers) - 1) == 0 :
@@ -41,10 +47,10 @@ class District():
                 self.driver.find_element_by_id(Data.Download).click()
                 time.sleep(3)
                 p = pwd()
-                self.filename = p.get_download_dir() + "/" + self.fname.sr_districtwise()+management+'_all_allGrades__blocks_of_district_'+value.strip()+cal.get_current_date()+'.csv'
+                self.filename = p.get_download_dir() + "/" + self.fname.sr_districtwise()+management+'_'+self.year.strip()+'_'+self.semester+'_allGrades__blocks_of_district_'+val+'_'+cal.get_current_date()+'.csv'
                 print(self.filename)
                 if not os.path.isfile(self.filename):
-                    print("District" + select_district.first_selected_option.text + "csv is not downloaded")
+                    print("District " + select_district.first_selected_option.text + " csv is not downloaded")
                     count = count + 1
                 else:
                     with open(self.filename) as fin:

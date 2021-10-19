@@ -1,28 +1,24 @@
+
 from Landing_Page import cQube_landing_page
 from Login import login_page
-
 from Periodic_Test_Reports.Periodic_report import periodic_regression_testing
 from Student_Attendance import  student_attendance_regression_testing
 from School_infrastructure.Infra_map_Report import  School_Map_regression_testing
-
 from Semester import  semester_report_regression_testing
 from Teacher_Attendance import teacher_attendance_regression_testing
 from Telemetry import telemetry_regression_testing
 from UDISE import udise_regression_testing
 
 from get_dir import pwd
-
 import unittest
 from HTMLTestRunner import HTMLTestRunner
-
 from reuse_func import GetData
-
 
 class MyTestSuite_cQube_map_reports(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        self.data = GetData()
+        self.data = GetData()   #resue_fun.py
         self.driver = self.data.get_driver()
         self.driver.implicitly_wait(100)
         self.data.open_cqube_appln(self.driver)

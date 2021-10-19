@@ -23,6 +23,11 @@ class DistrictBlockCluster():
         cal.click_on_state(self.driver)
         management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()
+        year = Select(self.driver.find_element_by_id('year'))
+        self.year = year.first_selected_option.text
+        semester = self.driver.find_element_by_id('choose_semester').get_attribute('value')
+        value = semester.split(":")
+        self.semester = value[1].strip()
         select_district = Select(self.driver.find_element_by_id('choose_dist'))
         select_block = Select(self.driver.find_element_by_id('choose_block'))
         select_cluster = Select(self.driver.find_element_by_id('choose_cluster'))
@@ -47,11 +52,11 @@ class DistrictBlockCluster():
                     self.driver.find_element_by_id(Data.Download).click()
                     time.sleep(4)
                     p = pwd()
-                    self.filename = p.get_download_dir() +"/" + self.fname.sr_clusterwise()+management+'_all_allGrades__schools_of_cluster_'+value.strip()+'_'+cal.get_current_date()+'.csv'
+                    self.filename = p.get_download_dir() +"/" + self.fname.sr_clusterwise()+management+'_'+self.year.strip()+'_'+self.semester+'_allGrades__schools_of_cluster_'+value.strip()+'_'+cal.get_current_date()+'.csv'
                     print(self.filename)
                     if not os.path.isfile(self.filename):
                         print(
-                            "District" + select_district.first_selected_option.text + " Block: " + select_block.first_selected_option.text + " Cluster: " + select_cluster.first_selected_option.text + "csv is not downloaded")
+                            "District " + select_district.first_selected_option.text + " Block: " + select_block.first_selected_option.text + " Cluster: " + select_cluster.first_selected_option.text + "csv is not downloaded")
                         count = count + 1
                     else:
                         with open(self.filename) as fin:

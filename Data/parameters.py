@@ -81,7 +81,7 @@ class Data():
     studentexception ="sarExcpt"
     teacherexception="tarExp"
     tele_report="telemData"
-    composite_metric="composite"
+    composite_metric="compositeReport"
 
     # school_infra_Report
     # school_infra = "si"
@@ -152,7 +152,7 @@ class Data():
 
     Dash_head = "//h4"
     d_names = "//th[contains(text(),'district')]"
-    t_head = "//th[contains(text(),'District Name')]"
+    t_head = "//*[@id='table_wrapper']/div/div[1]/div/table/thead/tr/th[1]"
     login_in = "//span[@class='span']"
     SAR = "stdReport"
     teacher="thrReport"

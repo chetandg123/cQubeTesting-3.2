@@ -63,9 +63,10 @@ class DistrictBlockCluster():
                             count = count + 1
                         else:
                              values = pd.read_csv(self.filename)
-                             school = int(values['Total Schools'])
-                             students = int(values['Total Students'])
-                             attend = int(values['Students Attended'])
+                             school = values['Total Schools'].astype(int)
+                             students = values['Total Students'].astype(int)
+                             attend = values['Students Attended'].astype(int)
+
                              schools = self.driver.find_element_by_id('schools').text
                              scs = re.sub('\D', '', schools)
 
@@ -75,19 +76,19 @@ class DistrictBlockCluster():
                              attended = self.driver.find_element_by_id('studentsAttended').text
                              attds = re.sub('\D', '', attended)
 
-                             if int(scs) != int(school):
+                             if int(scs) != school:
                                  print("schools count in footer and csv file records count mismatched", int(scs),
-                                       int(schools))
+                                       (school))
                                  count = count + 1
 
-                             if int(stds) != int(students):
-                                 print("student count in footer and csv file records count mismatched", int(scs),
-                                       int(schools))
+                             if int(stds) != students:
+                                 print("student count in footer and csv file records count mismatched", int(stds),
+                                       int(students))
                                  count = count + 1
 
-                             if int(attds) != int(attend):
-                                 print("Attended count in footer and csv file records count mismatched", int(scs),
-                                       int(schools))
+                             if int(attds) != attend:
+                                 print("Attended count in footer and csv file records count mismatched", int(attds),
+                                       int(attend))
                                  count = count + 1
 
                         os.remove(self.filename)

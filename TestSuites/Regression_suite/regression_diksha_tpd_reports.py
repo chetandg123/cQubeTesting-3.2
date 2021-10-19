@@ -8,7 +8,6 @@ from Diksha_Reports.content_textbook import content_textbook_regression_suite
 from Diksha_TPD.TPD_Completion_percentage import completion_regression_test
 from Diksha_TPD.TPD_Course_Progress import tpd_course_regression_test
 from Diksha_TPD.TPD_Enrollment_completion import enrollment_regression_test
-from Diksha_TPD.TPD_Teacher_Percentage import lpd_percentage_regression_test
 
 from get_dir import pwd
 
@@ -87,7 +86,7 @@ class MyTestSuite_Diksha_tpds(unittest.TestCase):
     def test_issue03(self):
             self.data = GetData()
             self.data.page_loading(self.driver)
-            status = self.data.get_student_status("Diksha_TPD")
+            status = self.data.get_student_status("Diksha_ETB")
             if status == str(True):
                 self.data.page_loading(self.driver)
                 self.data.navigate_to_column_course()

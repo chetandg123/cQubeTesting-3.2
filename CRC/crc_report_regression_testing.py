@@ -1,3 +1,4 @@
+import time
 import unittest
 
 from CRC.check_clusterwise_records import crc_schoolevel_records
@@ -69,6 +70,7 @@ class cQube_CRC_Report(unittest.TestCase):
         self.data.page_loading(self.driver)
 
     def test_crc_districtwise(self):
+        time.sleep(2)
         b = test_crc_report_districtwise(self.driver)
         result = b.test_districtwise()
         self.assertEqual(0, result, msg="File is not downloaded")
@@ -113,12 +115,12 @@ class cQube_CRC_Report(unittest.TestCase):
         self.data.page_loading(self.driver)
         print("checked graph x and y axis options")
 
-    def test_orderwise_tabledata(self):
-        b = Check_order_of_tabledata(self.driver)
-        result = b.test_order()
-        self.assertNotEqual(result,0, msg="Menu is not exist")
-        print("check order of table records is working ")
-        self.data.page_loading(self.driver)
+    # def test_orderwise_tabledata(self):
+    #     b = Check_order_of_tabledata(self.driver)
+    #     result = b.test_order()
+    #     self.assertNotEqual(result,0, msg="Menu is not exist")
+    #     print("check order of table records is working ")
+    #     self.data.page_loading(self.driver)
 
     def test_on_clusterlevel_to_hyperlinks(self):
         b = click_on_hyperlinks(self.driver)

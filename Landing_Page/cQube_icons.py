@@ -558,10 +558,10 @@ class cQube_landing_page():
             else:
                 print("download-missing-data should be display in url ")
                 count = count + 1
-            self.data.page_loading(self.driver)
-            self.driver.find_element_by_id(Data.cQube_logo).click()
-            self.data.page_loading(self.driver)
-        return count
+                self.data.page_loading(self.driver)
+                self.driver.find_element_by_id(Data.cQube_logo).click()
+                self.data.page_loading(self.driver)
+            return count
 
     #Telemetry
     def check_telemetry_icon(self):

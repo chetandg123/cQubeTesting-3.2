@@ -74,11 +74,11 @@ class cQube_Home(unittest.TestCase):
         self.assertEqual(0, res, msg='Report page is not exist')
         self.data.page_loading(self.driver)
 
-    # def test_composite_metrics_Report(self):
-    #     b = cQube_landing_page(self.driver)
-    #     res = b.check_composite_metrics()
-    #     self.assertEqual(0, res, msg='Report page is not exist')
-    #     self.data.page_loading(self.driver)
+    def test_composite_metrics_Report(self):
+        b = cQube_landing_page(self.driver)
+        res = b.check_composite_metrics()
+        self.assertEqual(0, res, msg='Report page is not exist')
+        self.data.page_loading(self.driver)
 
     def test_patreport(self):
         b = cQube_landing_page(self.driver)

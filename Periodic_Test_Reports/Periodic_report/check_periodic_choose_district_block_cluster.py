@@ -63,9 +63,9 @@ class DistrictBlockCluster():
                             count = count + 1
                         else:
                              values = pd.read_csv(self.filename)
-                             school = values['Total Schools'].astype(int)
-                             students = values['Total Students'].astype(int)
-                             attend = values['Students Attended'].astype(int)
+                             school = values['Total Schools'].sum()
+                             students = values['Total Students'].sum()
+                             attend = values['Students Attended'].sum()
 
                              schools = self.driver.find_element_by_id('schools').text
                              scs = re.sub('\D', '', schools)
@@ -76,17 +76,17 @@ class DistrictBlockCluster():
                              attended = self.driver.find_element_by_id('studentsAttended').text
                              attds = re.sub('\D', '', attended)
 
-                             if int(scs) != school:
+                             if int(scs) != int(school):
                                  print("schools count in footer and csv file records count mismatched", int(scs),
                                        (school))
                                  count = count + 1
 
-                             if int(stds) != students:
+                             if int(stds) != int(students):
                                  print("student count in footer and csv file records count mismatched", int(stds),
                                        int(students))
                                  count = count + 1
 
-                             if int(attds) != attend:
+                             if int(attds) != int(attend):
                                  print("Attended count in footer and csv file records count mismatched", int(attds),
                                        int(attend))
                                  count = count + 1

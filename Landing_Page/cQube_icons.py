@@ -414,16 +414,18 @@ class cQube_landing_page():
         else:
             print("composite-dashboard is displayed ...")
             self.driver.find_element_by_id(Data.composite_metric).click()
+            time.sleep(3)
             self.data.page_loading(self.driver)
             if 'composite-report' in self.driver.current_url:
                 print('composite-report is displayed')
             else:
+                print('entering to report',self.driver.current_url)
                 print("composite-report is not displayed")
                 count = count + 1
                 self.data.page_loading(self.driver)
                 self.driver.find_element_by_id(Data.cQube_logo).click()
                 self.data.page_loading(self.driver)
-        return count
+            return count
 
     #Progress card
     def test_progress_Card(self):
@@ -553,10 +555,11 @@ class cQube_landing_page():
             print("exception-dashboard is displayed ...")
             self.driver.find_element_by_id(Data.isData).click()
             time.sleep(2)
-            if 'download-missing-data' in self.driver.current_url:
+            if 'download-missing-data' not in self.driver.current_url:
                 print('download-missing-data is displayed')
+                return count
             else:
-                print("download-missing-data should be display in url ")
+                print("download-missing-data is displayed in url ")
                 count = count + 1
                 self.data.page_loading(self.driver)
                 self.driver.find_element_by_id(Data.cQube_logo).click()

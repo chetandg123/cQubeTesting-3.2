@@ -16,7 +16,8 @@ class Schoolwise_footers():
 
     def check_with_footers(self):
         cal = GetData()
-        cal.click_on_state(self.driver)
+        self.driver.refresh()
+        time.sleep(3)
         cal.page_loading(self.driver)
         management = self.driver.find_element_by_id('name').text
         management = management[16:].lower().strip()

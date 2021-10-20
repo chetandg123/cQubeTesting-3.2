@@ -1,3 +1,4 @@
+import time
 import unittest
 
 from Composite_report.check_clusterwise_records import composite_schoolevel_records
@@ -32,7 +33,8 @@ class composite_regression_report(unittest.TestCase):
         self.data.page_loading(self.driver)
         count = 0
         self.driver.find_element_by_id(Data.cQube_logo).click()
-        self.driver.find_element_by_id(Data.composite_metrics)
+        self.driver.find_element_by_id(Data.composite_metrics).click()
+        time.sleep(3)
         self.data.page_loading(self.driver)
         if 'composite-dashboard' in self.driver.current_url:
             print("composite-Dashboard page is displayed ")
@@ -93,12 +95,20 @@ class composite_regression_report(unittest.TestCase):
         self.data.page_loading(self.driver)
 
     def test_logout_button(self):
+        time.sleep(2)
         self.driver.find_element_by_xpath(Data.hyper_link).click()
         self.data.page_loading(self.driver)
-        self.data.click_on_logout_button()
+        self.driver.find_element_by_id(Data.cQube_logo).click()
+        time.sleep(2)
+        self.driver.find_element_by_id('backBtn').click()
+        time.sleep(2)
+        self.driver.find_element_by_id('logout').click()
+        time.sleep(2)
         self.data.page_loading(self.driver)
-        self.assertEqual('Log in to cQube', self.driver.title, msg="Logout button is not working ")
+        print(self.driver.title)
+        self.assertEqual('Log in to cQube', self.driver.title , msg="Logout button is not working ")
         print("logout button is working fine ")
+        time.sleep(2)
         self.data.login_cqube(self.driver)
         self.data.page_loading(self.driver)
         self.data.navigate_to_composite_report()

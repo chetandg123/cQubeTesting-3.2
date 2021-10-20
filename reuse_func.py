@@ -86,9 +86,12 @@ class GetData():
         self.driver = driver
         self.driver.implicitly_wait(60)
         self.driver.find_element_by_name(Data.email).send_keys(self.get_username())
+        time.sleep(1)
         self.driver.find_element_by_name(Data.passwd).send_keys(self.get_password())
+        time.sleep(1)
         self.driver.find_element_by_id(Data.login).click()
         self.page_loading(self.driver)
+        time.sleep(1)
         self.driver.find_element_by_id('cQb_dhsbrd').click()
         time.sleep(3)
         self.page_loading(self.driver)
@@ -153,6 +156,7 @@ class GetData():
         self.driver.find_element_by_id(Data.menu_icon).click()
         time.sleep(2)
         self.driver.find_element_by_id(Data.composite_metrics).click()
+        time.sleep(2)
         self.driver.find_element_by_id(Data.composite_metric).click()
         time.sleep(3)
 
@@ -1172,7 +1176,7 @@ class GetData():
         self.driver.find_element_by_id(Data.cQube_logo).click()
         time.sleep(1)
         self.driver.find_element_by_id(Data.logout)
-        time.sleep(2)
+        time.sleep(3)
 
 
 

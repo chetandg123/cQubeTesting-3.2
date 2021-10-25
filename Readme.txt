@@ -1,10 +1,10 @@
 
-cQube Release-3.0
+cQube Release-3.2
 
 Prerequisites:
   To Run Selenium python scripts ,Install pycharm in your system
   Google Chrome need to be installed in the server or local machine.
-  Chrome driver need to be downloaded and placed in the cQubeTesting-3.0/Driver folder
+  Chrome driver need to be downloaded and placed in the cQubeTesting-3.2/Driver folder
 Steps to install the google chrome
 
   Open the terminal (Ctrl+Alt+t) in the ubuntu
@@ -23,7 +23,7 @@ Steps to execute the test script
 	3.sudo apt install python3-pip
 	4.Execute the Requirement.txt in the terminal (Requirement.txt file present in the cQubeTesting-3.0 Folder) [mandatory]
 	    sudo pip3 install -r Requirement.txt 
-	5.Fill the config.ini file (config.ini file present in the cQubeTesting-3.0 Folder).
+	5.Fill the config.ini file (config.ini file present in the cQubeTesting-3.2 Folder).
 	        Mandatory fields for installation and upgradation of backend configuration and also to check the json files in the s3 output bucket
 		
                     [config]
@@ -57,7 +57,7 @@ Steps to execute the test script
                   emissionpassword= # Enter password for new emission user
 
 	    
-    Navigate to cQubeTesting-3.0 Directory in the terminal (ex cd /home/ubuntu/cQubeTesting-3.0)
+    Navigate to cQubeTesting-3.2 Directory in the terminal (ex cd /home/ubuntu/cQubeTesting-3.2)
             For Regression:
                 python3 -m unittest TestSuites/Regression_suite/regression_map_reports.py
                 python3 -m unittest TestSuites/Regression_suite/regression_chart_table_reports.py

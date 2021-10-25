@@ -13,9 +13,11 @@ class Blocks_cluster_schools_Buttons():
     def click_on_blocks_button(self):
         count = 0
         self.data  = GetData()
-        self.driver.find_element_by_xpath(Data.hyper_link).click()
-        time.sleep(3)
+        self.driver.refresh()
+        time.sleep(4)
+        self.data.page_loading(self.driver)
         self.driver.find_element_by_id('allBlock').click()
+        time.sleep(3)
         self.data.page_loading(self.driver)
         graph = self.driver.find_element_by_id('myChart')
         result = graph.is_displayed()

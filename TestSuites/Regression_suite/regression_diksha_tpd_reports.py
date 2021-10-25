@@ -31,7 +31,7 @@ class MyTestSuite_Diksha_tpds(unittest.TestCase):
 
     def test_issue01(self):
             self.data.page_loading(self.driver)
-            status = self.data.get_student_status("Diksha_TPD")
+            status = self.data.get_student_status("Diksha_ETB")
             if status == str(True):
                 self.data.page_loading(self.driver)
                 self.data.navigate_to_diksha_content_course()

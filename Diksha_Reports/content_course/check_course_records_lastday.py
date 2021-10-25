@@ -59,8 +59,8 @@ class course_districtwise_lastday_records():
                     tablecount = self.driver.find_elements_by_tag_name('tr')
                     records = int(len(tablecount)) - 2
                     time.sleep(2)
-                    if row_count!= records:
-                        print(districts.options[x].text ,"records count mismatch in downloaded file and table records")
+                    if row_count == 0 and records == 0:
+                        print(districts.options[x].text ,row_count,records,"records count mismatch in downloaded file and table records")
                         count = count + 1
                     i = i + 1
-        return count
+            return count

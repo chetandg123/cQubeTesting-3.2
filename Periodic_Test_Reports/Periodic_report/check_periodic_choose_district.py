@@ -53,9 +53,10 @@ class District():
                     count = count + 1
                 else:
                     values = pd.read_csv(self.filename)
-                    school = int(values['Total Schools'])
-                    students = int(values['Total Students'])
-                    attend = int(values['Students Attended'])
+                    school = values['Total Schools'].sum()
+                    students = values['Total Students'].sum()
+                    attend = values['Students Attended'].sum()
+
                     schools = self.driver.find_element_by_id('schools').text
                     scs = re.sub('\D', '', schools)
 

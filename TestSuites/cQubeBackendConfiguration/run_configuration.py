@@ -10,7 +10,6 @@ from Backend_tests.Nifi.diksha_transformer import diksha
 from Backend_tests.Nifi.infra_transformer import infra
 from Backend_tests.Nifi.pat_transformer import pat
 from Backend_tests.Nifi.sat_transformer import sat
-from Backend_tests.Nifi.semester_transformer import semester
 from Backend_tests.Nifi.static_data_transformer import static
 from Backend_tests.Nifi.student_attendance_transformer import student
 from Backend_tests.Nifi.teacher_attendance_transformer import teacher_attendance
@@ -38,7 +37,6 @@ class MyTestSuite(unittest.TestCase):
             unittest.defaultTestLoader.loadTestsFromTestCase(static.StaticTransformer),
             unittest.defaultTestLoader.loadTestsFromTestCase(student.StudentTransformer),
             unittest.defaultTestLoader.loadTestsFromTestCase(crc.CrcTransformer),
-            unittest.defaultTestLoader.loadTestsFromTestCase(semester.SemesterTransformer),
             unittest.defaultTestLoader.loadTestsFromTestCase(infra.InfraTransformer),
             unittest.defaultTestLoader.loadTestsFromTestCase(diksha.DikshaTransformer),
             unittest.defaultTestLoader.loadTestsFromTestCase(udise.UdiseTransformer),

@@ -13,14 +13,6 @@ class SemesterTransformer(unittest.TestCase):
         else:
             self.assertEqual(0,runningcount,"semester data transformer running count is not 0 after installation")
 
-    def test_semester_transformer_disabledCount(self):
-        cal = GetData()
-        disabledCount = cal.get_disabledCount("semester_transformer")
-        if disabledCount == 0:
-            print("semester data transformer disabled count is 0 after installation")
-        else:
-            self.assertEqual(0,disabledCount,"semester data transformer disabled count is not 0 after installation")
-
     def test_semester_transformer_invalidCount(self):
         cal = GetData()
         invalidCount = cal.get_invalidCount("semester_transformer")

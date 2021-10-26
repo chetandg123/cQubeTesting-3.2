@@ -13,14 +13,6 @@ class InfraTransformer(unittest.TestCase):
         else:
             self.assertEqual(0,runningcount,"infra data transformer running count is not 0 after installation")
 
-    def test_infra_transformer_disabledCount(self):
-        cal = GetData()
-        disabledCount = cal.get_disabledCount("crc_transformer")
-        if disabledCount == 0:
-            print("infra data transformer disabled count is 0 after installation")
-        else:
-            self.assertEqual(0,disabledCount,"infra data transformer disabled count is not 0 after installation")
-
     def test_infra_transformer_invalidCount(self):
         cal = GetData()
         invalidCount = cal.get_invalidCount("crc_transformer")

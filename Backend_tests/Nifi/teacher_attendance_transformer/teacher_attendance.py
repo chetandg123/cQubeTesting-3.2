@@ -13,14 +13,6 @@ class TeacherAttendanceTransformer(unittest.TestCase):
         else:
             self.assertEqual(0,runningcount,"teacher attendance transformer running count is not 0 after installation")
 
-    def test_teacher_attendance_transformer_disabledCount(self):
-        cal = GetData()
-        disabledCount = cal.get_disabledCount("teacher_attendance_transformer")
-        if disabledCount == 0:
-            print("teacher attendance transformer disabled count is 0 after installation")
-        else:
-            self.assertEqual(0,disabledCount,"teacher attendance transformer disabled count is not 0 after installation")
-
     def test_teacher_attendance_transformer_invalidCount(self):
         cal = GetData()
         invalidCount = cal.get_invalidCount("teacher_attendance_transformer")

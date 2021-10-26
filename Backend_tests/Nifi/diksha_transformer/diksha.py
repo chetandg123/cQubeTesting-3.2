@@ -13,14 +13,6 @@ class DikshaTransformer(unittest.TestCase):
         else:
             self.assertEqual(0,runningcount,"diksha data transformer running count is not 0 after installation")
 
-    def test_diksha_transformer_disabledCount(self):
-        cal = GetData()
-        disabledCount = cal.get_disabledCount("diksha_transformer")
-        if disabledCount == 0:
-            print("diksha data transformer disabled count is 0 after installation")
-        else:
-            self.assertEqual(0,disabledCount,"diksha data transformer disabled count is not 0 after installation")
-
     def test_diksha_transformer_invalidCount(self):
         cal = GetData()
         invalidCount = cal.get_invalidCount("diksha_transformer")

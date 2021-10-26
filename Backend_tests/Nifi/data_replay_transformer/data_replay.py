@@ -13,14 +13,6 @@ class DataReplayTransformer(unittest.TestCase):
         else:
             self.assertEqual(0,runningcount,"data replay data transformer running count is not 0 after installation")
 
-    def test_data_replay_transformer_disabledCount(self):
-        cal = GetData()
-        disabledCount = cal.get_disabledCount("data_replay_transformer")
-        if disabledCount == 0:
-            print("data replay data transformer disabled count is 0 after installation")
-        else:
-            self.assertEqual(0,disabledCount,"data replay data transformer disabled count is not 0 after installation")
-
     def test_data_replay_transformer_invalidCount(self):
         cal = GetData()
         invalidCount = cal.get_invalidCount("data_replay_transformer")

@@ -13,14 +13,6 @@ class TelemetryTransformer(unittest.TestCase):
         else:
             print("cqube telemetry data transformer running count is "+str(runningcount)+" after installation")
 
-    def test_telemetry_transformer_disabledCount(self):
-        cal = GetData()
-        disabledCount = cal.get_disabledCount("cqube_telemetry_transformer")
-        if disabledCount == 0:
-            print("cqube telemetry data transformer disabled count is 0 after installation")
-        else:
-            self.assertEqual(0,disabledCount,"cqube telemetry data transformer disabled count is not 0 after installation")
-
     def test_telemetry_transformer_invalidCount(self):
         cal = GetData()
         invalidCount = cal.get_invalidCount("cqube_telemetry_transformer")

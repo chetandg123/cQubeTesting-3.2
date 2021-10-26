@@ -13,14 +13,6 @@ class StaticTransformer(unittest.TestCase):
         else:
             self.assertEqual(0,runningcount,"static data transformer running count is not 0 after installation")
 
-    def test_static_data_disabledCount(self):
-        cal = GetData()
-        disabledCount = cal.get_disabledCount("static_data_transformer")
-        if disabledCount == 0:
-            print("static data transformer disabled count is 0 after installation")
-        else:
-            self.assertEqual(0,disabledCount,"static data transformer disabled count is not 0 after installation")
-
     def test_static_data_invalidCount(self):
         cal = GetData()
         invalidCount = cal.get_invalidCount("static_data_transformer")

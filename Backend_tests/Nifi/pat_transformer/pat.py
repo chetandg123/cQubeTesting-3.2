@@ -12,14 +12,6 @@ class PatTransformer(unittest.TestCase):
         else:
             self.assertEqual(0,runningcount,"pat transformer running count is not 0 after installation")
 
-    def test_pat_transformer_disabledCount(self):
-        cal = GetData()
-        disabledCount = cal.get_disabledCount("pat_transformer")
-        if disabledCount == 0:
-            print("pat transformer disabled count is 0 after installation")
-        else:
-            self.assertEqual(0,disabledCount,"pat data transformer disabled count is not 0 after installation")
-
     def test_pat_transformer_invalidCount(self):
         cal = GetData()
         invalidCount = cal.get_invalidCount("pat_transformer")

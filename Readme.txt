@@ -65,11 +65,6 @@ Steps to execute the test script
                 python3 -m unittest TestSuites/Regression_suite/regression_exception_reports.py
                 python3 -m unittest Admin_console/admin_console_regression_testing.py
             
-	    For System Testing:
-                python3 -m unittest TestSuites/System_testing_suite/system_testing_suite.py
-                python3 -m unittest TestSuites/System_testing_suite/system_suite_2.py
-                python3 -m unittest Admin_console/admin_console_system_testing.py
-           
 	   For Smoke Testing:
                 python3 -m unittest TestSuites/SmokeTestSuite/smoke_test_map_reports.py
 		python3 -m unittest TestSuites/SmokeTestSuite/smoke_test_chart_table_reports.py
